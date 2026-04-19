@@ -35,6 +35,36 @@
             #binding-cells = <0>;
             bindings = <&kp RU_CYRILLIC_SOFT_SIGN>, <&kp RU_CYRILLIC_HARD_SIGN>;
         };
+
+        rot_to_ru: rot_to_ru {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "ROT_TO_RU";
+            #sensor-binding-cells = <0>;
+            bindings = <&toru>, <&toru>;
+        };
+
+        rot_to_en: rot_to_en {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "ROT_TO_EN";
+            #sensor-binding-cells = <0>;
+            bindings = <&toen>, <&toen>;
+        };
+
+        rot_to_ruen: rot_to_ruen {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "ROT_TO_RUEN";
+            #sensor-binding-cells = <0>;
+            bindings = <&toru>, <&toen>;
+        };
+
+        comma_dot: comma_dot {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COMMA_DOT";
+            bindings = <&kp RU_DOT>, <&kp RU_COMMA>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
     keymap {
@@ -42,30 +72,26 @@
 
         en {
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E  &kp R  &kp T                          &kp Y      &kp U     &kp I  &kp O  &kp P  &kp BACKSPACE
-&kp LSHFT  &kp A  &kp S  &kp D  &kp F  &kp G                          &kp H      &kp J     &kp K  &kp L  &none  &kp ENTER
-&kp LCTRL  &kp Z  &kp X  &kp C  &kp V  &kp B      &toru    &kp COMMA  &kp N      &kp M     &none  &none  &none  &kp DOT
-                                &to 3  &kp SPACE  &mo 2    &mo 2      &kp SPACE  &kp RALT
+&kp TAB    &kp Q  &kp W  &kp E  &kp R     &kp T                      &kp Y      &kp U     &kp I  &kp O  &kp P  &kp BACKSPACE
+&kp LSHFT  &kp A  &kp S  &kp D  &kp F     &kp G                      &kp H      &kp J     &kp K  &kp L  &none  &kp ENTER
+&kp LCTRL  &kp Z  &kp X  &kp C  &kp V     &kp B      &to 3    &to 4  &kp N      &kp M     &none  &none  &none  &comma_dot
+                                &kp LALT  &kp SPACE  &mo 2    &mo 2  &kp SPACE  &kp RALT
             >;
 
             display-name = "English";
-            sensor-bindings =
-                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>,
-                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
+            sensor-bindings = <&rot_to_ru>, <&inc_dec_kp UP_ARROW DOWN_ARROW>;
         };
 
         ru {
             bindings = <
-&kp TAB    &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_TSE   &kp RU_CYRILLIC_U   &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_IE                      &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE  &shsch              &kp RU_CYRILLIC_ZE  &kp RU_CYRILLIC_HA   &kp BACKSPACE
-&kp LSHFT  &kp RU_CYRILLIC_EF       &kp RU_CYRILLIC_YERU  &kp RU_CYRILLIC_VE  &kp RU_CYRILLIC_A   &kp RU_CYRILLIC_PE                      &kp RU_CYRILLIC_ER  &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_ZHE  &kp ENTER
-&kp LCTRL  &kp RU_CYRILLIC_YA       &kp RU_CYRILLIC_CHE   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_I   &toen    &kp COMMA  &kp RU_CYRILLIC_TE  &sshs                &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_YU  &kp RU_CYRILLIC_E    &kp DOT
-                                                                              &to 3               &kp SPACE           &mo 2    &mo 2      &kp SPACE           &kp RALT
+&kp TAB    &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_TSE   &kp RU_CYRILLIC_U   &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_IE                  &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_GHE  &shsch              &kp RU_CYRILLIC_ZE  &kp RU_CYRILLIC_HA   &kp BACKSPACE
+&kp LSHFT  &kp RU_CYRILLIC_EF       &kp RU_CYRILLIC_YERU  &kp RU_CYRILLIC_VE  &kp RU_CYRILLIC_A   &kp RU_CYRILLIC_PE                  &kp RU_CYRILLIC_ER  &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_ZHE  &kp ENTER
+&kp LCTRL  &kp RU_CYRILLIC_YA       &kp RU_CYRILLIC_CHE   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_I   &to 3    &to 4  &kp RU_CYRILLIC_TE  &sshs                &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_YU  &kp RU_CYRILLIC_E    &comma_dot
+                                                                              &kp LALT            &kp SPACE           &mo 2    &mo 2  &kp SPACE           &kp RALT
             >;
 
             display-name = "Russian";
-            sensor-bindings =
-                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>,
-                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
+            sensor-bindings = <&rot_to_en>, <&inc_dec_kp UP_ARROW DOWN_ARROW>;
         };
 
         dig {
@@ -78,35 +104,31 @@
 
             display-name = "10110";
             sensor-bindings =
-                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>,
-                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>;
         };
 
         fun {
             bindings = <
-&kp TAB    &kp F1  &kp F2   &kp F3   &kp F4   &none                          &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2      &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
-&kp LSHFT  &kp F5  &kp F6   &kp F7   &kp F8   &none                          &out OUT_BLE  &kp C_VOL_DN  &kp C_MUTE        &kp C_VOL_UP  &trans        &studio_unlock
-&kp LCTRL  &kp F9  &kp F10  &kp F11  &kp F12  &none      &toen       &toru   &out OUT_USB  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT    &trans        &trans
-                                     &to 4    &kp LCTRL  &kp LALT    &trans  &to 4         &trans
+&kp TAB    &kp F1  &kp F2   &kp F3   &kp F4    &none                      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2      &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
+&kp LSHFT  &kp F5  &kp F6   &kp F7   &kp F8    &none                      &out OUT_BLE  &kp C_VOL_DN  &kp C_MUTE        &kp C_VOL_UP  &none         &studio_unlock
+&kp LCTRL  &kp F9  &kp F10  &kp F11  &kp F12   &none      &to 4    &to 4  &out OUT_USB  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT    &none         &none
+                                     &kp LALT  &kp LCTRL  &mo 2    &none  &none         &none
             >;
 
             display-name = "Lineage 2";
-            sensor-bindings =
-                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>,
-                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
+            sensor-bindings = <&rot_to_ruen>, <&inc_dec_kp UP_ARROW DOWN_ARROW>;
         };
 
         gm {
             bindings = <
-&kp ESC  &kp TAB    &kp Q  &kp W  &kp E     &kp R                        &trans  &trans  &trans  &trans  &trans  &trans
-&kp N1   &kp LSHFT  &kp A  &kp S  &kp D     &kp F                        &trans  &trans  &trans  &trans  &trans  &trans
-&kp N2   &kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &toen     &toru   &trans  &trans  &trans  &trans  &trans  &trans
-                                  &kp LALT  &kp SPACE  &kp N3    &trans  &trans  &trans
+&kp ESC    &kp TAB    &kp Q  &kp W  &kp E     &kp R                      &none  &none  &none  &none  &none  &none
+&kp LSHFT  &kp LSHFT  &kp A  &kp S  &kp D     &kp F                      &none  &none  &none  &none  &none  &none
+&kp LCTRL  &kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &to 3    &to 3  &none  &none  &none  &none  &none  &none
+                                    &kp LALT  &kp SPACE  &mo 2    &none  &none  &none
             >;
 
-            sensor-bindings =
-                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>,
-                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
+            sensor-bindings = <&rot_to_ruen>, <&inc_dec_kp UP_ARROW DOWN_ARROW>;
 
             label = "Game";
         };
