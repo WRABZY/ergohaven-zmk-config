@@ -73,7 +73,7 @@
 &kp TAB    &kp SLASH  &kp N7  &kp N8  &kp NUMBER_9  &kp N0                                &kp LBKT          &kp RBKT        &kp UP          &kp LBRC         &kp RBRC     &kp BACKSPACE
 &kp LSHFT  &kp COMMA  &kp N4  &kp N5  &kp N6        &kp EQUAL                             &kp SINGLE_QUOTE  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp SEMI     &kp ENTER
 &kp LCTRL  &kp DOT    &kp N1  &kp N2  &kp N3        &kp MINUS  &kp STAR    &kp RU_NUMERO  &kp GRAVE         &kp BACKSLASH   &kp PIPE        &kp SLASH        &kp PERCENT  &kp DEL
-                                      &kp LEFT_GUI  &kp SPACE  &none       &kp K_LOCK     &kp SPACE         &kp RALT
+                                      &kp LEFT_GUI  &kp SPACE  &none       &kp LG(L)      &kp SPACE         &kp RALT
             >;
 
             display-name = "10110";
@@ -108,7 +108,7 @@
                 <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>,
                 <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
 
-            label = "GM";
+            label = "Game";
         };
     };
 };
