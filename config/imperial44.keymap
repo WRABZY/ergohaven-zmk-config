@@ -250,7 +250,8 @@
             bindings = <&double_e>, <&ye>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <500>;
+            quick-tap-ms = <200>;
         };
 
         ru_i: ru_i {
@@ -259,7 +260,8 @@
             bindings = <&double_i>, <&ii>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <500>;
+            quick-tap-ms = <200>;
         };
     };
 
