@@ -303,10 +303,10 @@
 
         ru {
             bindings = <
-&kp TAB    &sshs       &shsch    &ru_e 0 0           &ru_replace  &ru_toggle                                           &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_U    &ru_i 0 0           &ru_open            &kp RU_CYRILLIC_PE  &kp BACKSPACE
-&kp LSHFT  &ru_all     &ru_save  &kp RU_CYRILLIC_DE  &ru_find     &kp RU_CYRILLIC_GHE                                  &kp RU_CYRILLIC_HA       &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &ru_semi            &kp ENTER
-&kp LCTRL  &ru_cancel  &ru_cut   &ru_copy            &ru_paste    &kp RU_CYRILLIC_BE   &en_shift_fun    &fun_shift_en  &ru_new                  &kp RU_CYRILLIC_EM   &kp RU_COMMA        &kp RU_DOT          &quest_ru           &kp RU_DOUBLE_QUOTES
-                                                     &kp LALT     &kp SPACE            &mo 2            &mo 2          &kp RSHFT                &kp RALT
+&kp TAB    &mt RU_CYRILLIC_HARD_SIGN RU_CYRILLIC_SOFT_SIGN  &mt RU_CYRILLIC_SHCHA RU_CYRILLIC_SHA  &mt RU_CYRILLIC_E RU_CYRILLIC_IE  &ru_replace  &ru_toggle                                           &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_U    &mt RU_CYRILLIC_YERU RU_CYRILLIC_I  &ru_open            &kp RU_CYRILLIC_PE  &kp BACKSPACE
+&kp LSHFT  &ru_all                                          &ru_save                               &kp RU_CYRILLIC_DE                &ru_find     &kp RU_CYRILLIC_GHE                                  &kp RU_CYRILLIC_HA       &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_KA                  &kp RU_CYRILLIC_EL  &ru_semi            &kp ENTER
+&kp LCTRL  &ru_cancel                                       &ru_cut                                &ru_copy                          &ru_paste    &kp RU_CYRILLIC_BE   &en_shift_fun    &fun_shift_en  &ru_new                  &kp RU_CYRILLIC_EM   &kp RU_COMMA                        &kp RU_DOT          &quest_ru           &kp RU_DOUBLE_QUOTES
+                                                                                                                                     &kp LALT     &kp SPACE            &mo 2            &mo 2          &kp RSHFT                &kp RALT
             >;
 
             display-name = "RRR";
