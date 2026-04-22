@@ -171,7 +171,7 @@
 
         ya {
             bindings = <&kp RU_CYRILLIC_YA>;
-            key-positions = <6 12>;
+            key-positions = <6 13>;
         };
 
         yu {
@@ -215,7 +215,7 @@
             bindings = <
 &kp TAB    &kp KP_DOT       &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                                &kp LBKT   &kp RBKT        &kp UP          &kp LBRC         &kp RBRC  &kp BACKSPACE
 &kp LSHFT  &kp KP_ASTERISK  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                                   &kp HOME   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END   &kp ENTER
-&kp LCTRL  &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &kp PERCENT    &kp RU_NUMERO  &kp GRAVE  &kp RU_BSLH     &kp PIPE        &kp RU_FSLH      &none     &kp DEL
+&kp LCTRL  &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &kp PERCENT    &kp RU_NUMERO  &kp GRAVE  &kp BSLH        &kp PIPE        &kp SLASH        &none     &kp DEL
                                                         &kp LEFT_GUI  &kp SPACE     &kp LG(L)      &kp LG(L)      &kp RSHFT  &kp RALT
             >;
 
