@@ -44,18 +44,18 @@
             bindings = <&toru>, <&toen>;
         };
 
-        yoyo: yoyo {
+        ye: ye {
             compatible = "zmk,behavior-tap-dance";
-            label = "YOYO";
+            label = "YE";
             #binding-cells = <0>;
-            bindings = <&kp RU_CYRILLIC_IE>, <&kp RU_CYRILLIC_IO>;
+            bindings = <&kp RU_CYRILLIC_IE>, <&kp RU_CYRILLIC_E>;
         };
 
         ii: ii {
             compatible = "zmk,behavior-tap-dance";
             label = "II";
             #binding-cells = <0>;
-            bindings = <&kp RU_CYRILLIC_I>, <&kp RU_CYRILLIC_SHORT_I>;
+            bindings = <&kp RU_CYRILLIC_I>, <&kp RU_CYRILLIC_YERU>;
         };
 
         ru_shift_fun: ru_shift_fun {
@@ -161,6 +161,25 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        yo {
+            bindings = <&kp RU_CYRILLIC_IO>;
+            key-positions = <6 9>;
+        };
+
+        ya {
+            bindings = <&kp RU_CYRILLIC_YA>;
+            key-positions = <6 12>;
+        };
+
+        yu {
+            bindings = <&kp RU_CYRILLIC_YU>;
+            key-positions = <6 7>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -173,31 +192,37 @@
             >;
 
             display-name = "E";
-            sensor-bindings = <&mouse_s>, <&mouse_v>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp PG_UP PG_DN>;
         };
 
         ru {
             bindings = <
-&kp TAB    &sshs               &shsch               &yoyo                &kp RU_CYRILLIC_ER  &kp RU_CYRILLIC_TE                                   &kp RU_CYRILLIC_YU  &kp RU_CYRILLIC_U    &ii                 &kp RU_CYRILLIC_O   &kp RU_CYRILLIC_PE  &kp BACKSPACE
-&kp LSHFT  &kp RU_CYRILLIC_A   &kp RU_CYRILLIC_ES   &kp RU_CYRILLIC_DE   &kp RU_CYRILLIC_EF  &kp RU_CYRILLIC_GHE                                  &kp RU_CYRILLIC_HA  &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &ru_semi            &kp ENTER
-&kp LCTRL  &kp RU_CYRILLIC_ZE  &kp RU_CYRILLIC_CHE  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_VE  &kp RU_CYRILLIC_BE   &en_shift_fun    &fun_shift_en  &kp RU_CYRILLIC_EN  &kp RU_CYRILLIC_EM   &kp RU_COMMA        &kp RU_DOT          &quest_ru           &kp RU_DOUBLE_QUOTES
-                                                                         &kp LALT            &kp SPACE            &mo 2            &mo 2          &kp RSHFT           &kp RALT
+&kp TAB    &sshs               &shsch               &ye                  &kp RU_CYRILLIC_ER  &kp RU_CYRILLIC_TE                                   &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_U    &ii                 &kp RU_CYRILLIC_O   &kp RU_CYRILLIC_PE  &kp BACKSPACE
+&kp LSHFT  &kp RU_CYRILLIC_A   &kp RU_CYRILLIC_ES   &kp RU_CYRILLIC_DE   &kp RU_CYRILLIC_EF  &kp RU_CYRILLIC_GHE                                  &kp RU_CYRILLIC_HA       &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &ru_semi            &kp ENTER
+&kp LCTRL  &kp RU_CYRILLIC_ZE  &kp RU_CYRILLIC_CHE  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_VE  &kp RU_CYRILLIC_BE   &en_shift_fun    &fun_shift_en  &kp RU_CYRILLIC_EN       &kp RU_CYRILLIC_EM   &kp RU_COMMA        &kp RU_DOT          &quest_ru           &kp RU_DOUBLE_QUOTES
+                                                                         &kp LALT            &kp SPACE            &mo 2            &mo 2          &kp RSHFT                &kp RALT
             >;
 
             display-name = "R";
-            sensor-bindings = <&mouse_s>, <&mouse_v>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp PG_UP PG_DN>;
         };
 
         dig {
             bindings = <
 &kp TAB    &kp KP_DOT       &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                                &kp LBKT   &kp RBKT        &kp UP          &kp LBRC         &kp RBRC  &kp BACKSPACE
 &kp LSHFT  &kp KP_ASTERISK  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                                   &kp HOME   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END   &kp ENTER
-&kp LCTRL  &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &kp PERCENT    &kp RU_NUMERO  &kp GRAVE  &kp BACKSLASH   &kp PIPE        &kp SLASH        &none     &kp DEL
+&kp LCTRL  &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &kp PERCENT    &kp RU_NUMERO  &kp GRAVE  &kp RU_BSLH     &kp PIPE        &kp RU_FSLH      &none     &kp DEL
                                                         &kp LEFT_GUI  &kp SPACE     &kp LG(L)      &kp LG(L)      &kp RSHFT  &kp RALT
             >;
 
             display-name = "666";
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&mouse_v>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp PG_UP PG_DN>;
         };
 
         fun {
@@ -209,7 +234,9 @@
             >;
 
             display-name = "FFF";
-            sensor-bindings = <&mouse_s>, <&mouse_v>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp PG_UP PG_DN>;
         };
 
         gm {
@@ -220,7 +247,9 @@
                                     &kp LALT  &kp SPACE  &mo 2            &none          &none  &none
             >;
 
-            sensor-bindings = <&mouse_h>, <&mouse_v>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp PG_UP PG_DN>;
 
             label = "WASD";
         };
