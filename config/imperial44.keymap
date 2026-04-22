@@ -3,7 +3,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/pointing.h>
 
 / {
     macros {
@@ -37,13 +36,6 @@
             bindings = <&kp RU_CYRILLIC_SOFT_SIGN>, <&kp RU_CYRILLIC_HARD_SIGN>;
         };
 
-        rot_to_ruen: rot_to_ruen {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "ROT_TO_RUEN";
-            #sensor-binding-cells = <0>;
-            bindings = <&toru>, <&toen>;
-        };
-
         ye: ye {
             compatible = "zmk,behavior-tap-dance";
             label = "YE";
@@ -74,27 +66,6 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
-        };
-
-        mouse_v: mouse_v {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "MOUSE_V";
-            #sensor-binding-cells = <0>;
-            bindings = <&mmv MOVE_UP>, <&mmv MOVE_DOWN>;
-        };
-
-        mouse_h: mouse_h {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "MOUSE_H";
-            #sensor-binding-cells = <0>;
-            bindings = <&mmv MOVE_LEFT>, <&mmv MOVE_RIGHT>;
-        };
-
-        mouse_s: mouse_s {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "MOUSE_S";
-            #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
         };
 
         ru_semi: ru_semi {
@@ -159,6 +130,105 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
+
+        ru_copy: ru_copy {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_COPY";
+            bindings = <&kp RU_CYRILLIC_TSE>, <&kp LC(C)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        ru_paste: ru_paste {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_PASTE";
+            bindings = <&kp RU_CYRILLIC_VE>, <&kp LC(V)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        ru_cancel: ru_cancel {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_CANCEL";
+            bindings = <&kp RU_CYRILLIC_ZE>, <&kp LC(Z)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        ru_cut: ru_cut {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_CUT";
+            bindings = <&kp RU_CYRILLIC_CHE>, <&kp LC(X)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        ru_all: ru_all {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_ALL";
+            bindings = <&kp RU_CYRILLIC_A>, <&kp LC(A)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        ru_save: ru_save {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_SAVE";
+            bindings = <&kp RU_CYRILLIC_ES>, <&kp LC(S)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        ru_replace: ru_replace {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_REPLACE";
+            bindings = <&kp RU_CYRILLIC_ER>, <&kp LC(R)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        ru_toggle: ru_toggle {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_TOGGLE";
+            bindings = <&kp RU_CYRILLIC_TE>, <&kp LC(T)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        ru_find: ru_find {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_FIND";
+            bindings = <&kp RU_CYRILLIC_EF>, <&kp LC(F)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        ru_open: ru_open {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_OPEN";
+            bindings = <&kp RU_CYRILLIC_O>, <&kp LC(O)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        ru_new: ru_new {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_NEW";
+            bindings = <&kp RU_CYRILLIC_EN>, <&kp LC(N)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
     };
 
     combos {
@@ -177,61 +247,6 @@
         yu {
             bindings = <&kp RU_CYRILLIC_YU>;
             key-positions = <6 7>;
-        };
-
-        copy {
-            bindings = <&kp LC(C)>;
-            key-positions = <24 27>;
-        };
-
-        cancel {
-            bindings = <&kp LC(Z)>;
-            key-positions = <24 25>;
-        };
-
-        cut {
-            bindings = <&kp LC(X)>;
-            key-positions = <24 26>;
-        };
-
-        paste {
-            bindings = <&kp LC(V)>;
-            key-positions = <24 28>;
-        };
-
-        all {
-            bindings = <&kp LC(A)>;
-            key-positions = <24 12>;
-        };
-
-        save {
-            bindings = <&kp LC(S)>;
-            key-positions = <24 13>;
-        };
-
-        search {
-            bindings = <&kp LC(F)>;
-            key-positions = <24 15>;
-        };
-
-        new {
-            bindings = <&kp LC(N)>;
-            key-positions = <24 32>;
-        };
-
-        toggle {
-            bindings = <&kp LC(T)>;
-            key-positions = <24 5>;
-        };
-
-        replace {
-            bindings = <&kp LC(R)>;
-            key-positions = <24 4>;
-        };
-
-        open {
-            bindings = <&kp LC(O)>;
-            key-positions = <24 9>;
         };
     };
 
@@ -254,10 +269,10 @@
 
         ru {
             bindings = <
-&kp TAB    &sshs               &shsch               &ye                  &kp RU_CYRILLIC_ER  &kp RU_CYRILLIC_TE                                   &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_U    &ii                 &kp RU_CYRILLIC_O   &kp RU_CYRILLIC_PE  &kp BACKSPACE
-&kp LSHFT  &kp RU_CYRILLIC_A   &kp RU_CYRILLIC_ES   &kp RU_CYRILLIC_DE   &kp RU_CYRILLIC_EF  &kp RU_CYRILLIC_GHE                                  &kp RU_CYRILLIC_HA       &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &ru_semi            &kp ENTER
-&kp LCTRL  &kp RU_CYRILLIC_ZE  &kp RU_CYRILLIC_CHE  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_VE  &kp RU_CYRILLIC_BE   &en_shift_fun    &fun_shift_en  &kp RU_CYRILLIC_EN       &kp RU_CYRILLIC_EM   &kp RU_COMMA        &kp RU_DOT          &quest_ru           &kp RU_DOUBLE_QUOTES
-                                                                         &kp LALT            &kp SPACE            &mo 2            &mo 2          &kp RSHFT                &kp RALT
+&kp TAB    &sshs       &shsch    &ye                 &ru_replace  &ru_toggle                                           &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_U    &ii                 &ru_open            &kp RU_CYRILLIC_PE  &kp BACKSPACE
+&kp LSHFT  &ru_all     &ru_save  &kp RU_CYRILLIC_DE  &ru_find     &kp RU_CYRILLIC_GHE                                  &kp RU_CYRILLIC_HA       &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &ru_semi            &kp ENTER
+&kp LCTRL  &ru_cancel  &ru_cut   &ru_copy            &ru_paste    &kp RU_CYRILLIC_BE   &en_shift_fun    &fun_shift_en  &ru_new                  &kp RU_CYRILLIC_EM   &kp RU_COMMA        &kp RU_DOT          &quest_ru           &kp RU_DOUBLE_QUOTES
+                                                     &kp LALT     &kp SPACE            &mo 2            &mo 2          &kp RSHFT                &kp RALT
             >;
 
             display-name = "RRR";
