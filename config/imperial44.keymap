@@ -178,6 +178,61 @@
             bindings = <&kp RU_CYRILLIC_YU>;
             key-positions = <6 7>;
         };
+
+        copy {
+            bindings = <&kp LC(C)>;
+            key-positions = <24 27>;
+        };
+
+        cancel {
+            bindings = <&kp LC(Z)>;
+            key-positions = <24 25>;
+        };
+
+        cut {
+            bindings = <&kp LC(X)>;
+            key-positions = <24 26>;
+        };
+
+        paste {
+            bindings = <&kp LC(V)>;
+            key-positions = <24 28>;
+        };
+
+        all {
+            bindings = <&kp LC(A)>;
+            key-positions = <24 12>;
+        };
+
+        save {
+            bindings = <&kp LC(S)>;
+            key-positions = <24 13>;
+        };
+
+        search {
+            bindings = <&kp LC(F)>;
+            key-positions = <24 15>;
+        };
+
+        new {
+            bindings = <&kp LC(N)>;
+            key-positions = <24 32>;
+        };
+
+        toggle {
+            bindings = <&kp LC(T)>;
+            key-positions = <24 5>;
+        };
+
+        replace {
+            bindings = <&kp LC(R)>;
+            key-positions = <24 4>;
+        };
+
+        open {
+            bindings = <&kp LC(O)>;
+            key-positions = <24 9>;
+        };
     };
 
     keymap {
@@ -191,7 +246,7 @@
                                 &kp LALT  &kp SPACE  &mo 2            &mo 2          &kp RSHFT  &kp RALT
             >;
 
-            display-name = "E";
+            display-name = "EEE";
             sensor-bindings =
                 <&inc_dec_kp C_VOL_UP C_VOL_DN>,
                 <&inc_dec_kp PG_UP PG_DN>;
@@ -205,7 +260,7 @@
                                                                          &kp LALT            &kp SPACE            &mo 2            &mo 2          &kp RSHFT                &kp RALT
             >;
 
-            display-name = "R";
+            display-name = "RRR";
             sensor-bindings =
                 <&inc_dec_kp C_VOL_UP C_VOL_DN>,
                 <&inc_dec_kp PG_UP PG_DN>;
