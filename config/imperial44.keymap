@@ -19,6 +19,20 @@
             bindings = <&kp LC(LS(N2)) &to 1>;
             label = "TORU";
         };
+
+        double_i: double_i {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RU_CYRILLIC_I &kp RU_CYRILLIC_I>;
+            label = "DOUBLE_I";
+        };
+
+        double_e: double_e {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RU_CYRILLIC_IE &kp RU_CYRILLIC_IE>;
+            label = "DOUBLE_E";
+        };
     };
 
     behaviors {
@@ -229,6 +243,24 @@
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
         };
+
+        ru_e: ru_e {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RU_E";
+            bindings = <&double_e>, <&ye>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        ru_i: ru_i {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RU_I";
+            bindings = <&double_i>, <&ii>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
     };
 
     combos {
@@ -269,7 +301,7 @@
 
         ru {
             bindings = <
-&kp TAB    &sshs       &shsch    &ye                 &ru_replace  &ru_toggle                                           &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_U    &ii                 &ru_open            &kp RU_CYRILLIC_PE  &kp BACKSPACE
+&kp TAB    &sshs       &shsch    &ru_e 0 0           &ru_replace  &ru_toggle                                           &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_U    &ru_i 0 0           &ru_open            &kp RU_CYRILLIC_PE  &kp BACKSPACE
 &kp LSHFT  &ru_all     &ru_save  &kp RU_CYRILLIC_DE  &ru_find     &kp RU_CYRILLIC_GHE                                  &kp RU_CYRILLIC_HA       &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &ru_semi            &kp ENTER
 &kp LCTRL  &ru_cancel  &ru_cut   &ru_copy            &ru_paste    &kp RU_CYRILLIC_BE   &en_shift_fun    &fun_shift_en  &ru_new                  &kp RU_CYRILLIC_EM   &kp RU_COMMA        &kp RU_DOT          &quest_ru           &kp RU_DOUBLE_QUOTES
                                                      &kp LALT     &kp SPACE            &mo 2            &mo 2          &kp RSHFT                &kp RALT
