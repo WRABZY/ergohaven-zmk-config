@@ -363,10 +363,20 @@
 &kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA   &kp RU_CYRILLIC_EL   &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_EN                            &kp RU_CYRILLIC_EF  &kp RU_CYRILLIC_U    &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_SOFT_SIGN  &kp BACKSPACE
 &kp LSHFT  &kp RU_CYRILLIC_VE   &kp RU_CYRILLIC_PE   &kp RU_CYRILLIC_ER   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_TE                            &kp RU_CYRILLIC_A   &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_IE  &kp RU_CYRILLIC_I    &ru_semi                   &kp RSHFT
 &kp LCTRL  &kp RU_CYRILLIC_ZE   &kp RU_CYRILLIC_CHE  &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_YERU  &en_shift_fun    &none  &kp RU_CYRILLIC_HA  &kp RU_CYRILLIC_SHA  &kp RU_COMMA        &kp RU_DOT           &quest_ru                  &kp RU_DQT
-                                                                          &none               &kp SPACE             &none            &mo 6  &kp ENTER           &none
+                                                                          &mo 6               &kp SPACE             &none            &mo 7  &kp ENTER           &none
             >;
 
             label = "RU";
+        };
+
+        wrd1h {
+            label = "RU-1H";
+            bindings = <
+&kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA   &kp RU_CYRILLIC_EL   &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_EF                  &none      &kp RU_CYRILLIC_U    &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_SOFT_SIGN  &kp BACKSPACE
+&kp LSHFT  &kp RU_CYRILLIC_VE   &kp RU_CYRILLIC_PE   &kp RU_CYRILLIC_ER   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_A                   &none      &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_IE  &kp RU_CYRILLIC_I    &ru_semi                   &kp RSHFT
+&kp LCTRL  &kp RU_CYRILLIC_ZE   &kp RU_CYRILLIC_CHE  &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_HA  &none    &none  &none      &kp RU_CYRILLIC_SHA  &kp RU_COMMA        &kp RU_DOT           &quest_ru                  &kp RU_DQT
+                                                                          &none               &kp SPACE           &none    &mo 7  &kp ENTER  &none
+            >;
         };
 
         wrde {
@@ -378,6 +388,28 @@
             >;
 
             label = "RU-E";
+        };
+
+        wed {
+            bindings = <
+&kp TAB     &kp G  &kp K  &kp L  &kp M  &kp N                              &kp F      &kp U  &kp D      &kp C    &kp Q     &kp BACKSPACE
+&kp LSHIFT  &kp V  &kp P  &kp R  &kp S  &kp T                              &kp A      &kp O  &kp E      &kp I    &kp SEMI  &kp RSHIFT
+&kp LCTRL   &kp Z  &kp X  &kp J  &kp B  &kp Y      &en_shift_fun    &none  &kp H      &kp W  &kp COMMA  &kp DOT  &quest    &kp SINGLE_QUOTE
+                                 &none  &kp SPACE  &none            &mo 9  &kp ENTER  &none
+            >;
+
+            label = "EN";
+        };
+
+        wede {
+            bindings = <
+&kp TAB     &kp G  &kp K  &kp L  &kp M  &kp N                              &kp F      &kp U  &kp MINUS  &kp C    &kp Q     &kp BACKSPACE
+&kp LSHIFT  &kp V  &kp P  &kp R  &kp S  &kp T                              &kp A      &kp O  &kp E      &kp I    &kp SEMI  &kp RSHIFT
+&kp LCTRL   &kp Z  &kp X  &kp J  &kp B  &kp Y      &en_shift_fun    &none  &kp H      &kp W  &kp COMMA  &kp DOT  &quest    &kp SINGLE_QUOTE
+                                 &none  &kp SPACE  &none            &none  &kp ENTER  &none
+            >;
+
+            label = "EN-E";
         };
     };
 };
