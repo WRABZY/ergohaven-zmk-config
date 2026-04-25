@@ -363,7 +363,7 @@
 &kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA   &kp RU_CYRILLIC_EL   &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_EN                            &kp RU_CYRILLIC_EF  &kp RU_CYRILLIC_U    &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_SOFT_SIGN  &kp BACKSPACE
 &kp LSHFT  &kp RU_CYRILLIC_VE   &kp RU_CYRILLIC_PE   &kp RU_CYRILLIC_ER   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_TE                            &kp RU_CYRILLIC_A   &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_IE  &kp RU_CYRILLIC_I    &ru_semi                   &kp RSHFT
 &kp LCTRL  &kp RU_CYRILLIC_ZE   &kp RU_CYRILLIC_CHE  &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_YERU  &en_shift_fun    &none  &kp RU_CYRILLIC_HA  &kp RU_CYRILLIC_SHA  &kp RU_COMMA        &kp RU_DOT           &quest_ru                  &kp RU_DQT
-                                                                          &mo 6               &kp SPACE             &none            &mo 7  &kp ENTER           &none
+                                                                          &to 6               &kp SPACE             &none            &mo 7  &kp ENTER           &none
             >;
 
             label = "RU";
@@ -372,20 +372,20 @@
         wrd1h {
             label = "RU-1H";
             bindings = <
-&kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA   &kp RU_CYRILLIC_EL   &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_EF                  &none      &kp RU_CYRILLIC_U    &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_SOFT_SIGN  &kp BACKSPACE
-&kp LSHFT  &kp RU_CYRILLIC_VE   &kp RU_CYRILLIC_PE   &kp RU_CYRILLIC_ER   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_A                   &none      &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_IE  &kp RU_CYRILLIC_I    &ru_semi                   &kp RSHFT
-&kp LCTRL  &kp RU_CYRILLIC_ZE   &kp RU_CYRILLIC_CHE  &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_HA  &none    &none  &none      &kp RU_CYRILLIC_SHA  &kp RU_COMMA        &kp RU_DOT           &quest_ru                  &kp RU_DQT
-                                                                          &none               &kp SPACE           &none    &mo 7  &kp ENTER  &none
+&kp BACKSPACE  &kp RU_CYRILLIC_SOFT_SIGN  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_U    &kp RU_CYRILLIC_EF                  &none  &none  &none  &none  &none  &none
+&kp RSHIFT     &ru_semi                   &kp RU_CYRILLIC_I    &kp RU_CYRILLIC_IE  &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_A                   &none  &none  &none  &none  &none  &none
+&kp RU_DQT     &quest_ru                  &kp RU_DOT           &kp RU_COMMA        &kp RU_CYRILLIC_SHA  &kp RU_CYRILLIC_HA  &none    &none  &none  &none  &none  &none  &none  &none
+                                                                                   &to 5                &kp ENTER           &none    &none  &none  &none
             >;
         };
 
-        wrd1h {
-            label = "RU-1H";
+        wrde {
+            label = "RU-E";
             bindings = <
-&kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA   &kp RU_CYRILLIC_EL   &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_EF                  &none      &kp RU_CYRILLIC_U    &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_SOFT_SIGN  &kp BACKSPACE
-&kp LSHFT  &kp RU_CYRILLIC_VE   &kp RU_CYRILLIC_PE   &kp RU_CYRILLIC_ER   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_A                   &none      &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_IE  &kp RU_CYRILLIC_I    &ru_semi                   &kp RSHFT
-&kp LCTRL  &kp RU_CYRILLIC_ZE   &kp RU_CYRILLIC_CHE  &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_HA  &none    &none  &none      &kp RU_CYRILLIC_SHA  &kp RU_COMMA        &kp RU_DOT           &quest_ru                  &kp RU_DQT
-                                                                          &none               &kp SPACE           &none    &mo 7  &kp ENTER  &none
+&kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA   &kp RU_CYRILLIC_EL   &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_EN                    &kp RU_CYRILLIC_EF  &kp RU_CYRILLIC_YU     &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE      &kp RU_CYRILLIC_HARD_SIGN  &kp BACKSPACE
+&kp LSHFT  &kp RU_CYRILLIC_VE   &kp RU_CYRILLIC_PE   &kp RU_CYRILLIC_ER   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_TE                    &kp RU_CYRILLIC_YA  &kp RU_CYRILLIC_IO     &kp RU_CYRILLIC_E   &kp RU_CYRILLIC_SHORT_I  &ru_semi                   &kp RSHFT
+&kp LCTRL  &kp RU_CYRILLIC_ZE   &kp RU_CYRILLIC_CHE  &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_YERU  &none    &none  &kp RU_CYRILLIC_HA  &kp RU_CYRILLIC_SHCHA  &kp RU_COMMA        &kp RU_DOT               &quest_ru                  &kp RU_DQT
+                                                                          &none               &kp SPACE             &none    &none  &kp ENTER           &none
             >;
         };
 
