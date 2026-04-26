@@ -90,7 +90,7 @@
         ru_copy: ru_copy {
             compatible = "zmk,behavior-mod-morph";
             label = "RU_COPY";
-            bindings = <&kp RU_CYRILLIC_TSE>, <&kp LC(C)>;
+            bindings = <&kp RU_CYRILLIC_ZHE>, <&kp LC(C)>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
@@ -99,7 +99,7 @@
         ru_paste: ru_paste {
             compatible = "zmk,behavior-mod-morph";
             label = "RU_PASTE";
-            bindings = <&kp RU_CYRILLIC_VE>, <&kp LC(V)>;
+            bindings = <&kp RU_CYRILLIC_BE>, <&kp LC(V)>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
@@ -126,7 +126,7 @@
         ru_all: ru_all {
             compatible = "zmk,behavior-mod-morph";
             label = "RU_ALL";
-            bindings = <&kp RU_CYRILLIC_A>, <&kp LC(A)>;
+            bindings = <&kp RU_CYRILLIC_VE>, <&kp LC(A)>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
@@ -135,7 +135,7 @@
         ru_save: ru_save {
             compatible = "zmk,behavior-mod-morph";
             label = "RU_SAVE";
-            bindings = <&kp RU_CYRILLIC_ES>, <&kp LC(S)>;
+            bindings = <&kp RU_CYRILLIC_PE>, <&kp LC(S)>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
@@ -162,7 +162,7 @@
         ru_find: ru_find {
             compatible = "zmk,behavior-mod-morph";
             label = "RU_FIND";
-            bindings = <&kp RU_CYRILLIC_EF>, <&kp LC(F)>;
+            bindings = <&kp RU_CYRILLIC_ES>, <&kp LC(F)>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
@@ -243,6 +243,78 @@
             #sensor-binding-cells = <0>;
             bindings = <&to_en>, <&to_num_ru>;
         };
+
+        ru_d: ru_d {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_D";
+            bindings = <&kp RU_CYRILLIC_DE>, <&kp MINUS>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        ru_a: ru_a {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_A";
+            bindings = <&kp RU_CYRILLIC_A>, <&kp RU_CYRILLIC_YA>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        ru_o: ru_o {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_O";
+            bindings = <&ru_open>, <&kp RU_CYRILLIC_IO>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        ru_u: ru_u {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_U";
+            bindings = <&kp RU_CYRILLIC_U>, <&kp RU_CYRILLIC_YU>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        ru_e: ru_e {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_E";
+            bindings = <&kp RU_CYRILLIC_IE>, <&kp RU_CYRILLIC_E>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        ru_soft: ru_soft {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_SOFT";
+            bindings = <&kp RU_CYRILLIC_SOFT_SIGN>, <&kp RU_CYRILLIC_HARD_SIGN>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        ru_sh: ru_sh {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_SH";
+            bindings = <&kp RU_CYRILLIC_SHA>, <&kp RU_CYRILLIC_SHCHA>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        ru_i: ru_i {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_I";
+            bindings = <&kp RU_CYRILLIC_I>, <&kp RU_CYRILLIC_SHORT_I>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
     };
 
     combos { compatible = "zmk,combos"; };
@@ -276,10 +348,10 @@
 
         wrd {
             bindings = <
-&kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA   &kp RU_CYRILLIC_EL   &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_EN                        &kp RU_CYRILLIC_EF  &kp RU_CYRILLIC_U    &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_SOFT_SIGN  &kp BACKSPACE
-&kp LSHFT  &kp RU_CYRILLIC_VE   &kp RU_CYRILLIC_PE   &kp RU_CYRILLIC_ER   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_TE                        &kp RU_CYRILLIC_A   &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_IE  &kp RU_CYRILLIC_I    &none                      &kp RSHFT
-&kp LCTRL  &kp RU_CYRILLIC_ZE   &kp RU_CYRILLIC_CHE  &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_YERU  &none    &kp LG(L)  &kp RU_CYRILLIC_HA  &kp RU_CYRILLIC_SHA  &kp RU_COMMA        &kp RU_DOT           &none                      &kp RU_DQT
-                                                                          &to 3               &kp SPACE             &none    &kp RCTRL  &kp ENTER           &none
+&kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_EM  &ru_new                                   &kp RU_CYRILLIC_EF  &ru_u   &ru_d         &kp RU_CYRILLIC_TSE  &ru_soft  &kp BACKSPACE
+&kp LSHFT  &ru_all              &ru_save            &ru_replace         &ru_find            &ru_toggle                                &ru_a               &ru_o   &ru_e         &ru_i                &none     &kp RSHFT
+&kp LCTRL  &ru_cancel           &ru_cut             &ru_copy            &ru_paste           &kp RU_CYRILLIC_YERU  &none    &kp LG(L)  &kp RU_CYRILLIC_HA  &ru_sh  &kp RU_COMMA  &kp RU_DOT           &none     &kp RU_DQT
+                                                                        &to 3               &kp SPACE             &none    &kp RCTRL  &kp ENTER           &none
             >;
 
             label = "e | Ru | n";
@@ -288,10 +360,10 @@
 
         wrd1h {
             bindings = <
-&kp BACKSPACE  &kp RU_CYRILLIC_SOFT_SIGN  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_U    &kp RU_CYRILLIC_EF                       &none  &none  &none  &none  &none  &none
-&kp RSHIFT     &none                      &kp RU_CYRILLIC_I    &kp RU_CYRILLIC_IE  &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_A                        &none  &none  &none  &none  &none  &none
-&kp RU_DQT     &none                      &kp RU_DOT           &kp RU_COMMA        &kp RU_CYRILLIC_SHA  &kp RU_CYRILLIC_HA  &kp LG(L)     &none  &none  &none  &none  &none  &none  &none
-                                                                                   &to 2                &kp ENTER           &kp RSHIFT    &none  &none  &none
+&kp BACKSPACE  &ru_soft  &kp RU_CYRILLIC_TSE  &ru_d         &ru_u   &kp RU_CYRILLIC_EF                      &none  &none  &none  &none  &none  &none
+&kp RSHIFT     &none     &ru_i                &ru_e         &ru_o   &ru_a                                   &none  &none  &none  &none  &none  &none
+&kp RU_DQT     &none     &kp RU_DOT           &kp RU_COMMA  &ru_sh  &kp RU_CYRILLIC_HA  &kp LG(L)    &none  &none  &none  &none  &none  &none  &none
+                                                            &to 2   &kp ENTER           &kp RCTRL    &none  &none  &none
             >;
 
             label = "e | Rh | n";
