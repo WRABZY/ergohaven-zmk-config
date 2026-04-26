@@ -58,7 +58,7 @@
         to_num_ru: to_num_ru {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&lang_ru &to 4>;
+            bindings = <&lang_en &to 4>;
             label = "TO_NUM_RU";
         };
 
@@ -288,10 +288,10 @@
 
         wrd1h {
             bindings = <
-&kp BACKSPACE  &kp RU_CYRILLIC_SOFT_SIGN  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_U    &kp RU_CYRILLIC_EF                  &none  &none  &none  &none  &none  &none
-&kp RSHIFT     &none                      &kp RU_CYRILLIC_I    &kp RU_CYRILLIC_IE  &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_A                   &none  &none  &none  &none  &none  &none
-&kp RU_DQT     &none                      &kp RU_DOT           &kp RU_COMMA        &kp RU_CYRILLIC_SHA  &kp RU_CYRILLIC_HA  &none    &none  &none  &none  &none  &none  &none  &none
-                                                                                   &to 2                &kp ENTER           &none    &none  &none  &none
+&kp BACKSPACE  &kp RU_CYRILLIC_SOFT_SIGN  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_U    &kp RU_CYRILLIC_EF                       &none  &none  &none  &none  &none  &none
+&kp RSHIFT     &none                      &kp RU_CYRILLIC_I    &kp RU_CYRILLIC_IE  &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_A                        &none  &none  &none  &none  &none  &none
+&kp RU_DQT     &none                      &kp RU_DOT           &kp RU_COMMA        &kp RU_CYRILLIC_SHA  &kp RU_CYRILLIC_HA  &kp LG(L)     &none  &none  &none  &none  &none  &none  &none
+                                                                                   &to 2                &kp ENTER           &kp RSHIFT    &none  &none  &none
             >;
 
             label = "e | Rh | n";
@@ -301,10 +301,10 @@
         numr {
             display-name = "r | Nm | f";
             bindings = <
-&kp TAB    &kp KP_DOT       &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                                &kp LBKT   &kp RBKT        &kp UP          &kp LBRC         &kp RBRC  &kp BACKSPACE
-&kp LSHFT  &kp KP_ASTERISK  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                                   &kp HOME   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END   &kp ENTER
-&kp LCTRL  &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &kp PERCENT    &kp RU_NUMERO  &kp GRAVE  &kp BSLH        &kp PIPE        &kp SLASH        &none     &kp DEL
-                                                        &kp LEFT_GUI  &kp SPACE     &kp LG(L)      &kp LG(L)      &kp RSHFT  &kp RALT
+&kp ESCAPE  &kp KP_DOT       &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                      &kp LBKT   &kp RBKT        &kp UP          &kp LBRC         &kp RBRC       &kp BACKSPACE
+&kp LSHFT   &kp KP_ASTERISK  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                         &kp HOME   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END        &kp RSHIFT
+&kp LCTRL   &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &none    &none      &kp GRAVE  &kp BSLH        &kp PIPE        &kp SLASH        &kp RU_NUMERO  &kp DEL
+                                                         &none         &kp SPACE     &none    &kp RCTRL  &kp ENTER  &none
             >;
 
             sensor-bindings = <&w_rot_ru_fun>;
@@ -349,13 +349,13 @@
 
         nume {
             bindings = <
-&kp TAB    &kp KP_DOT       &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                                &kp LBKT   &kp RBKT        &kp UP          &kp LBRC         &kp RBRC  &kp BACKSPACE
-&kp LSHFT  &kp KP_ASTERISK  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                                   &kp HOME   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END   &kp ENTER
-&kp LCTRL  &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &kp PERCENT    &kp RU_NUMERO  &kp GRAVE  &kp BSLH        &kp PIPE        &kp SLASH        &none     &kp DEL
-                                                        &kp LEFT_GUI  &kp SPACE     &kp LG(L)      &kp LG(L)      &kp RSHFT  &kp RALT
+&kp ESCAPE  &kp KP_DOT       &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                      &kp LBKT   &kp RBKT        &kp UP          &kp LBRC         &kp RBRC       &kp BACKSPACE
+&kp LSHFT   &kp KP_ASTERISK  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                         &kp HOME   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END        &kp RSHIFT
+&kp LCTRL   &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &none    &none      &kp GRAVE  &kp BSLH        &kp PIPE        &kp SLASH        &kp RU_NUMERO  &kp DEL
+                                                         &none         &kp SPACE     &none    &kp RCTRL  &kp ENTER  &none
             >;
 
-            display-name = "f | Nu | e";
+            display-name = "f | Nm | e";
             sensor-bindings = <&w_rot_fun_en>;
         };
     };
