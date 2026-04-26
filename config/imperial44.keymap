@@ -75,6 +75,22 @@
             bindings = <&lang_ru &to 6>;
             label = "TO_FUN_RU";
         };
+
+        en: en {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&lang_en>,
+                <&macro_press>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
+                <&macro_tap>,
+                <&lang_ru>;
+
+            label = "EN";
+        };
     };
 
     behaviors {
@@ -393,9 +409,9 @@
 
         wrd {
             bindings = <
-&kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_EM  &ru_new                                   &kp RU_CYRILLIC_EF  &ru_u   &ru_d         &kp RU_CYRILLIC_TSE  &ru_soft  &kp BACKSPACE
-&kp LSHFT  &ru_all              &ru_save            &ru_replace         &ru_find            &ru_toggle                                &ru_a               &ru_o   &ru_e         &ru_i                &none     &kp RSHFT
-&kp LCTRL  &ru_cancel           &ru_cut             &ru_copy            &ru_paste           &kp RU_CYRILLIC_YERU  &none    &kp LG(L)  &kp RU_CYRILLIC_HA  &ru_sh  &kp RU_COMMA  &kp RU_DOT           &none     &kp RU_DQT
+&kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_EM  &ru_new                                   &kp RU_CYRILLIC_EF  &ru_u   &ru_d      &kp RU_CYRILLIC_TSE  &ru_soft       &kp BACKSPACE
+&kp LSHFT  &ru_all              &ru_save            &ru_replace         &ru_find            &ru_toggle                                &ru_a               &ru_o   &ru_e      &ru_i                &en SEMICOLON  &kp RSHFT
+&kp LCTRL  &ru_cancel           &ru_cut             &ru_copy            &ru_paste           &kp RU_CYRILLIC_YERU  &none    &kp LG(L)  &kp RU_CYRILLIC_HA  &ru_sh  &en COMMA  &en DOT              &quest         &en SINGLE_QUOTE
                                                                         &to 3               &kp SPACE             &none    &kp RCTRL  &kp ENTER           &none
             >;
 
@@ -405,10 +421,10 @@
 
         wrd1h {
             bindings = <
-&kp BACKSPACE  &ru_soft  &kp RU_CYRILLIC_TSE  &ru_d         &ru_u   &kp RU_CYRILLIC_EF                      &none  &none  &none  &none  &none  &none
-&kp RSHIFT     &none     &ru_i                &ru_e         &ru_o   &ru_a                                   &none  &none  &none  &none  &none  &none
-&kp RU_DQT     &none     &kp RU_DOT           &kp RU_COMMA  &ru_sh  &kp RU_CYRILLIC_HA  &kp LG(L)    &none  &none  &none  &none  &none  &none  &none
-                                                            &to 2   &kp ENTER           &kp RCTRL    &none  &none  &none
+&kp BACKSPACE     &ru_soft       &kp RU_CYRILLIC_TSE  &ru_d      &ru_u   &kp RU_CYRILLIC_EF                      &none  &none  &none  &none  &none  &none
+&kp RSHIFT        &en SEMICOLON  &ru_i                &ru_e      &ru_o   &ru_a                                   &none  &none  &none  &none  &none  &none
+&en SINGLE_QUOTE  &quest         &en DOT              &en COMMA  &ru_sh  &kp RU_CYRILLIC_HA  &kp LG(L)    &none  &none  &none  &none  &none  &none  &none
+                                                                 &to 2   &kp ENTER           &kp RCTRL    &none  &none  &none
             >;
 
             label = "e | Rh | n";
