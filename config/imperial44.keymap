@@ -22,20 +22,6 @@
     };
 
     behaviors {
-        shsch: shsch {
-            compatible = "zmk,behavior-tap-dance";
-            label = "SHSCH";
-            #binding-cells = <0>;
-            bindings = <&kp RU_CYRILLIC_SHA>, <&kp RU_CYRILLIC_SHCHA>;
-        };
-
-        sshs: sshs {
-            compatible = "zmk,behavior-tap-dance";
-            label = "SSHS";
-            #binding-cells = <0>;
-            bindings = <&kp RU_CYRILLIC_SOFT_SIGN>, <&kp RU_CYRILLIC_HARD_SIGN>;
-        };
-
         ye: ye {
             compatible = "zmk,behavior-tap-dance";
             label = "YE";
@@ -48,24 +34,6 @@
             label = "II";
             #binding-cells = <0>;
             bindings = <&kp RU_CYRILLIC_I>, <&kp RU_CYRILLIC_YERU>;
-        };
-
-        ru_shift_fun: ru_shift_fun {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RU_SHIFT_FUN";
-            bindings = <&toru>, <&to 6>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
-        };
-
-        en_shift_fun: en_shift_fun {
-            compatible = "zmk,behavior-mod-morph";
-            label = "EN_SHIFT_FUN";
-            bindings = <&toen>, <&to 6>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
         };
 
         ru_semi: ru_semi {
@@ -230,26 +198,6 @@
             mods = <(MOD_LCTL)>;
         };
 
-        ru_e: ru_e {
-            compatible = "zmk,behavior-hold-tap";
-            label = "RU_E";
-            bindings = <&double_e>, <&ye>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <500>;
-            quick-tap-ms = <200>;
-        };
-
-        ru_i: ru_i {
-            compatible = "zmk,behavior-hold-tap";
-            label = "RU_I";
-            bindings = <&double_i>, <&ii>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <500>;
-            quick-tap-ms = <200>;
-        };
-
         w_rot_num_ru: w_rot_num_ru {
             compatible = "zmk,behavior-sensor-rotate";
             label = "W_ROT_NUM_RU";
@@ -274,29 +222,13 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        yo {
-            bindings = <&kp RU_CYRILLIC_IO>;
-            key-positions = <6 9>;
-        };
-
-        ya {
-            bindings = <&kp RU_CYRILLIC_YA>;
-            key-positions = <6 13>;
-        };
-
-        yu {
-            bindings = <&kp RU_CYRILLIC_YU>;
-            key-positions = <6 7>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     keymap {
         compatible = "zmk,keymap";
 
         wed {
+            label = "n | En | r";
             bindings = <
 &kp TAB     &kp G  &kp K  &kp L  &kp M  &kp N                          &kp F      &kp U  &w_en_extra_d  &kp C    &kp Q     &kp BACKSPACE
 &kp LSHIFT  &kp V  &kp P  &kp R  &kp S  &kp T                          &kp A      &kp O  &kp E          &kp I    &kp SEMI  &kp RSHIFT
@@ -304,7 +236,6 @@
                                  &to 1  &kp SPACE  &none    &kp RCTRL  &kp ENTER  &none
             >;
 
-            label = "n | En | r";
             sensor-bindings = <&w_rot_num_ru>;
         };
 
@@ -322,33 +253,39 @@
 
         wrd {
             bindings = <
-&kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA   &kp RU_CYRILLIC_EL   &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_EN                            &kp RU_CYRILLIC_EF  &kp RU_CYRILLIC_U    &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_SOFT_SIGN  &kp BACKSPACE
-&kp LSHFT  &kp RU_CYRILLIC_VE   &kp RU_CYRILLIC_PE   &kp RU_CYRILLIC_ER   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_TE                            &kp RU_CYRILLIC_A   &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_IE  &kp RU_CYRILLIC_I    &ru_semi                   &kp RSHFT
-&kp LCTRL  &kp RU_CYRILLIC_ZE   &kp RU_CYRILLIC_CHE  &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_YERU  &en_shift_fun    &none  &kp RU_CYRILLIC_HA  &kp RU_CYRILLIC_SHA  &kp RU_COMMA        &kp RU_DOT           &quest_ru                  &kp RU_DQT
-                                                                          &to 3               &kp SPACE             &none            &mo 4  &kp ENTER           &none
+&kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA   &kp RU_CYRILLIC_EL   &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_EN                    &kp RU_CYRILLIC_EF  &kp RU_CYRILLIC_U    &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_SOFT_SIGN  &kp BACKSPACE
+&kp LSHFT  &kp RU_CYRILLIC_VE   &kp RU_CYRILLIC_PE   &kp RU_CYRILLIC_ER   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_TE                    &kp RU_CYRILLIC_A   &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_IE  &kp RU_CYRILLIC_I    &ru_semi                   &kp RSHFT
+&kp LCTRL  &kp RU_CYRILLIC_ZE   &kp RU_CYRILLIC_CHE  &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_YERU  &none    &none  &kp RU_CYRILLIC_HA  &kp RU_CYRILLIC_SHA  &kp RU_COMMA        &kp RU_DOT           &quest_ru                  &kp RU_DQT
+                                                                          &to 3               &kp SPACE             &none    &mo 4  &kp ENTER           &none
             >;
 
             label = "RU";
         };
 
         wrd1h {
-            label = "RU-1H";
             bindings = <
 &kp BACKSPACE  &kp RU_CYRILLIC_SOFT_SIGN  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_U    &kp RU_CYRILLIC_EF                  &none  &none  &none  &none  &none  &none
 &kp RSHIFT     &ru_semi                   &kp RU_CYRILLIC_I    &kp RU_CYRILLIC_IE  &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_A                   &none  &none  &none  &none  &none  &none
 &kp RU_DQT     &quest_ru                  &kp RU_DOT           &kp RU_COMMA        &kp RU_CYRILLIC_SHA  &kp RU_CYRILLIC_HA  &none    &none  &none  &none  &none  &none  &none  &none
                                                                                    &to 2                &kp ENTER           &none    &none  &none  &none
             >;
+
+            label = "RU-1H";
         };
 
-        wrde {
-            label = "RU-E";
+        gm {
             bindings = <
-&kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA   &kp RU_CYRILLIC_EL   &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_EN                    &kp RU_CYRILLIC_EF  &kp RU_CYRILLIC_YU     &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE      &kp RU_CYRILLIC_HARD_SIGN  &kp BACKSPACE
-&kp LSHFT  &kp RU_CYRILLIC_VE   &kp RU_CYRILLIC_PE   &kp RU_CYRILLIC_ER   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_TE                    &kp RU_CYRILLIC_YA  &kp RU_CYRILLIC_IO     &kp RU_CYRILLIC_E   &kp RU_CYRILLIC_SHORT_I  &ru_semi                   &kp RSHFT
-&kp LCTRL  &kp RU_CYRILLIC_ZE   &kp RU_CYRILLIC_CHE  &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_YERU  &none    &none  &kp RU_CYRILLIC_HA  &kp RU_CYRILLIC_SHCHA  &kp RU_COMMA        &kp RU_DOT               &quest_ru                  &kp RU_DQT
-                                                                          &none               &kp SPACE             &none    &none  &kp ENTER           &none
+&kp ESC    &kp TAB    &kp Q  &kp W  &kp E     &kp R                                      &none  &none  &none  &none  &none  &none
+&kp LSHFT  &kp LSHFT  &kp A  &kp S  &kp D     &kp F                                      &none  &none  &none  &none  &none  &none
+&kp LCTRL  &kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &fun_shift_en    &fun_shift_ru  &none  &none  &none  &none  &none  &none
+                                    &kp LALT  &kp SPACE  &mo 5            &none          &none  &none
             >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp PG_UP PG_DN>;
+
+            label = "WASD";
         };
 
         nume {
@@ -378,6 +315,7 @@
         };
 
         gm {
+            label = "WASD";
             bindings = <
 &kp ESC    &kp TAB    &kp Q  &kp W  &kp E     &kp R                                      &none  &none  &none  &none  &none  &none
 &kp LSHFT  &kp LSHFT  &kp A  &kp S  &kp D     &kp F                                      &none  &none  &none  &none  &none  &none
@@ -388,8 +326,6 @@
             sensor-bindings =
                 <&inc_dec_kp C_VOL_UP C_VOL_DN>,
                 <&inc_dec_kp PG_UP PG_DN>;
-
-            label = "WASD";
         };
     };
 };
