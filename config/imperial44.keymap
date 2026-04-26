@@ -376,6 +376,15 @@
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
         };
+
+        quest_ru: quest_ru {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QUEST_RU";
+            bindings = <&kp RU_EXCLAMATION>, <&kp RU_QUESTION>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
     combos { compatible = "zmk,combos"; };
@@ -411,7 +420,7 @@
             bindings = <
 &kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_EM  &ru_new                                   &kp RU_CYRILLIC_EF  &ru_u   &ru_d      &kp RU_CYRILLIC_TSE  &ru_soft       &kp BACKSPACE
 &kp LSHFT  &ru_all              &ru_save            &ru_replace         &ru_find            &ru_toggle                                &ru_a               &ru_o   &ru_e      &ru_i                &en SEMICOLON  &kp RSHFT
-&kp LCTRL  &ru_cancel           &ru_cut             &ru_copy            &ru_paste           &kp RU_CYRILLIC_YERU  &none    &kp LG(L)  &kp RU_CYRILLIC_HA  &ru_sh  &en COMMA  &en DOT              &quest         &en SINGLE_QUOTE
+&kp LCTRL  &ru_cancel           &ru_cut             &ru_copy            &ru_paste           &kp RU_CYRILLIC_YERU  &none    &kp LG(L)  &kp RU_CYRILLIC_HA  &ru_sh  &en COMMA  &en DOT              &quest_ru      &en SINGLE_QUOTE
                                                                         &to 3               &kp SPACE             &none    &kp RCTRL  &kp ENTER           &none
             >;
 
