@@ -16,22 +16,8 @@
         toru: toru {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(LS(N2)) &to 1>;
+            bindings = <&kp LC(LS(N2)) &to 2>;
             label = "TORU";
-        };
-
-        double_i: double_i {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RU_CYRILLIC_I &kp RU_CYRILLIC_I>;
-            label = "DOUBLE_I";
-        };
-
-        double_e: double_e {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RU_CYRILLIC_IE &kp RU_CYRILLIC_IE>;
-            label = "DOUBLE_E";
         };
     };
 
@@ -67,7 +53,7 @@
         ru_shift_fun: ru_shift_fun {
             compatible = "zmk,behavior-mod-morph";
             label = "RU_SHIFT_FUN";
-            bindings = <&toru>, <&to 3>;
+            bindings = <&toru>, <&to 6>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
@@ -76,7 +62,7 @@
         en_shift_fun: en_shift_fun {
             compatible = "zmk,behavior-mod-morph";
             label = "EN_SHIFT_FUN";
-            bindings = <&toen>, <&to 3>;
+            bindings = <&toen>, <&to 6>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
@@ -112,7 +98,7 @@
         fun_shift_ru: fun_shift_ru {
             compatible = "zmk,behavior-mod-morph";
             label = "FUN_SHIFT_RU";
-            bindings = <&to 3>, <&toru>;
+            bindings = <&to 6>, <&toru>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
@@ -121,7 +107,7 @@
         fun_shift_en: fun_shift_en {
             compatible = "zmk,behavior-mod-morph";
             label = "FUN_SHIFT_EN";
-            bindings = <&to 3>, <&toen>;
+            bindings = <&to 6>, <&toen>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
@@ -130,7 +116,7 @@
         wasd_shift_ru: wasd_shift_ru {
             compatible = "zmk,behavior-mod-morph";
             label = "WASD_SHIFT_RU";
-            bindings = <&to 4>, <&toru>;
+            bindings = <&to 7>, <&toru>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
@@ -139,7 +125,7 @@
         wasd_shift_en: wasd_shift_en {
             compatible = "zmk,behavior-mod-morph";
             label = "WASD_SHIFT_EN";
-            bindings = <&to 4>, <&toen>;
+            bindings = <&to 7>, <&toen>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
@@ -263,6 +249,29 @@
             tapping-term-ms = <500>;
             quick-tap-ms = <200>;
         };
+
+        w_rot_num_ru: w_rot_num_ru {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "W_ROT_NUM_RU";
+            #sensor-binding-cells = <0>;
+            bindings = <&to 5>, <&toru>;
+        };
+
+        w_en_extra_d: w_en_extra_d {
+            compatible = "zmk,behavior-mod-morph";
+            label = "W_EN_EXTRA_D";
+            bindings = <&kp D>, <&kp MINUS>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        w_rot_fun_en: w_rot_fun_en {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "W_ROT_FUN_EN";
+            #sensor-binding-cells = <0>;
+            bindings = <&to 6>, <&toen>;
+        };
     };
 
     combos {
@@ -287,75 +296,28 @@
     keymap {
         compatible = "zmk,keymap";
 
-        en {
+        wed {
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E  &kp R     &kp T                                      &kp Y      &kp U     &kp I      &kp O    &kp P     &kp BACKSPACE
-&kp LSHFT  &kp A  &kp S  &kp D  &kp F     &kp G                                      &kp H      &kp J     &kp K      &kp L    &kp SEMI  &kp ENTER
-&kp LCTRL  &kp Z  &kp X  &kp C  &kp V     &kp B      &ru_shift_fun    &fun_shift_ru  &kp N      &kp M     &kp COMMA  &kp DOT  &quest    &kp SINGLE_QUOTE
-                                &kp LALT  &kp SPACE  &mo 2            &mo 2          &kp RSHFT  &kp RALT
+&kp TAB     &kp G  &kp K  &kp L  &kp M  &kp N                          &kp F      &kp U  &w_en_extra_d  &kp C    &kp Q     &kp BACKSPACE
+&kp LSHIFT  &kp V  &kp P  &kp R  &kp S  &kp T                          &kp A      &kp O  &kp E          &kp I    &kp SEMI  &kp RSHIFT
+&kp LCTRL   &kp Z  &kp X  &kp J  &kp B  &kp Y      &none    &kp LG(L)  &kp H      &kp W  &kp COMMA      &kp DOT  &quest    &kp SINGLE_QUOTE
+                                 &to 1  &kp SPACE  &none    &kp RCTRL  &kp ENTER  &none
             >;
 
-            display-name = "EEE";
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp PG_UP PG_DN>;
+            label = "n | En | r";
+            sensor-bindings = <&w_rot_num_ru>;
         };
 
-        ru {
+        wed1h {
+            label = "n | EH | r";
             bindings = <
-&kp TAB    &mt RU_CYRILLIC_HARD_SIGN RU_CYRILLIC_SOFT_SIGN  &mt RU_CYRILLIC_SHCHA RU_CYRILLIC_SHA  &mt RU_CYRILLIC_E RU_CYRILLIC_IE  &ru_replace  &ru_toggle                                           &kp RU_CYRILLIC_SHORT_I  &kp RU_CYRILLIC_U    &mt RU_CYRILLIC_YERU RU_CYRILLIC_I  &ru_open            &kp RU_CYRILLIC_PE  &kp BACKSPACE
-&kp LSHFT  &ru_all                                          &ru_save                               &kp RU_CYRILLIC_DE                &ru_find     &kp RU_CYRILLIC_GHE                                  &kp RU_CYRILLIC_HA       &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_KA                  &kp RU_CYRILLIC_EL  &ru_semi            &kp ENTER
-&kp LCTRL  &ru_cancel                                       &ru_cut                                &ru_copy                          &ru_paste    &kp RU_CYRILLIC_BE   &en_shift_fun    &fun_shift_en  &ru_new                  &kp RU_CYRILLIC_EM   &kp RU_COMMA                        &kp RU_DOT          &quest_ru           &kp RU_DOUBLE_QUOTES
-                                                                                                                                     &kp LALT     &kp SPACE            &mo 2            &mo 2          &kp RSHFT                &to 5
+&kp BACKSPACE     &kp Q     &kp C    &w_en_extra_d  &kp U  &kp F                          &none  &none  &none  &none  &none  &none
+&kp RSHIFT        &kp SEMI  &kp I    &kp E          &kp O  &kp A                          &none  &none  &none  &none  &none  &none
+&kp SINGLE_QUOTE  &quest    &kp DOT  &kp COMMA      &kp W  &kp H      &kp LG(L)    &none  &none  &none  &none  &none  &none  &none
+                                                    &to 0  &kp ENTER  &kp RCTRL    &none  &none  &none
             >;
 
-            display-name = "RRR";
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp PG_UP PG_DN>;
-        };
-
-        dig {
-            bindings = <
-&kp TAB    &kp KP_DOT       &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                                &kp LBKT   &kp RBKT        &kp UP          &kp LBRC         &kp RBRC  &kp BACKSPACE
-&kp LSHFT  &kp KP_ASTERISK  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                                   &kp HOME   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END   &kp ENTER
-&kp LCTRL  &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &kp PERCENT    &kp RU_NUMERO  &kp GRAVE  &kp BSLH        &kp PIPE        &kp SLASH        &none     &kp DEL
-                                                        &kp LEFT_GUI  &kp SPACE     &kp LG(L)      &kp LG(L)      &kp RSHFT  &kp RALT
-            >;
-
-            display-name = "666";
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp PG_UP PG_DN>;
-        };
-
-        fun {
-            bindings = <
-&kp TAB    &kp F1  &kp F2   &kp F3   &kp F4    &none                                        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2      &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
-&kp LSHFT  &kp F5  &kp F6   &kp F7   &kp F8    &none                                        &out OUT_BLE  &kp C_VOL_DN  &kp C_MUTE        &kp C_VOL_UP  &none         &studio_unlock
-&kp LCTRL  &kp F9  &kp F10  &kp F11  &kp F12   &none      &wasd_shift_en    &wasd_shift_ru  &out OUT_USB  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT    &none         &none
-                                     &kp LALT  &kp LCTRL  &mo 2             &none           &none         &none
-            >;
-
-            display-name = "FFF";
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp PG_UP PG_DN>;
-        };
-
-        gm {
-            bindings = <
-&kp ESC    &kp TAB    &kp Q  &kp W  &kp E     &kp R                                      &none  &none  &none  &none  &none  &none
-&kp LSHFT  &kp LSHFT  &kp A  &kp S  &kp D     &kp F                                      &none  &none  &none  &none  &none  &none
-&kp LCTRL  &kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &fun_shift_en    &fun_shift_ru  &none  &none  &none  &none  &none  &none
-                                    &kp LALT  &kp SPACE  &mo 2            &none          &none  &none
-            >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp PG_UP PG_DN>;
-
-            label = "WASD";
+            sensor-bindings = <&w_rot_num_ru>;
         };
 
         wrd {
@@ -363,7 +325,7 @@
 &kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA   &kp RU_CYRILLIC_EL   &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_EN                            &kp RU_CYRILLIC_EF  &kp RU_CYRILLIC_U    &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_SOFT_SIGN  &kp BACKSPACE
 &kp LSHFT  &kp RU_CYRILLIC_VE   &kp RU_CYRILLIC_PE   &kp RU_CYRILLIC_ER   &kp RU_CYRILLIC_ES  &kp RU_CYRILLIC_TE                            &kp RU_CYRILLIC_A   &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_IE  &kp RU_CYRILLIC_I    &ru_semi                   &kp RSHFT
 &kp LCTRL  &kp RU_CYRILLIC_ZE   &kp RU_CYRILLIC_CHE  &kp RU_CYRILLIC_ZHE  &kp RU_CYRILLIC_BE  &kp RU_CYRILLIC_YERU  &en_shift_fun    &none  &kp RU_CYRILLIC_HA  &kp RU_CYRILLIC_SHA  &kp RU_COMMA        &kp RU_DOT           &quest_ru                  &kp RU_DQT
-                                                                          &to 6               &kp SPACE             &none            &mo 7  &kp ENTER           &none
+                                                                          &to 3               &kp SPACE             &none            &mo 4  &kp ENTER           &none
             >;
 
             label = "RU";
@@ -375,7 +337,7 @@
 &kp BACKSPACE  &kp RU_CYRILLIC_SOFT_SIGN  &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_U    &kp RU_CYRILLIC_EF                  &none  &none  &none  &none  &none  &none
 &kp RSHIFT     &ru_semi                   &kp RU_CYRILLIC_I    &kp RU_CYRILLIC_IE  &kp RU_CYRILLIC_O    &kp RU_CYRILLIC_A                   &none  &none  &none  &none  &none  &none
 &kp RU_DQT     &quest_ru                  &kp RU_DOT           &kp RU_COMMA        &kp RU_CYRILLIC_SHA  &kp RU_CYRILLIC_HA  &none    &none  &none  &none  &none  &none  &none  &none
-                                                                                   &to 5                &kp ENTER           &none    &none  &none  &none
+                                                                                   &to 2                &kp ENTER           &none    &none  &none  &none
             >;
         };
 
@@ -389,26 +351,45 @@
             >;
         };
 
-        wed {
+        nume {
             bindings = <
-&kp TAB     &kp G  &kp K  &kp L  &kp M  &kp N                              &kp F      &kp U  &kp D      &kp C    &kp Q     &kp BACKSPACE
-&kp LSHIFT  &kp V  &kp P  &kp R  &kp S  &kp T                              &kp A      &kp O  &kp E      &kp I    &kp SEMI  &kp RSHIFT
-&kp LCTRL   &kp Z  &kp X  &kp J  &kp B  &kp Y      &en_shift_fun    &none  &kp H      &kp W  &kp COMMA  &kp DOT  &quest    &kp SINGLE_QUOTE
-                                 &none  &kp SPACE  &none            &mo 9  &kp ENTER  &none
+&kp TAB    &kp KP_DOT       &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                                &kp LBKT   &kp RBKT        &kp UP          &kp LBRC         &kp RBRC  &kp BACKSPACE
+&kp LSHFT  &kp KP_ASTERISK  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                                   &kp HOME   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END   &kp ENTER
+&kp LCTRL  &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &kp PERCENT    &kp RU_NUMERO  &kp GRAVE  &kp BSLH        &kp PIPE        &kp SLASH        &none     &kp DEL
+                                                        &kp LEFT_GUI  &kp SPACE     &kp LG(L)      &kp LG(L)      &kp RSHFT  &kp RALT
             >;
 
-            label = "EN";
+            display-name = "f | Nu | e";
+            sensor-bindings = <&w_rot_fun_en>;
         };
 
-        wede {
+        fune {
             bindings = <
-&kp TAB     &kp G  &kp K  &kp L  &kp M  &kp N                              &kp F      &kp U  &kp MINUS  &kp C    &kp Q     &kp BACKSPACE
-&kp LSHIFT  &kp V  &kp P  &kp R  &kp S  &kp T                              &kp A      &kp O  &kp E      &kp I    &kp SEMI  &kp RSHIFT
-&kp LCTRL   &kp Z  &kp X  &kp J  &kp B  &kp Y      &en_shift_fun    &none  &kp H      &kp W  &kp COMMA  &kp DOT  &quest    &kp SINGLE_QUOTE
-                                 &none  &kp SPACE  &none            &none  &kp ENTER  &none
+&kp TAB    &kp F1  &kp F2   &kp F3   &kp F4    &none                                        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2      &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
+&kp LSHFT  &kp F5  &kp F6   &kp F7   &kp F8    &none                                        &out OUT_BLE  &kp C_VOL_DN  &kp C_MUTE        &kp C_VOL_UP  &none         &studio_unlock
+&kp LCTRL  &kp F9  &kp F10  &kp F11  &kp F12   &none      &wasd_shift_en    &wasd_shift_ru  &out OUT_USB  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT    &none         &none
+                                     &kp LALT  &kp LCTRL  &mo 5             &none           &none         &none
             >;
 
-            label = "EN-E";
+            display-name = "FFF";
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp PG_UP PG_DN>;
+        };
+
+        gm {
+            bindings = <
+&kp ESC    &kp TAB    &kp Q  &kp W  &kp E     &kp R                                      &none  &none  &none  &none  &none  &none
+&kp LSHFT  &kp LSHFT  &kp A  &kp S  &kp D     &kp F                                      &none  &none  &none  &none  &none  &none
+&kp LCTRL  &kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &fun_shift_en    &fun_shift_ru  &none  &none  &none  &none  &none  &none
+                                    &kp LALT  &kp SPACE  &mo 5            &none          &none  &none
+            >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp PG_UP PG_DN>;
+
+            label = "WASD";
         };
     };
 };
