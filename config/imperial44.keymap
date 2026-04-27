@@ -385,6 +385,114 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
+
+        en_dot_slash: en_dot_slash {
+            compatible = "zmk,behavior-mod-morph";
+            label = "EN_DOT_SLASH";
+            bindings = <&kp DOT>, <&kp KP_SLASH>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        ru_dot_slash: ru_dot_slash {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RU_DOT_SLASH";
+            bindings = <&en DOT>, <&kp KP_SLASH>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        num_cancel: num_cancel {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUM_CANCEL";
+            bindings = <&kp KP_SLASH>, <&kp LC(Z)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        num_cut: num_cut {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUM_CUT";
+            bindings = <&kp NUMBER_1>, <&kp LC(X)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        num_copy: num_copy {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUM_COPY";
+            bindings = <&kp NUMBER_2>, <&kp LC(C)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        num_paste: num_paste {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUM_PASTE";
+            bindings = <&kp NUMBER_3>, <&kp LC(V)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        num_all: num_all {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUM_ALL";
+            bindings = <&kp KP_MULTIPLY>, <&kp LC(A)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        num_save: num_save {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUM_SAVE";
+            bindings = <&kp NUMBER_4>, <&kp LC(S)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        num_find: num_find {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUM_FIND";
+            bindings = <&kp NUMBER_6>, <&kp LC(F)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        num_toggle: num_toggle {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUM_TOGGLE";
+            bindings = <&kp EQUAL>, <&kp LC(T)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        num_replace: num_replace {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUM_REPLACE";
+            bindings = <&kp NUMBER_5>, <&kp LC(R)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        num_new: num_new {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUM_NEW";
+            bindings = <&kp NUMBER_0>, <&kp LC(N)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
     };
 
     combos { compatible = "zmk,combos"; };
@@ -395,10 +503,10 @@
         wed {
             label = "n | En | r";
             bindings = <
-&kp TAB     &kp G    &kp K     &kp L     &kp M      &kp N                           &kp F      &kp U  &w_en_extra_d  &kp C    &kp Q     &kp BACKSPACE
-&kp LSHIFT  &en_all  &en_save  &kp R     &en_find   &kp T                           &kp A      &kp O  &kp E          &kp I    &kp SEMI  &kp RSHIFT
-&kp LCTRL   &kp Z    &kp X     &en_copy  &en_paste  &kp Y      &none     &kp LG(L)  &kp H      &kp W  &kp COMMA      &kp DOT  &quest    &kp SINGLE_QUOTE
-                                         &to 1      &kp SPACE  &mo 11    &kp RCTRL  &kp ENTER  &none
+&kp TAB     &kp G    &kp K     &kp L     &kp M      &kp N                                 &kp F      &kp U  &w_en_extra_d  &kp C          &kp Q     &kp BACKSPACE
+&kp LSHIFT  &en_all  &en_save  &kp R     &en_find   &kp T                                 &kp A      &kp O  &kp E          &kp I          &kp SEMI  &kp RSHIFT
+&kp LCTRL   &kp Z    &kp X     &en_copy  &en_paste  &kp Y      &kp LEFT_GUI    &none      &kp H      &kp W  &kp COMMA      &en_dot_slash  &quest    &kp SINGLE_QUOTE
+                                         &to 1      &kp SPACE  &mo 11          &kp RCTRL  &kp ENTER  &none
             >;
 
             sensor-bindings = <&w_rot_num_ru>;
@@ -407,10 +515,10 @@
         wed1h {
             label = "n | Eh | r";
             bindings = <
-&kp BACKSPACE     &kp Q     &kp C    &w_en_extra_d  &kp U  &kp F                          &none  &none  &none  &none  &none  &none
-&kp RSHIFT        &kp SEMI  &kp I    &kp E          &kp O  &kp A                          &none  &none  &none  &none  &none  &none
-&kp SINGLE_QUOTE  &quest    &kp DOT  &kp COMMA      &kp W  &kp H      &kp LG(L)    &none  &none  &none  &none  &none  &none  &none
-                                                    &to 0  &kp ENTER  &kp RCTRL    &none  &none  &none
+&kp BACKSPACE     &kp Q     &kp C          &w_en_extra_d  &kp U  &kp F                          &none  &none  &none  &none  &none  &none
+&kp RSHIFT        &kp SEMI  &kp I          &kp E          &kp O  &kp A                          &none  &none  &none  &none  &none  &none
+&kp SINGLE_QUOTE  &quest    &en_dot_slash  &kp COMMA      &kp W  &kp H      &none        &none  &none  &none  &none  &none  &none  &none
+                                                          &to 0  &kp ENTER  &kp RCTRL    &none  &none  &none
             >;
 
             sensor-bindings = <&w_rot_num_ru>;
@@ -418,10 +526,10 @@
 
         wrd {
             bindings = <
-&kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_EM  &ru_new                                   &kp RU_CYRILLIC_EF  &ru_u   &ru_d      &kp RU_CYRILLIC_TSE  &ru_soft       &kp BACKSPACE
-&kp LSHFT  &ru_all              &ru_save            &ru_replace         &ru_find            &ru_toggle                                &ru_a               &ru_o   &ru_e      &ru_i                &en SEMICOLON  &kp RSHFT
-&kp LCTRL  &ru_cancel           &ru_cut             &ru_copy            &ru_paste           &kp RU_CYRILLIC_YERU  &none    &kp LG(L)  &kp RU_CYRILLIC_HA  &ru_sh  &en COMMA  &en DOT              &quest_ru      &en SINGLE_QUOTE
-                                                                        &to 3               &kp SPACE             &mo 4    &kp RCTRL  &kp ENTER           &none
+&kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_EM  &ru_new                                          &kp RU_CYRILLIC_EF  &ru_u   &ru_d      &kp RU_CYRILLIC_TSE  &ru_soft       &kp BACKSPACE
+&kp LSHFT  &ru_all              &ru_save            &ru_replace         &ru_find            &ru_toggle                                       &ru_a               &ru_o   &ru_e      &ru_i                &en SEMICOLON  &kp RSHFT
+&kp LCTRL  &ru_cancel           &ru_cut             &ru_copy            &ru_paste           &kp RU_CYRILLIC_YERU  &kp LEFT_GUI    &none      &kp RU_CYRILLIC_HA  &ru_sh  &en COMMA  &ru_dot_slash        &quest_ru      &en SINGLE_QUOTE
+                                                                        &to 3               &kp SPACE             &mo 4           &kp RCTRL  &kp ENTER           &none
             >;
 
             label = "e | Ru | n";
@@ -432,7 +540,7 @@
             bindings = <
 &kp BACKSPACE     &ru_soft       &kp RU_CYRILLIC_TSE  &ru_d      &ru_u   &kp RU_CYRILLIC_EF                      &none  &none  &none  &none  &none  &none
 &kp RSHIFT        &en SEMICOLON  &ru_i                &ru_e      &ru_o   &ru_a                                   &none  &none  &none  &none  &none  &none
-&en SINGLE_QUOTE  &quest         &en DOT              &en COMMA  &ru_sh  &kp RU_CYRILLIC_HA  &kp LG(L)    &none  &none  &none  &none  &none  &none  &none
+&en SINGLE_QUOTE  &quest_ru      &ru_dot_slash        &en COMMA  &ru_sh  &kp RU_CYRILLIC_HA  &none        &none  &none  &none  &none  &none  &none  &none
                                                                  &to 2   &kp ENTER           &kp RCTRL    &none  &none  &none
             >;
 
@@ -443,10 +551,10 @@
         numr {
             display-name = "r | Nm | f";
             bindings = <
-&kp ESCAPE  &kp KP_DOT       &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                      &kp LBKT   &kp RBKT        &kp UP          &kp LBRC         &kp RBRC       &kp BACKSPACE
-&kp LSHFT   &kp KP_ASTERISK  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                         &kp HOME   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END        &kp RSHIFT
-&kp LCTRL   &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &none    &none      &kp GRAVE  &kp BSLH        &kp PIPE        &kp SLASH        &kp RU_NUMERO  &kp DEL
-                                                         &to 5         &kp SPACE     &none    &kp RCTRL  &kp ENTER  &none
+&kp ESCAPE  &kp KP_DOT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &num_new                         &kp LBKT   &kp RBKT        &kp UP          &kp LBRC         &kp RBRC       &kp BACKSPACE
+&kp LSHFT   &num_all     &num_save     &num_replace  &num_find     &num_toggle                      &kp HOME   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END        &kp RSHIFT
+&kp LCTRL   &num_cancel  &num_cut      &num_copy     &num_paste    &kp MINUS    &none    &none      &kp GRAVE  &kp BSLH        &kp PIPE        &kp SLASH        &kp RU_NUMERO  &kp DEL
+                                                     &to 5         &kp SPACE    &none    &kp RCTRL  &kp ENTER  &none
             >;
 
             sensor-bindings = <&w_rot_ru_fun>;
@@ -526,10 +634,10 @@
 
         nume {
             bindings = <
-&kp ESCAPE  &kp KP_DOT       &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                      &kp LBKT   &kp RBKT        &kp UP          &kp LBRC         &kp RBRC       &kp BACKSPACE
-&kp LSHFT   &kp KP_ASTERISK  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                         &kp HOME   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END        &kp RSHIFT
-&kp LCTRL   &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &none    &none      &kp GRAVE  &kp BSLH        &kp PIPE        &kp SLASH        &kp RU_NUMERO  &kp DEL
-                                                         &to 12        &kp SPACE     &none    &kp RCTRL  &kp ENTER  &none
+&kp ESCAPE  &kp KP_DOT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &num_new                         &kp LBKT   &kp RBKT        &kp UP          &kp LBRC         &kp RBRC       &kp BACKSPACE
+&kp LSHFT   &num_all     &num_save     &num_replace  &num_find     &num_toggle                      &kp HOME   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END        &kp RSHIFT
+&kp LCTRL   &num_cancel  &num_cut      &num_copy     &num_paste    &kp MINUS    &none    &none      &kp GRAVE  &kp BSLH        &kp PIPE        &kp SLASH        &kp RU_NUMERO  &kp DEL
+                                                     &to 12        &kp SPACE    &none    &kp RCTRL  &kp ENTER  &none
             >;
 
             display-name = "f | Nm | e";
