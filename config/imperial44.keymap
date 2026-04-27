@@ -395,10 +395,10 @@
         wed {
             label = "n | En | r";
             bindings = <
-&kp TAB     &kp G    &kp K     &kp L     &kp M      &kp N                          &kp F      &kp U  &w_en_extra_d  &kp C    &kp Q     &kp BACKSPACE
-&kp LSHIFT  &en_all  &en_save  &kp R     &en_find   &kp T                          &kp A      &kp O  &kp E          &kp I    &kp SEMI  &kp RSHIFT
-&kp LCTRL   &kp Z    &kp X     &en_copy  &en_paste  &kp Y      &none    &kp LG(L)  &kp H      &kp W  &kp COMMA      &kp DOT  &quest    &kp SINGLE_QUOTE
-                                         &to 1      &kp SPACE  &none    &kp RCTRL  &kp ENTER  &none
+&kp TAB     &kp G    &kp K     &kp L     &kp M      &kp N                           &kp F      &kp U  &w_en_extra_d  &kp C    &kp Q     &kp BACKSPACE
+&kp LSHIFT  &en_all  &en_save  &kp R     &en_find   &kp T                           &kp A      &kp O  &kp E          &kp I    &kp SEMI  &kp RSHIFT
+&kp LCTRL   &kp Z    &kp X     &en_copy  &en_paste  &kp Y      &none     &kp LG(L)  &kp H      &kp W  &kp COMMA      &kp DOT  &quest    &kp SINGLE_QUOTE
+                                         &to 1      &kp SPACE  &mo 11    &kp RCTRL  &kp ENTER  &none
             >;
 
             sensor-bindings = <&w_rot_num_ru>;
@@ -421,7 +421,7 @@
 &kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_EM  &ru_new                                   &kp RU_CYRILLIC_EF  &ru_u   &ru_d      &kp RU_CYRILLIC_TSE  &ru_soft       &kp BACKSPACE
 &kp LSHFT  &ru_all              &ru_save            &ru_replace         &ru_find            &ru_toggle                                &ru_a               &ru_o   &ru_e      &ru_i                &en SEMICOLON  &kp RSHFT
 &kp LCTRL  &ru_cancel           &ru_cut             &ru_copy            &ru_paste           &kp RU_CYRILLIC_YERU  &none    &kp LG(L)  &kp RU_CYRILLIC_HA  &ru_sh  &en COMMA  &en DOT              &quest_ru      &en SINGLE_QUOTE
-                                                                        &to 3               &kp SPACE             &none    &kp RCTRL  &kp ENTER           &none
+                                                                        &to 3               &kp SPACE             &mo 4    &kp RCTRL  &kp ENTER           &none
             >;
 
             label = "e | Ru | n";
