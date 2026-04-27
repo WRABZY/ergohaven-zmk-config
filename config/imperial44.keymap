@@ -101,6 +101,7 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
+            keep-mods = <(MOD_RSFT)>;
         };
 
         ru_copy: ru_copy {
@@ -384,6 +385,7 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
+            keep-mods = <(MOD_RSFT)>;
         };
 
         en_dot_slash: en_dot_slash {
