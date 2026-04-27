@@ -101,7 +101,6 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
-            keep-mods = <(MOD_RSFT)>;
         };
 
         ru_copy: ru_copy {
@@ -385,7 +384,6 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
-            keep-mods = <(MOD_RSFT)>;
         };
 
         en_dot_slash: en_dot_slash {
@@ -518,7 +516,7 @@
             label = "n | Eh | r";
             bindings = <
 &kp BACKSPACE     &kp Q     &kp C          &w_en_extra_d  &kp U  &kp F                          &none  &none  &none  &none  &none  &none
-&kp RSHIFT        &kp SEMI  &kp I          &kp E          &kp O  &kp A                          &none  &none  &none  &none  &none  &none
+&kp LSHIFT        &kp SEMI  &kp I          &kp E          &kp O  &kp A                          &none  &none  &none  &none  &none  &none
 &kp SINGLE_QUOTE  &quest    &en_dot_slash  &kp COMMA      &kp W  &kp H      &none        &none  &none  &none  &none  &none  &none  &none
                                                           &to 0  &kp ENTER  &kp RCTRL    &none  &none  &none
             >;
@@ -541,7 +539,7 @@
         wrd1h {
             bindings = <
 &kp BACKSPACE     &ru_soft       &kp RU_CYRILLIC_TSE  &ru_d      &ru_u   &kp RU_CYRILLIC_EF                      &none  &none  &none  &none  &none  &none
-&kp RSHIFT        &en SEMICOLON  &ru_i                &ru_e      &ru_o   &ru_a                                   &none  &none  &none  &none  &none  &none
+&kp LSHIFT        &en SEMICOLON  &ru_i                &ru_e      &ru_o   &ru_a                                   &none  &none  &none  &none  &none  &none
 &en SINGLE_QUOTE  &quest_ru      &ru_dot_slash        &en COMMA  &ru_sh  &kp RU_CYRILLIC_HA  &none        &none  &none  &none  &none  &none  &none  &none
                                                                  &to 2   &kp ENTER           &kp RCTRL    &none  &none  &none
             >;
