@@ -51,29 +51,8 @@
         to_num_en: to_num_en {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&lang_en &to 11>;
+            bindings = <&lang_en &to 7>;
             label = "TO_NUM_EN";
-        };
-
-        to_num_ru: to_num_ru {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&lang_en &to 4>;
-            label = "TO_NUM_RU";
-        };
-
-        to_fun_en: to_fun_en {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&lang_en &to 9>;
-            label = "TO_FUN_EN";
-        };
-
-        to_fun_ru: to_fun_ru {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&lang_ru &to 6>;
-            label = "TO_FUN_RU";
         };
 
         en: en {
@@ -90,6 +69,20 @@
                 <&lang_ru>;
 
             label = "EN";
+        };
+
+        to_bt: to_bt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_BLE &to_en>;
+            label = "TO_BT";
+        };
+
+        to_us: to_us {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_USB &to_en>;
+            label = "TO_US";
         };
     };
 
@@ -202,13 +195,6 @@
             mods = <(MOD_LCTL)>;
         };
 
-        w_rot_num_ru: w_rot_num_ru {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "W_ROT_NUM_RU";
-            #sensor-binding-cells = <0>;
-            bindings = <&to_num_en>, <&to_ru>;
-        };
-
         w_en_extra_d: w_en_extra_d {
             compatible = "zmk,behavior-mod-morph";
             label = "W_EN_EXTRA_D";
@@ -222,42 +208,14 @@
             compatible = "zmk,behavior-sensor-rotate";
             label = "W_ROT_FUN_EN";
             #sensor-binding-cells = <0>;
-            bindings = <&to_fun_en>, <&to_en>;
-        };
-
-        w_rot_g_num: w_rot_g_num {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "W_ROT_G_NUM";
-            #sensor-binding-cells = <0>;
-            bindings = <&to 8>, <&to_num_en>;
-        };
-
-        w_rot_f_f: w_rot_f_f {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "W_ROT_F_F";
-            #sensor-binding-cells = <0>;
-            bindings = <&to_fun_ru>, <&to_fun_en>;
-        };
-
-        w_rot_num_g: w_rot_num_g {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "W_ROT_NUM_G";
-            #sensor-binding-cells = <0>;
-            bindings = <&to_num_ru>, <&to 8>;
+            bindings = <&to_en>, <&to 5>;
         };
 
         w_rot_ru_fun: w_rot_ru_fun {
             compatible = "zmk,behavior-sensor-rotate";
             label = "W_ROT_RU_FUN";
             #sensor-binding-cells = <0>;
-            bindings = <&to_ru>, <&to_fun_ru>;
-        };
-
-        w_rot_en_num: w_rot_en_num {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "W_ROT_EN_NUM";
-            #sensor-binding-cells = <0>;
-            bindings = <&to_en>, <&to_num_ru>;
+            bindings = <&to 5>, <&to_ru>;
         };
 
         ru_d: ru_d {
@@ -493,6 +451,101 @@
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
         };
+
+        w_rot_ru_en: w_rot_ru_en {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "W_ROT_RU_EN";
+            #sensor-binding-cells = <0>;
+            bindings = <&to_en>, <&to_ru>;
+        };
+
+        w_to_num: w_to_num {
+            compatible = "zmk,behavior-mod-morph";
+            label = "W_TO_NUM";
+            bindings = <&mo 7>, <&to 7>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        to_ble: to_ble {
+            compatible = "zmk,behavior-mod-morph";
+            label = "TO_BLE";
+            bindings = <&none>, <&to_bt>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        to_usb: to_usb {
+            compatible = "zmk,behavior-mod-morph";
+            label = "TO_USB";
+            bindings = <&none>, <&to_us>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        bt0: bt0 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BT0";
+            bindings = <&none>, <&bt BT_SEL 0>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        bt1: bt1 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BT1";
+            bindings = <&none>, <&bt BT_SEL 1>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        bt2: bt2 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BT2";
+            bindings = <&none>, <&bt BT_SEL 2>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        bt3: bt3 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BT3";
+            bindings = <&none>, <&bt BT_SEL 3>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        btc: btc {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BTC";
+            bindings = <&none>, <&bt BT_CLR>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
+
+        shift_caps: shift_caps {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SHIFT_CAPS";
+            bindings = <&kp LSHFT>, <&caps>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        caps: caps {
+            compatible = "zmk,behavior-tap-dance";
+            label = "CAPS";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LEFT_SHIFT)>, <&kp CAPS>;
+        };
     };
 
     combos { compatible = "zmk,combos"; };
@@ -501,19 +554,21 @@
         compatible = "zmk,keymap";
 
         wed {
-            label = "n | En | r";
+            label = "Eng";
             bindings = <
-&kp TAB     &kp G    &kp K     &kp L     &kp M      &kp N                                 &kp F      &kp U  &w_en_extra_d  &kp C          &kp Q     &kp BACKSPACE
-&kp LSHIFT  &en_all  &en_save  &kp R     &en_find   &kp T                                 &kp A      &kp O  &kp E          &kp I          &kp SEMI  &kp RSHIFT
-&kp LCTRL   &kp Z    &kp X     &en_copy  &en_paste  &kp Y      &kp LEFT_GUI    &none      &kp H      &kp W  &kp COMMA      &en_dot_slash  &quest    &kp SINGLE_QUOTE
-                                         &to 1      &kp SPACE  &mo 11          &kp RCTRL  &kp ENTER  &none
+&kp TAB      &kp G    &kp K     &kp L     &kp M      &kp N                                 &kp F      &kp U  &w_en_extra_d  &kp C          &kp Q     &kp BACKSPACE
+&shift_caps  &en_all  &en_save  &kp R     &en_find   &kp T                                 &kp A      &kp O  &kp E          &kp I          &kp SEMI  &kp RSHIFT
+&kp LCTRL    &kp Z    &kp X     &en_copy  &en_paste  &kp Y      &kp LEFT_GUI    &none      &kp H      &kp W  &kp COMMA      &en_dot_slash  &quest    &kp SINGLE_QUOTE
+                                          &to 1      &kp SPACE  &w_to_num       &kp RCTRL  &kp ENTER  &none
             >;
 
-            sensor-bindings = <&w_rot_num_ru>;
+            sensor-bindings =
+                <&w_rot_ru_fun>,
+                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         wed1h {
-            label = "n | Eh | r";
+            label = "Eng L";
             bindings = <
 &kp BACKSPACE     &kp Q     &kp C          &w_en_extra_d  &kp U  &kp F                          &none  &none  &none  &none  &none  &none
 &kp LSHIFT        &kp SEMI  &kp I          &kp E          &kp O  &kp A                          &none  &none  &none  &none  &none  &none
@@ -521,19 +576,23 @@
                                                           &to 0  &kp ENTER  &kp RCTRL    &none  &none  &none
             >;
 
-            sensor-bindings = <&w_rot_num_ru>;
+            sensor-bindings =
+                <&w_rot_ru_fun>,
+                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         wrd {
             bindings = <
-&kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_EM  &ru_new                                          &kp RU_CYRILLIC_EF  &ru_u   &ru_d      &kp RU_CYRILLIC_TSE  &ru_soft       &kp BACKSPACE
-&kp LSHFT  &ru_all              &ru_save            &ru_replace         &ru_find            &ru_toggle                                       &ru_a               &ru_o   &ru_e      &ru_i                &en SEMICOLON  &kp RSHFT
-&kp LCTRL  &ru_cancel           &ru_cut             &ru_copy            &ru_paste           &kp RU_CYRILLIC_YERU  &kp LEFT_GUI    &none      &kp RU_CYRILLIC_HA  &ru_sh  &en COMMA  &ru_dot_slash        &quest_ru      &en SINGLE_QUOTE
-                                                                        &to 3               &kp SPACE             &mo 4           &kp RCTRL  &kp ENTER           &none
+&kp TAB      &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_EM  &ru_new                                          &kp RU_CYRILLIC_EF  &ru_u   &ru_d      &kp RU_CYRILLIC_TSE  &ru_soft       &kp BACKSPACE
+&shift_caps  &ru_all              &ru_save            &ru_replace         &ru_find            &ru_toggle                                       &ru_a               &ru_o   &ru_e      &ru_i                &en SEMICOLON  &kp RSHFT
+&kp LCTRL    &ru_cancel           &ru_cut             &ru_copy            &ru_paste           &kp RU_CYRILLIC_YERU  &kp LEFT_GUI    &none      &kp RU_CYRILLIC_HA  &ru_sh  &en COMMA  &ru_dot_slash        &quest_ru      &en SINGLE_QUOTE
+                                                                          &to 3               &kp SPACE             &w_to_num       &kp RCTRL  &kp ENTER           &none
             >;
 
-            label = "e | Ru | n";
-            sensor-bindings = <&w_rot_en_num>;
+            label = "Pyc";
+            sensor-bindings =
+                <&w_rot_fun_en>,
+                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         wrd1h {
@@ -544,92 +603,53 @@
                                                                  &to 2   &kp ENTER           &kp RCTRL    &none  &none  &none
             >;
 
-            label = "e | Rh | n";
-            sensor-bindings = <&w_rot_en_num>;
-        };
-
-        numr {
-            display-name = "r | Nm | f";
-            bindings = <
-&kp ESCAPE  &kp KP_DOT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &num_new                         &kp LBKT   &kp RBKT        &kp UP          &kp LBRC         &kp RBRC       &kp BACKSPACE
-&kp LSHFT   &num_all     &num_save     &num_replace  &num_find     &num_toggle                      &kp HOME   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END        &kp RSHIFT
-&kp LCTRL   &num_cancel  &num_cut      &num_copy     &num_paste    &kp MINUS    &none    &none      &kp GRAVE  &kp BSLH        &kp PIPE        &kp SLASH        &kp RU_NUMERO  &kp DEL
-                                                     &to 5         &kp SPACE    &none    &kp RCTRL  &kp ENTER  &none
-            >;
-
-            sensor-bindings = <&w_rot_ru_fun>;
-        };
-
-        numr1h {
-            display-name = "r | Nh | f";
-            bindings = <
-&kp BACKSPACE  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp UP    &kp LEFT_BRACKET  &kp RIGHT_BRACKET                      &none  &none  &none  &none  &none  &none
-&kp RSHIFT     &kp HOME        &kp LEFT         &kp DOWN  &kp RIGHT         &kp END                                &none  &none  &none  &none  &none  &none
-&kp DELETE     &kp RU_NUMERO   &kp BACKSLASH    &kp PIPE  &kp SLASH         &kp GRAVE          &none        &none  &none  &none  &none  &none  &none  &none
-                                                          &to 4             &kp ENTER          &kp RCTRL    &none  &none  &none
-            >;
-
-            sensor-bindings = <&w_rot_ru_fun>;
-        };
-
-        funr {
-            display-name = "n | Fn | g";
-            bindings = <
-&kp TAB    &kp F1  &kp F2   &kp F3   &kp F4   &none                      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2      &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
-&kp LSHFT  &kp F5  &kp F6   &kp F7   &kp F8   &none                      &out OUT_BLE  &kp C_VOL_DN  &kp C_MUTE        &kp C_VOL_UP  &none         &studio_unlock
-&kp LCTRL  &kp F9  &kp F10  &kp F11  &kp F12  &kp LALT   &none    &none  &out OUT_USB  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT    &none         &none
-                                     &to 7    &kp LCTRL  &none    &none  &none         &none
-            >;
-
-            sensor-bindings = <&w_rot_num_g>;
-        };
-
-        funr1h {
-            display-name = "n | Fh | g";
-            bindings = <
-&bt BT_CLR      &bt BT_SEL 4  &bt BT_SEL 3       &bt BT_SEL 2  &bt BT_SEL 1     &bt BT_SEL 0                  &none  &none  &none  &none  &none  &none
-&studio_unlock  &none         &kp C_VOLUME_DOWN  &kp C_MUTE    &kp C_VOLUME_UP  &out OUT_BLE                  &none  &none  &none  &none  &none  &none
-&none           &none         &kp C_PREV         &kp C_PP      &kp C_NEXT       &out OUT_USB  &none    &none  &none  &none  &none  &none  &none  &none
-                                                               &to 6            &none         &none    &none  &none  &none
-            >;
-
-            sensor-bindings = <&w_rot_num_g>;
+            label = "Pyc L";
+            sensor-bindings =
+                <&w_rot_fun_en>,
+                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         gm {
             bindings = <
-&kp ESC    &kp TAB    &kp Q  &kp W  &kp E     &kp R                      &none  &none  &none  &none  &none  &none
-&kp LSHFT  &kp LSHFT  &kp A  &kp S  &kp D     &kp F                      &none  &none  &none  &none  &none  &none
-&kp LCTRL  &kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &none    &none  &none  &none  &none  &none  &none  &none
-                                    &kp LALT  &kp SPACE  &mo 8    &none  &none  &none
+&kp ESC  &kp TAB    &kp Q  &kp W  &kp E     &kp R                      &none  &none  &none  &none  &none  &none
+&kp G    &kp LSHFT  &kp A  &kp S  &kp D     &kp F                      &none  &none  &none  &none  &none  &none
+&kp T    &kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &to 5    &none  &none  &none  &none  &none  &none  &none
+                                  &kp LALT  &kp SPACE  &mo 7    &none  &none  &none
             >;
 
-            sensor-bindings = <&w_rot_f_f>;
-            label = "f | Gm | f";
+            sensor-bindings =
+                <&w_rot_ru_en>,
+                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+
+            label = "WASD";
         };
 
         fune {
             bindings = <
-&kp TAB    &kp F1  &kp F2   &kp F3   &kp F4   &none                      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2      &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
-&kp LSHFT  &kp F5  &kp F6   &kp F7   &kp F8   &none                      &out OUT_BLE  &kp C_VOL_DN  &kp C_MUTE        &kp C_VOL_UP  &none         &studio_unlock
-&kp LCTRL  &kp F9  &kp F10  &kp F11  &kp F12  &kp LALT   &none    &none  &out OUT_USB  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT    &none         &none
-                                     &to 10   &kp LCTRL  &none    &none  &none         &none
+&kp TAB    &kp F1  &kp F2   &kp F3   &kp F4   &none                          &bt0     &bt1          &bt2              &bt3          &none  &btc
+&kp LSHFT  &kp F5  &kp F6   &kp F7   &kp F8   &kp LALT                       &to_ble  &kp C_VOL_DN  &kp C_MUTE        &kp C_VOL_UP  &none  &none
+&kp LCTRL  &kp F9  &kp F10  &kp F11  &kp F12  &none      &to 4    &none      &to_usb  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT    &none  &none
+                                     &to 6    &kp LCTRL  &mo 7    &kp RCTRL  &none    &none
             >;
 
-            display-name = "g | Fn | n";
-            sensor-bindings = <&w_rot_g_num>;
+            display-name = "Fun";
+            sensor-bindings =
+                <&w_rot_ru_en>,
+                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         fune1h {
-            display-name = "g | Fh | n";
+            display-name = "Fun L";
             bindings = <
-&bt BT_CLR      &bt BT_SEL 4  &bt BT_SEL 3       &bt BT_SEL 2  &bt BT_SEL 1     &bt BT_SEL 0                  &none  &none  &none  &none  &none  &none
-&studio_unlock  &none         &kp C_VOLUME_DOWN  &kp C_MUTE    &kp C_VOLUME_UP  &out OUT_BLE                  &none  &none  &none  &none  &none  &none
-&none           &none         &kp C_PREV         &kp C_PP      &kp C_NEXT       &out OUT_USB  &none    &none  &none  &none  &none  &none  &none  &none
-                                                               &to 9            &none         &none    &none  &none  &none
+&btc   &none  &bt3               &bt2        &bt1             &bt0                         &none  &none  &none  &none  &none  &none
+&none  &none  &kp C_VOLUME_DOWN  &kp C_MUTE  &kp C_VOLUME_UP  &to_ble                      &none  &none  &none  &none  &none  &none
+&none  &none  &kp C_PREV         &kp C_PP    &kp C_NEXT       &to_usb  &none        &none  &none  &none  &none  &none  &none  &none
+                                             &to 5            &none    &kp RCTRL    &none  &none  &none
             >;
 
-            sensor-bindings = <&w_rot_g_num>;
+            sensor-bindings =
+                <&w_rot_ru_en>,
+                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         nume {
@@ -637,23 +657,27 @@
 &kp ESCAPE  &kp KP_DOT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &num_new                         &kp LBKT   &kp RBKT        &kp UP          &kp LBRC         &kp RBRC       &kp BACKSPACE
 &kp LSHFT   &num_all     &num_save     &num_replace  &num_find     &num_toggle                      &kp HOME   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp END        &kp RSHIFT
 &kp LCTRL   &num_cancel  &num_cut      &num_copy     &num_paste    &kp MINUS    &none    &none      &kp GRAVE  &kp BSLH        &kp PIPE        &kp SLASH        &kp RU_NUMERO  &kp DEL
-                                                     &to 12        &kp SPACE    &none    &kp RCTRL  &kp ENTER  &none
+                                                     &to 8         &kp SPACE    &none    &kp RCTRL  &kp ENTER  &none
             >;
 
-            display-name = "f | Nm | e";
-            sensor-bindings = <&w_rot_fun_en>;
+            display-name = "Num";
+            sensor-bindings =
+                <&w_rot_ru_en>,
+                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         nume1h {
-            display-name = "f | Nh | e";
+            display-name = "Num L";
             bindings = <
 &kp BACKSPACE  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp UP    &kp LEFT_BRACKET  &kp RIGHT_BRACKET                      &none  &none  &none  &none  &none  &none
 &kp RSHIFT     &kp HOME        &kp LEFT         &kp DOWN  &kp RIGHT         &kp END                                &none  &none  &none  &none  &none  &none
 &kp DELETE     &kp RU_NUMERO   &kp BACKSLASH    &kp PIPE  &kp SLASH         &kp GRAVE          &none        &none  &none  &none  &none  &none  &none  &none
-                                                          &to 11            &kp ENTER          &kp RCTRL    &none  &none  &none
+                                                          &to 7             &kp ENTER          &kp RCTRL    &none  &none  &none
             >;
 
-            sensor-bindings = <&w_rot_fun_en>;
+            sensor-bindings =
+                <&w_rot_ru_en>,
+                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
     };
 };
