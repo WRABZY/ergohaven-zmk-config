@@ -456,7 +456,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             label = "W_ROT_RU_EN";
             #sensor-binding-cells = <0>;
-            bindings = <&to_en>, <&to_ru>;
+            bindings = <&to_ru>, <&to_en>;
         };
 
         w_to_num: w_to_num {
