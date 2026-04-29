@@ -34,20 +34,6 @@
             label = "LANG_RU";
         };
 
-        to_en_1h: to_en_1h {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&lang_en &to 1>;
-            label = "TO_EN_1H";
-        };
-
-        to_ru_1h: to_ru_1h {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&lang_ru &to 3>;
-            label = "TO_RU_1H";
-        };
-
         to_num_en: to_num_en {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -83,6 +69,22 @@
             #binding-cells = <0>;
             bindings = <&out OUT_USB &to_en>;
             label = "TO_US";
+        };
+
+        en_num_mo: en_num_mo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&lang_en>,
+                <&macro_press>,
+                <&mo 7>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mo 7>,
+                <&macro_tap>,
+                <&lang_ru>;
+
+            label = "EN_NUM_MO";
         };
     };
 
@@ -546,6 +548,15 @@
             #binding-cells = <0>;
             bindings = <&kp LC(LEFT_SHIFT)>, <&kp CAPS>;
         };
+
+        w_to_num_ru: w_to_num_ru {
+            compatible = "zmk,behavior-mod-morph";
+            label = "W_TO_NUM_RU";
+            bindings = <&en_num_mo>, <&to_num_en>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
     };
 
     combos { compatible = "zmk,combos"; };
@@ -586,7 +597,7 @@
 &kp TAB      &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_EM  &ru_new                                          &kp RU_CYRILLIC_EF  &ru_u   &ru_d      &kp RU_CYRILLIC_TSE  &ru_soft       &kp BACKSPACE
 &shift_caps  &ru_all              &ru_save            &ru_replace         &ru_find            &ru_toggle                                       &ru_a               &ru_o   &ru_e      &ru_i                &en SEMICOLON  &kp RSHFT
 &kp LCTRL    &ru_cancel           &ru_cut             &ru_copy            &ru_paste           &kp RU_CYRILLIC_YERU  &kp LEFT_GUI    &none      &kp RU_CYRILLIC_HA  &ru_sh  &en COMMA  &ru_dot_slash        &quest_ru      &en SINGLE_QUOTE
-                                                                          &to 3               &kp SPACE             &w_to_num       &kp RCTRL  &kp ENTER           &none
+                                                                          &to 3               &kp SPACE             &w_to_num_ru    &kp RCTRL  &kp ENTER           &none
             >;
 
             label = "Pyc";
