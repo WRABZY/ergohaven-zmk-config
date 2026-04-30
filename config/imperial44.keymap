@@ -60,7 +60,7 @@
         to_bt0: to_bt0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0 &out OUT_BLE &to_en>;
+            bindings = <&out OUT_USB &bt BT_SEL 0 &out OUT_BLE &to_en>;
             label = "TO_BT0";
         };
 
@@ -90,21 +90,21 @@
         to_bt1: to_bt1 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 1 &out OUT_BLE &to_en>;
+            bindings = <&out OUT_USB &bt BT_SEL 1 &out OUT_BLE &to_en>;
             label = "TO_BT1";
         };
 
         to_bt2: to_bt2 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 2 &out OUT_BLE &to_en>;
+            bindings = <&out OUT_USB &bt BT_SEL 2 &out OUT_BLE &to_en>;
             label = "TO_BT2";
         };
 
         to_bt3: to_bt3 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 3 &out OUT_BLE &to_en>;
+            bindings = <&out OUT_USB &bt BT_SEL 3 &out OUT_BLE &to_en>;
             label = "TO_BT3";
         };
     };
