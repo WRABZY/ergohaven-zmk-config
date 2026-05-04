@@ -650,15 +650,6 @@
             mods = <(MOD_RCTL)>;
         };
 
-        mouse_up: mouse_up {
-            compatible = "zmk,behavior-mod-morph";
-            label = "MOUSE_UP";
-            bindings = <&kp UP_ARROW>, <&mmv MOVE_UP>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RCTL)>;
-        };
-
         mouse_down: mouse_down {
             compatible = "zmk,behavior-mod-morph";
             label = "MOUSE_DOWN";
