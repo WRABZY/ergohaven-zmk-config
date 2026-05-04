@@ -160,6 +160,29 @@
 
             label = "MOUSE_DRB";
         };
+
+        mouse_smooth_up: mouse_smooth_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&mmv MOVE_Y(-600)>,
+                <&macro_wait_time 100>,
+                <&macro_release>,
+                <&mmv MOVE_Y(-600)>,
+                <&macro_press>,
+                <&mmv MOVE_Y(-300)>,
+                <&macro_wait_time 100>,
+                <&macro_release>,
+                <&mmv MOVE_Y(-300)>,
+                <&macro_press>,
+                <&mmv MOVE_Y(-100)>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mmv MOVE_Y(-100)>;
+
+            label = "MOUSE_SMOOTH_UP";
+        };
     };
 
     behaviors {
@@ -759,9 +782,9 @@
 
         gm {
             bindings = <
-&kp ESC  &kp TAB    &kp Q  &kp W  &kp E     &kp R                               &mmv MOVE_Y(600)  &none       &mmv MOVE_UP    &mouse_dlt       &mmv MOVE_UP  &none
-&kp G    &kp LSHFT  &kp A  &kp S  &kp D     &kp F                               &mmv MOVE_Y(300)  &mkp LCLK   &mkp RCLK       &mmv MOVE_RIGHT  &mouse_drb    &none
-&kp T    &kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &to 5    &mmv MOVE_Y(0)  &mmv MOVE_Y(100)  &none       &mmv MOVE_DOWN  &mmv MOVE_DOWN   &none         &none
+&kp ESC  &kp TAB    &kp Q  &kp W  &kp E     &kp R                               &mmv MOVE_Y(600)  &none       &mouse_smooth_up  &mouse_dlt       &mmv MOVE_UP  &none
+&kp G    &kp LSHFT  &kp A  &kp S  &kp D     &kp F                               &mmv MOVE_Y(300)  &mkp LCLK   &mkp RCLK         &mmv MOVE_RIGHT  &mouse_drb    &none
+&kp T    &kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &to 5    &mmv MOVE_Y(0)  &mmv MOVE_Y(100)  &none       &mmv MOVE_DOWN    &mmv MOVE_DOWN   &none         &none
                                   &kp LALT  &kp SPACE  &mo 7    &mouse_dlb      &mmv MOVE_LEFT    &mouse_drt
             >;
 
@@ -802,9 +825,9 @@
 
         nume {
             bindings = <
-&kp ESCAPE  &kp KP_DOT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &num_new                              &kp LBKT    &bracket_lmouse  &mouse_up    &grave_rmouse  &kp RU_NUMERO    &kp BACKSPACE
-&kp LSHFT   &num_all     &num_save     &num_replace  &num_find     &num_toggle                           &kp HOME    &mouse_left      &mouse_down  &mouse_right   &kp END          &kp RSHIFT
-&kp LCTRL   &num_cancel  &num_cut      &num_copy     &num_paste    &kp MINUS    &kp DELETE    &none      &kp INSERT  &kp BSLH         &kp PIPE     &kp SLASH      &kp PRINTSCREEN  &kp DEL
+&kp ESCAPE  &kp KP_DOT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &num_new                              &kp LBKT    &bracket_lmouse  &mouse_smooth_up  &grave_rmouse  &kp RU_NUMERO    &kp BACKSPACE
+&kp LSHFT   &num_all     &num_save     &num_replace  &num_find     &num_toggle                           &kp HOME    &mouse_left      &mouse_down       &mouse_right   &kp END          &kp RSHIFT
+&kp LCTRL   &num_cancel  &num_cut      &num_copy     &num_paste    &kp MINUS    &kp DELETE    &none      &kp INSERT  &kp BSLH         &kp PIPE          &kp SLASH      &kp PRINTSCREEN  &kp DEL
                                                      &to 8         &kp SPACE    &kp LALT      &kp RCTRL  &kp ENTER   &to 8
             >;
 
@@ -817,10 +840,10 @@
         nume1h {
             display-name = "Num L";
             bindings = <
-&kp BACKSPACE  &kp RU_NUMERO    &grave_rmouse  &mouse_up    &lbracket_lmouse  &kp RIGHT_BRACKET                           &num_new     &kp KP_NUMBER_9  &kp KP_NUMBER_8  &kp KP_NUMBER_7  &kp KP_DOT   &kp ESC
-&kp RSHIFT     &kp HOME         &mouse_left    &mouse_down  &mouse_right      &kp END                                     &num_toggle  &num_find        &num_replace     &num_save        &num_all     &kp LSHFT
-&kp DELETE     &kp PRINTSCREEN  &kp BACKSLASH  &kp PIPE     &kp SLASH         &kp INSERT         &none        &kp DELETE  &kp MINUS    &num_paste       &num_copy        &num_cut         &num_cancel  &kp LCTRL
-                                                            &to 7             &kp ENTER          &kp RCTRL    &kp LALT    &kp SPACE    &to 7
+&kp BACKSPACE  &kp RU_NUMERO    &grave_rmouse  &mouse_smooth_up  &lbracket_lmouse  &kp RIGHT_BRACKET                           &num_new     &kp KP_NUMBER_9  &kp KP_NUMBER_8  &kp KP_NUMBER_7  &kp KP_DOT   &kp ESC
+&kp RSHIFT     &kp HOME         &mouse_left    &mouse_down       &mouse_right      &kp END                                     &num_toggle  &num_find        &num_replace     &num_save        &num_all     &kp LSHFT
+&kp DELETE     &kp PRINTSCREEN  &kp BACKSLASH  &kp PIPE          &kp SLASH         &kp INSERT         &none        &kp DELETE  &kp MINUS    &num_paste       &num_copy        &num_cut         &num_cancel  &kp LCTRL
+                                                                 &to 7             &kp ENTER          &kp RCTRL    &kp LALT    &kp SPACE    &to 7
             >;
 
             sensor-bindings =
