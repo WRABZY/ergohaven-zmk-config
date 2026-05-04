@@ -160,29 +160,6 @@
 
             label = "MOUSE_DRB";
         };
-
-        mouse_smooth_up: mouse_smooth_up {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&mmv MOVE_Y(-600)>,
-                <&macro_wait_time 1000>,
-                <&macro_release>,
-                <&mmv MOVE_Y(-600)>,
-                <&macro_press>,
-                <&mmv MOVE_Y(-300)>,
-                <&macro_wait_time 1000>,
-                <&macro_release>,
-                <&mmv MOVE_Y(-300)>,
-                <&macro_press>,
-                <&mmv MOVE_Y(-100)>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mmv MOVE_Y(-100)>;
-
-            label = "MOUSE_SMOOTH_UP";
-        };
     };
 
     behaviors {
@@ -782,10 +759,10 @@
 
         gm {
             bindings = <
-&kp ESC  &kp TAB    &kp Q  &kp W  &kp E     &kp R                               &mmv MOVE_Y(600)  &none       &mouse_smooth_up  &mouse_dlt       &mmv MOVE_UP  &none
-&kp G    &kp LSHFT  &kp A  &kp S  &kp D     &kp F                               &mmv MOVE_Y(300)  &mkp LCLK   &mkp RCLK         &mmv MOVE_RIGHT  &mouse_drb    &none
-&kp T    &kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &to 5    &mmv MOVE_Y(0)  &mmv MOVE_Y(100)  &none       &mmv MOVE_DOWN    &mmv MOVE_DOWN   &none         &none
-                                  &kp LALT  &kp SPACE  &mo 7    &mouse_dlb      &mmv MOVE_LEFT    &mouse_drt
+&kp ESC  &kp TAB    &kp Q  &kp W  &kp E     &kp R                      &none      &mouse_dlt      &mmv MOVE_UP    &mouse_drt       &none      &none
+&kp G    &kp LSHFT  &kp A  &kp S  &kp D     &kp F                      &none      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp RCLK  &none
+&kp T    &kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &to 5    &none  &none      &mouse_dlb      &none           &mouse_drb       &none      &none
+                                  &kp LALT  &kp SPACE  &mo 7    &none  &mkp LCLK  &none
             >;
 
             sensor-bindings =
