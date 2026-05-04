@@ -685,6 +685,15 @@
             #binding-cells = <0>;
             mods = <(MOD_RCTL)>;
         };
+
+        mouse_up: mouse_up {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MOUSE_UP";
+            bindings = <&kp UP_ARROW>, <&mmv MOVE_UP>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL)>;
+        };
     };
 
     combos { compatible = "zmk,combos"; };
@@ -793,9 +802,9 @@
 
         nume {
             bindings = <
-&kp ESCAPE  &kp KP_DOT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &num_new                              &kp LBKT    &bracket_lmouse  &mouse_smooth_up  &grave_rmouse  &kp RU_NUMERO    &kp BACKSPACE
-&kp LSHFT   &num_all     &num_save     &num_replace  &num_find     &num_toggle                           &kp HOME    &mouse_left      &mouse_down       &mouse_right   &kp END          &kp RSHIFT
-&kp LCTRL   &num_cancel  &num_cut      &num_copy     &num_paste    &kp MINUS    &kp DELETE    &none      &kp INSERT  &kp BSLH         &kp PIPE          &kp SLASH      &kp PRINTSCREEN  &kp DEL
+&kp ESCAPE  &kp KP_DOT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &num_new                              &kp LBKT    &bracket_lmouse  &mouse_up    &grave_rmouse  &kp RU_NUMERO    &kp BACKSPACE
+&kp LSHFT   &num_all     &num_save     &num_replace  &num_find     &num_toggle                           &kp HOME    &mouse_left      &mouse_down  &mouse_right   &kp END          &kp RSHIFT
+&kp LCTRL   &num_cancel  &num_cut      &num_copy     &num_paste    &kp MINUS    &kp DELETE    &none      &kp INSERT  &kp BSLH         &kp PIPE     &kp SLASH      &kp PRINTSCREEN  &kp DEL
                                                      &to 8         &kp SPACE    &kp LALT      &kp RCTRL  &kp ENTER   &to 8
             >;
 
@@ -808,10 +817,10 @@
         nume1h {
             display-name = "Num L";
             bindings = <
-&kp BACKSPACE  &kp RU_NUMERO    &grave_rmouse  &mouse_smooth_up  &lbracket_lmouse  &kp RIGHT_BRACKET                           &num_new     &kp KP_NUMBER_9  &kp KP_NUMBER_8  &kp KP_NUMBER_7  &kp KP_DOT   &kp ESC
-&kp RSHIFT     &kp HOME         &mouse_left    &mouse_down       &mouse_right      &kp END                                     &num_toggle  &num_find        &num_replace     &num_save        &num_all     &kp LSHFT
-&kp DELETE     &kp PRINTSCREEN  &kp BACKSLASH  &kp PIPE          &kp SLASH         &kp INSERT         &none        &kp DELETE  &kp MINUS    &num_paste       &num_copy        &num_cut         &num_cancel  &kp LCTRL
-                                                                 &to 7             &kp ENTER          &kp RCTRL    &kp LALT    &kp SPACE    &to 7
+&kp BACKSPACE  &kp RU_NUMERO    &grave_rmouse  &mouse_up    &lbracket_lmouse  &kp RIGHT_BRACKET                           &num_new     &kp KP_NUMBER_9  &kp KP_NUMBER_8  &kp KP_NUMBER_7  &kp KP_DOT   &kp ESC
+&kp RSHIFT     &kp HOME         &mouse_left    &mouse_down  &mouse_right      &kp END                                     &num_toggle  &num_find        &num_replace     &num_save        &num_all     &kp LSHFT
+&kp DELETE     &kp PRINTSCREEN  &kp BACKSLASH  &kp PIPE     &kp SLASH         &kp INSERT         &none        &kp DELETE  &kp MINUS    &num_paste       &num_copy        &num_cut         &num_cancel  &kp LCTRL
+                                                            &to 7             &kp ENTER          &kp RCTRL    &kp LALT    &kp SPACE    &to 7
             >;
 
             sensor-bindings =
