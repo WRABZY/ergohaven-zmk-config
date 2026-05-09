@@ -229,11 +229,11 @@
             #binding-cells = <0>;
             bindings =
                 <&aSwitchLangToEn>,
-                <&macro_press>,
-                <&mo 0>,
+                <&macro_tap>,
+                <&to 0>,
                 <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mo 0>;
+                <&macro_tap>,
+                <&to 5>;
 
             label = "AMOLAYEREN";
         };
@@ -243,11 +243,11 @@
             #binding-cells = <0>;
             bindings =
                 <&aSwitchLangToRu>,
-                <&macro_press>,
-                <&mo 2>,
+                <&macro_tap>,
+                <&to 2>,
                 <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mo 2>;
+                <&macro_tap>,
+                <&to 5>;
 
             label = "AMOLAYERRU";
         };
