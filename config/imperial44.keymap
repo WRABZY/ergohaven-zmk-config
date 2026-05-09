@@ -223,6 +223,34 @@
             bindings = <&aSwitchLangToRu &to 9>;
             label = "ARUTOLAYERNUM";
         };
+
+        aMoLayerEn: aMoLayerEn {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&aSwitchLangToEn>,
+                <&macro_press>,
+                <&mo 0>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mo 0>;
+
+            label = "AMOLAYEREN";
+        };
+
+        aMoLayerRu: aMoLayerRu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&aSwitchLangToRu>,
+                <&macro_press>,
+                <&mo 2>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mo 2>;
+
+            label = "AMOLAYERRU";
+        };
     };
 
     behaviors {
@@ -661,22 +689,6 @@
             mods = <(MOD_RCTL)>;
         };
 
-        shift_caps: shift_caps {
-            compatible = "zmk,behavior-mod-morph";
-            label = "SHIFT_CAPS";
-            bindings = <&kp LSHFT>, <&caps>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
-        };
-
-        caps: caps {
-            compatible = "zmk,behavior-tap-dance";
-            label = "CAPS";
-            #binding-cells = <0>;
-            bindings = <&kp LC(LEFT_SHIFT)>, <&kp CAPS>;
-        };
-
         aMoNumRLCToNumRLSToFun: aMoNumRLCToNumRLSToFun {
             compatible = "zmk,behavior-mod-morph";
             label = "AMONUMRLCTONUMRLSTOFUN";
@@ -785,24 +797,6 @@
             mods = <(MOD_LSFT)>;
         };
 
-        mouseUP: mouseUP {
-            compatible = "zmk,behavior-mod-morph";
-            label = "MOUSEUP";
-            bindings = <&mmv MOVE_Y(-600)>, <&mmv MOVE_Y(-100)>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
-        };
-
-        mouseDOWN: mouseDOWN {
-            compatible = "zmk,behavior-mod-morph";
-            label = "MOUSEDOWN";
-            bindings = <&mmv MOVE_Y(600)>, <&mmv MOVE_Y(100)>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
-        };
-
         mouseLEFT: mouseLEFT {
             compatible = "zmk,behavior-mod-morph";
             label = "MOUSELEFT";
@@ -819,13 +813,6 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
-        };
-
-        knotMouseV: knotMouseV {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "KNOTMOUSEV";
-            #sensor-binding-cells = <0>;
-            bindings = <&mouseDOWN>, <&mouseUP>;
         };
 
         knotMouseH: knotMouseH {
@@ -861,6 +848,51 @@
             #binding-cells = <0>;
             mods = <(MOD_LCTL)>;
         };
+
+        aMoEnLSToEn: aMoEnLSToEn {
+            compatible = "zmk,behavior-mod-morph";
+            label = "AMOENLSTOEN";
+            bindings = <&aMoLayerEn>, <&aToLayerEn>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        aMoRuLSToRu: aMoRuLSToRu {
+            compatible = "zmk,behavior-mod-morph";
+            label = "AMORULSTORU";
+            bindings = <&aMoLayerRu>, <&aToLayerRu>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        aMoRuLSToRuLCToFun1h: aMoRuLSToRuLCToFun1h {
+            compatible = "zmk,behavior-mod-morph";
+            label = "AMORULSTORULCTOFUN1H";
+            bindings = <&aMoRuLSToRu>, <&to 6>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        aTabLCEsc: aTabLCEsc {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ATABLCESC";
+            bindings = <&kp TAB>, <&kp ESC>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        aLSLCCaps: aLSLCCaps {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ALSLCCAPS";
+            bindings = <&kp LSHFT>, <&kp CAPS>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL)>;
+        };
     };
 
     combos { compatible = "zmk,combos"; };
@@ -871,10 +903,10 @@
         wed {
             label = "Eng";
             bindings = <
-&kp TAB    &kp G    &kp K     &kp L     &kp M          &kp N                                            &kp F      &kp U  &w_en_extra_d  &kp C          &kp Q     &kp BACKSPACE
-&kp LSHFT  &en_all  &en_save  &kp R     &en_find       &kp T                                            &kp A      &kp O  &kp E          &kp I          &kp SEMI  &kp RSHIFT
-&kp LCTRL  &kp Z    &kp X     &en_copy  &en_paste      &kp Y      &to 11                     &to 11     &kp H      &kp W  &kp COMMA      &en_dot_slash  &quest    &kp SINGLE_QUOTE
-                                        &en_en1h_toru  &kp SPACE  &aMoNumELCToNumELSToFun    &kp RCTRL  &kp ENTER  &to 1
+&aTabLCEsc  &kp G    &kp K     &kp L     &kp M          &kp N                                            &kp F      &kp U  &w_en_extra_d  &kp C          &kp Q     &kp BACKSPACE
+&aLSLCCaps  &en_all  &en_save  &kp R     &en_find       &kp T                                            &kp A      &kp O  &kp E          &kp I          &kp SEMI  &kp RSHIFT
+&kp LCTRL   &kp Z    &kp X     &en_copy  &en_paste      &kp Y      &to 11                     &to 11     &kp H      &kp W  &kp COMMA      &en_dot_slash  &quest    &kp SINGLE_QUOTE
+                                         &en_en1h_toru  &kp SPACE  &aMoNumELCToNumELSToFun    &kp RCTRL  &kp ENTER  &to 1
             >;
 
             sensor-bindings = <&w_rot_ru_fun>, <&knotMouseH>;
@@ -883,8 +915,8 @@
         wed1h {
             label = "Eng 1h";
             bindings = <
-&kp BACKSPACE     &kp Q     &kp C          &w_en_extra_d  &kp U  &kp F                                            &kp N      &kp M            &kp L     &kp K     &kp G    &kp TAB
-&kp LSHIFT        &kp SEMI  &kp I          &kp E          &kp O  &kp A                                            &kp T      &en_find         &kp R     &en_save  &en_all  &shift_caps
+&kp BACKSPACE     &kp Q     &kp C          &w_en_extra_d  &kp U  &kp F                                            &kp N      &kp M            &kp L     &kp K     &kp G    &aTabLCEsc
+&kp LSHIFT        &kp SEMI  &kp I          &kp E          &kp O  &kp A                                            &kp T      &en_find         &kp R     &en_save  &en_all  &aLSLCCaps
 &kp SINGLE_QUOTE  &quest    &en_dot_slash  &kp COMMA      &kp W  &kp H      &to 11       &to 11                   &kp Y      &en_paste        &en_copy  &kp X     &kp Z    &kp LCTRL
                                                           &to 0  &kp ENTER  &kp RCTRL    &aMoNumELCToNumELSToFun  &kp SPACE  &en1h_en_toru1h
             >;
@@ -896,10 +928,10 @@
 
         wrd {
             bindings = <
-&kp TAB      &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_EM  &ru_new                                                     &kp RU_CYRILLIC_EF  &ru_u   &ru_d      &kp RU_CYRILLIC_TSE  &ru_soft       &kp BACKSPACE
-&shift_caps  &ru_all              &ru_save            &ru_replace         &ru_find            &ru_toggle                                                  &ru_a               &ru_o   &ru_e      &ru_i                &en SEMICOLON  &kp RSHFT
-&kp LCTRL    &ru_cancel           &ru_cut             &ru_copy            &ru_paste           &kp RU_CYRILLIC_YERU  &to 11                     &to 11     &kp RU_CYRILLIC_HA  &ru_sh  &en COMMA  &ru_dot_slash        &quest_ru      &en SINGLE_QUOTE
-                                                                          &ru_ru1h_toen       &kp SPACE             &aMoNumRLCToNumRLSToFun    &kp RCTRL  &kp ENTER           &to 3
+&aTabLCEsc  &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_EM  &ru_new                                                     &kp RU_CYRILLIC_EF  &ru_u   &ru_d      &kp RU_CYRILLIC_TSE  &ru_soft       &kp BACKSPACE
+&aLSLCCaps  &ru_all              &ru_save            &ru_replace         &ru_find            &ru_toggle                                                  &ru_a               &ru_o   &ru_e      &ru_i                &en SEMICOLON  &kp RSHFT
+&kp LCTRL   &ru_cancel           &ru_cut             &ru_copy            &ru_paste           &kp RU_CYRILLIC_YERU  &to 11                     &to 11     &kp RU_CYRILLIC_HA  &ru_sh  &en COMMA  &ru_dot_slash        &quest_ru      &en SINGLE_QUOTE
+                                                                         &ru_ru1h_toen       &kp SPACE             &aMoNumRLCToNumRLSToFun    &kp RCTRL  &kp ENTER           &to 3
             >;
 
             label = "Pyc";
@@ -910,8 +942,8 @@
 
         wrd1h {
             bindings = <
-&kp BACKSPACE     &ru_soft       &kp RU_CYRILLIC_TSE  &ru_d      &ru_u   &kp RU_CYRILLIC_EF                                        &ru_new               &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_GHE  &kp TAB
-&kp LSHIFT        &en SEMICOLON  &ru_i                &ru_e      &ru_o   &ru_a                                                     &ru_toggle            &ru_find            &ru_replace         &ru_save            &ru_all              &shift_caps
+&kp BACKSPACE     &ru_soft       &kp RU_CYRILLIC_TSE  &ru_d      &ru_u   &kp RU_CYRILLIC_EF                                        &ru_new               &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_GHE  &aTabLCEsc
+&kp LSHIFT        &en SEMICOLON  &ru_i                &ru_e      &ru_o   &ru_a                                                     &ru_toggle            &ru_find            &ru_replace         &ru_save            &ru_all              &aLSLCCaps
 &en SINGLE_QUOTE  &quest_ru      &ru_dot_slash        &en COMMA  &ru_sh  &kp RU_CYRILLIC_HA  &to 11       &to 11                   &kp RU_CYRILLIC_YERU  &ru_paste           &ru_copy            &ru_cut             &ru_cancel           &kp LCTRL
                                                                  &to 2   &kp ENTER           &kp RCTRL    &aMoNumRLCToNumRLSToFun  &kp SPACE             &ru1h_ru_toen1h
             >;
@@ -924,10 +956,10 @@
 
         gm {
             bindings = <
-&kp ESC  &kp TAB    &kp Q  &kp W  &kp E     &kp R                        &none      &mouse_dlt      &mmv MOVE_UP    &mouse_drt       &none      &none
-&kp G    &kp LSHFT  &kp A  &kp S  &kp D     &kp F                        &none      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mkp RCLK  &none
-&kp T    &kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &to 11    &to 11  &none      &mouse_dlb      &none           &mouse_drb       &none      &none
-                                  &kp LALT  &kp SPACE  &mo 7     &none   &mkp LCLK  &none
+&none  &aTabLCEsc  &kp Q  &kp W  &kp E     &kp R                        &none  &none  &none  &none  &none  &none
+&none  &kp LSHFT   &kp A  &kp S  &kp D     &kp F                        &none  &none  &none  &none  &none  &none
+&none  &kp LCTRL   &kp Z  &kp X  &kp C     &kp V      &to 11    &to 11  &none  &none  &none  &none  &none  &none
+                                 &kp LALT  &kp SPACE  &mo 7     &none   &none  &none
             >;
 
             sensor-bindings =
@@ -939,10 +971,10 @@
 
         fune {
             bindings = <
-&kp TAB    &kp F1  &kp F2   &kp F3   &kp F4   &none                           &bt0     &bt1          &bt2              &bt3          &none  &btc
-&kp LSHFT  &kp F5  &kp F6   &kp F7   &kp F8   &kp LALT                        &none    &kp C_VOL_DN  &kp C_MUTE        &kp C_VOL_UP  &none  &none
-&kp LCTRL  &kp F9  &kp F10  &kp F11  &kp F12  &none      &to 11    &to 11     &to_usb  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT    &none  &none
-                                     &to 6    &kp LCTRL  &mo 7     &kp RCTRL  &none    &none
+&aTabLCEsc  &kp F1  &kp F2   &kp F3   &kp F4                 &none                                 &bt0     &bt1          &bt2              &bt3          &none  &btc
+&kp LSHFT   &kp F5  &kp F6   &kp F7   &kp F8                 &kp LALT                              &none    &kp C_VOL_DN  &kp C_MUTE        &kp C_VOL_UP  &none  &none
+&kp LCTRL   &kp F9  &kp F10  &kp F11  &kp F12                &none      &to 11          &to 11     &to_usb  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT    &none  &none
+                                      &aMoRuLSToRuLCToFun1h  &kp LCTRL  &aMoEnLSToEn    &kp RCTRL  &none    &none
             >;
 
             display-name = "Fun";
@@ -954,7 +986,7 @@
         fune1h {
             display-name = "Fun L";
             bindings = <
-&btc   &none  &bt3               &bt2        &bt1             &bt0                          &none  &none  &none  &none  &none  &none
+&btc   &none  &bt3               &bt2        &bt1             &bt0                          &none  &none  &none  &none  &none  &aTabLCEsc
 &none  &none  &kp C_VOLUME_DOWN  &kp C_MUTE  &kp C_VOLUME_UP  &none                         &none  &none  &none  &none  &none  &none
 &none  &none  &kp C_PREV         &kp C_PP    &kp C_NEXT       &to_usb  &to 11       &to 11  &none  &none  &none  &none  &none  &none
                                              &to 5            &none    &kp RCTRL    &none   &none  &none
@@ -967,7 +999,7 @@
 
         nume {
             bindings = <
-&kp ESCAPE  &kp KP_DOT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &num_new                            &kp LBKT    &bracket_lmouse  &mouse_up    &grave_rmouse  &kp RU_NUMERO    &kp BACKSPACE
+&aTabLCEsc  &kp KP_DOT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &num_new                            &kp LBKT    &bracket_lmouse  &mouse_up    &grave_rmouse  &kp RU_NUMERO    &kp BACKSPACE
 &kp LSHFT   &num_all     &num_save     &num_replace  &num_find     &num_toggle                         &kp HOME    &mouse_left      &mouse_down  &mouse_right   &kp END          &kp RSHIFT
 &kp LCTRL   &num_cancel  &num_cut      &num_copy     &num_paste    &kp MINUS    &to 11      &to 11     &kp INSERT  &kp BSLH         &kp PIPE     &kp SLASH      &kp PRINTSCREEN  &kp DEL
                                                      &to 8         &kp SPACE    &kp LALT    &kp RCTRL  &kp ENTER   &to 8
@@ -982,7 +1014,7 @@
         nume1h {
             display-name = "Num eL";
             bindings = <
-&kp BACKSPACE  &kp RU_NUMERO    &grave_rmouse  &mouse_up    &lbracket_lmouse  &kp RIGHT_BRACKET                         &num_new     &kp KP_NUMBER_9  &kp KP_NUMBER_8  &kp KP_NUMBER_7  &kp KP_DOT   &kp ESC
+&kp BACKSPACE  &kp RU_NUMERO    &grave_rmouse  &mouse_up    &lbracket_lmouse  &kp RIGHT_BRACKET                         &num_new     &kp KP_NUMBER_9  &kp KP_NUMBER_8  &kp KP_NUMBER_7  &kp KP_DOT   &aTabLCEsc
 &kp RSHIFT     &kp HOME         &mouse_left    &mouse_down  &mouse_right      &kp END                                   &num_toggle  &num_find        &num_replace     &num_save        &num_all     &kp LSHFT
 &kp DELETE     &kp PRINTSCREEN  &kp BACKSLASH  &kp PIPE     &kp SLASH         &kp INSERT         &to 11       &to 11    &kp MINUS    &num_paste       &num_copy        &num_cut         &num_cancel  &kp LCTRL
                                                             &to 7             &kp ENTER          &kp RCTRL    &kp LALT  &kp SPACE    &to 7
@@ -996,7 +1028,7 @@
         numr {
             display-name = "Num r";
             bindings = <
-&kp ESCAPE  &kp KP_DOT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &num_new                            &kp LBKT    &bracket_lmouse  &mouse_up    &grave_rmouse  &kp RU_NUMERO    &kp BACKSPACE
+&aTabLCEsc  &kp KP_DOT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &num_new                            &kp LBKT    &bracket_lmouse  &mouse_up    &grave_rmouse  &kp RU_NUMERO    &kp BACKSPACE
 &kp LSHFT   &num_all     &num_save     &num_replace  &num_find     &num_toggle                         &kp HOME    &mouse_left      &mouse_down  &mouse_right   &kp END          &kp RSHIFT
 &kp LCTRL   &num_cancel  &num_cut      &num_copy     &num_paste    &kp MINUS    &to 11      &to 11     &kp INSERT  &kp BSLH         &kp PIPE     &kp SLASH      &kp PRINTSCREEN  &kp DEL
                                                      &to 8         &kp SPACE    &kp LALT    &kp RCTRL  &kp ENTER   &to 8
@@ -1010,7 +1042,7 @@
         numr1h {
             display-name = "Num rL";
             bindings = <
-&kp BACKSPACE  &kp RU_NUMERO    &grave_rmouse  &mouse_up    &lbracket_lmouse  &kp RIGHT_BRACKET                         &num_new     &kp KP_NUMBER_9  &kp KP_NUMBER_8  &kp KP_NUMBER_7  &kp KP_DOT   &kp ESC
+&kp BACKSPACE  &kp RU_NUMERO    &grave_rmouse  &mouse_up    &lbracket_lmouse  &kp RIGHT_BRACKET                         &num_new     &kp KP_NUMBER_9  &kp KP_NUMBER_8  &kp KP_NUMBER_7  &kp KP_DOT   &aTabLCEsc
 &kp RSHIFT     &kp HOME         &mouse_left    &mouse_down  &mouse_right      &kp END                                   &num_toggle  &num_find        &num_replace     &num_save        &num_all     &kp LSHFT
 &kp DELETE     &kp PRINTSCREEN  &kp BACKSLASH  &kp PIPE     &kp SLASH         &kp INSERT         &to 11       &to 11    &kp MINUS    &num_paste       &num_copy        &num_cut         &num_cancel  &kp LCTRL
                                                             &to 7             &kp ENTER          &kp RCTRL    &kp LALT  &kp SPACE    &to 7
@@ -1034,10 +1066,10 @@
 
         empty {
             bindings = <
-&none  &none  &none  &none  &none  &none                                                          &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none                                                          &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &aTapNoneHoldToLayer 11 0    &aTapNoneHoldToLayer 11 0  &none  &none  &none  &none  &none  &none
-                            &none  &none  &none                        &none                      &none  &none
+&aTapNoneHoldToLayer 11 0  &none  &none  &none  &none  &none                                                          &none  &none  &none  &none  &none  &aTapNoneHoldToLayer 11 0
+&none                      &none  &none  &none  &none  &none                                                          &none  &none  &none  &none  &none  &none
+&none                      &none  &none  &none  &none  &none  &aTapNoneHoldToLayer 11 0    &aTapNoneHoldToLayer 11 0  &none  &none  &none  &none  &none  &none
+                                                &none  &none  &none                        &none                      &none  &none
             >;
 
             label = "EMPTY";
