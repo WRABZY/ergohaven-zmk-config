@@ -35,14 +35,7 @@
             label = "LANG_RU";
         };
 
-        to_num_en: to_num_en {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&aSwitchLangToEn &to 7>;
-            label = "TO_NUM_EN";
-        };
-
-        en: en {
+        aPressInEn: en {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings =
@@ -258,16 +251,32 @@
             bindings = <&aToLayerEn &kp LG(R)>;
             label = "ATOLAYERENANDEXEC";
         };
+
+        aPressInRu: aPressInRu {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&aSwitchLangToRu>,
+                <&macro_press>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
+                <&macro_tap>,
+                <&aSwitchLangToEn>;
+
+            label = "APRESSINRU";
+        };
     };
 
     behaviors {
-        quest: quest {
+        aEnExclamationSQuest: aEnExclamationSQuest {
             compatible = "zmk,behavior-mod-morph";
-            label = "QUEST";
+            label = "AENEXCLAMATIONSQUEST";
             bindings = <&kp EXCL>, <&kp QUESTION>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         ru_copy: ru_copy {
@@ -486,19 +495,10 @@
             mods = <(MOD_LSFT)>;
         };
 
-        en_dot_slash: en_dot_slash {
-            compatible = "zmk,behavior-mod-morph";
-            label = "EN_DOT_SLASH";
-            bindings = <&kp DOT>, <&kp KP_SLASH>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RCTL)>;
-        };
-
         ru_dot_slash: ru_dot_slash {
             compatible = "zmk,behavior-mod-morph";
             label = "RU_DOT_SLASH";
-            bindings = <&en DOT>, <&kp KP_SLASH>;
+            bindings = <&aPressInEn DOT>, <&kp KP_SLASH>;
 
             #binding-cells = <0>;
             mods = <(MOD_RCTL)>;
@@ -648,15 +648,6 @@
             mods = <(MOD_RCTL)>;
         };
 
-        bracket_lmouse: bracket_lmouse {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BRACKET_LMOUSE";
-            bindings = <&kp RIGHT_BRACKET>, <&mkp LCLK>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RCTL)>;
-        };
-
         grave_rmouse: grave_rmouse {
             compatible = "zmk,behavior-mod-morph";
             label = "GRAVE_RMOUSE";
@@ -774,28 +765,19 @@
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        aMoEnSToEn: aMoEnSToEn {
+        aMoRuCToRu: aMoRuCToRu {
             compatible = "zmk,behavior-mod-morph";
-            label = "AMOENSTOEN";
-            bindings = <&aMoLayerEn>, <&aToLayerEn>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        aMoRuSToRu: aMoRuSToRu {
-            compatible = "zmk,behavior-mod-morph";
-            label = "AMORUSTORU";
+            label = "AMORUCTORU";
             bindings = <&aMoLayerRu>, <&aToLayerRu>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
         aMoRuSToRuCToFun1h: aMoRuSToRuCToFun1h {
             compatible = "zmk,behavior-mod-morph";
             label = "AMORUSTORUCTOFUN1H";
-            bindings = <&aMoRuSToRu>, <&to 6>;
+            bindings = <&aMoRuCToRu>, <&to 6>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
@@ -854,6 +836,15 @@
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
+
+        aMoEnCToEn: aMoEnCToEn {
+            compatible = "zmk,behavior-mod-morph";
+            label = "AMOENCTOEN";
+            bindings = <&mo 0>, <&to 0>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
     };
 
     combos { compatible = "zmk,combos"; };
@@ -864,10 +855,10 @@
         wed {
             label = "Eng";
             bindings = <
-&aTabCEsc  &kp G    &kp K     &kp L       &aMCReplace    &aNCToggle                               &kp F      &kp U  &kp D      &kp C          &kp Q     &aBackspaceSDelete
-&aLSCCaps  &aVCAll  &aPCSave  &aRCDouble  &aSCFind       &kp T                                    &kp A      &kp O  &kp E      &kp I          &kp SEMI  &kp RSHIFT
-&kp LCTRL  &kp Z    &kp X     &aJCCopy    &aBCPaste      &kp Y       &to 11            &to 11     &kp H      &kp W  &kp COMMA  &en_dot_slash  &quest    &kp SINGLE_QUOTE
-                                          &aToEn1hCToRu  &kp SPACE   &aMoNumECToFun    &kp RCTRL  &kp ENTER  &to 1
+&aTabCEsc  &kp G    &kp K     &kp L       &aMCReplace    &aNCToggle                               &kp F      &kp U          &kp D      &kp C    &kp Q                  &aBackspaceSDelete
+&aLSCCaps  &aVCAll  &aPCSave  &aRCDouble  &aSCFind       &kp T                                    &kp A      &kp O          &kp E      &kp I    &kp SEMI               &kp RSHIFT
+&kp LCTRL  &kp Z    &kp X     &aJCCopy    &aBCPaste      &kp Y       &to 11            &to 11     &kp H      &kp W          &kp COMMA  &kp DOT  &aEnExclamationSQuest  &kp SINGLE_QUOTE
+                                          &aToEn1hCToRu  &kp SPACE   &aMoNumECToFun    &kp RCTRL  &kp ENTER  &aToEn1hCToRu
             >;
 
             sensor-bindings =
@@ -878,10 +869,10 @@
         wed1h {
             label = "Eng 1h";
             bindings = <
-&aBackspaceSDelete  &kp Q     &kp C          &kp D      &kp U  &kp F                                   &aNCToggle  &aMCReplace    &kp L       &kp K     &kp G    &aTabCEsc
-&kp RSHIFT          &kp SEMI  &kp I          &kp E      &kp O  &kp A                                   &kp T       &aSCFind       &aRCDouble  &aPCSave  &aVCAll  &aLSCCaps
-&kp SINGLE_QUOTE    &quest    &en_dot_slash  &kp COMMA  &kp W  &kp H      &to 11       &to 11          &kp Y       &aBCPaste      &aJCCopy    &kp X     &kp Z    &kp LCTRL
-                                                        &to 0  &kp ENTER  &kp RCTRL    &aMoNumECToFun  &kp SPACE   &aToEnCToRu1h
+&aBackspaceSDelete  &kp Q                  &kp C    &kp D      &kp U          &kp F                                   &aNCToggle  &aMCReplace    &kp L       &kp K     &kp G    &aTabCEsc
+&kp RSHIFT          &kp SEMI               &kp I    &kp E      &kp O          &kp A                                   &kp T       &aSCFind       &aRCDouble  &aPCSave  &aVCAll  &aLSCCaps
+&kp SINGLE_QUOTE    &aEnExclamationSQuest  &kp DOT  &kp COMMA  &kp W          &kp H      &to 11       &to 11          &kp Y       &aBCPaste      &aJCCopy    &kp X     &kp Z    &kp LCTRL
+                                                               &aToEnCToRu1h  &kp ENTER  &kp RCTRL    &aMoNumECToFun  &kp SPACE   &aToEnCToRu1h
             >;
 
             sensor-bindings =
@@ -891,9 +882,9 @@
 
         wrd {
             bindings = <
-&aTabCEsc  &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_EM  &ru_new                                            &kp RU_CYRILLIC_EF  &ru_u   &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &ru_soft       &aBackspaceSDelete
-&aLSCCaps  &ru_all              &ru_save            &ru_replace         &ru_find            &ru_toggle                                         &ru_a               &ru_o   &ru_e               &ru_i                &en SEMICOLON  &kp RSHFT
-&kp LCTRL  &ru_cancel           &ru_cut             &ru_copy            &ru_paste           &kp RU_CYRILLIC_YERU  &to 11            &to 11     &kp RU_CYRILLIC_HA  &ru_sh  &en COMMA           &ru_dot_slash        &quest_ru      &en SINGLE_QUOTE
+&aTabCEsc  &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_EM  &ru_new                                            &kp RU_CYRILLIC_EF  &ru_u   &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &ru_soft               &aBackspaceSDelete
+&aLSCCaps  &ru_all              &ru_save            &ru_replace         &ru_find            &ru_toggle                                         &ru_a               &ru_o   &ru_e               &ru_i                &aPressInEn SEMICOLON  &kp RSHFT
+&kp LCTRL  &ru_cancel           &ru_cut             &ru_copy            &ru_paste           &kp RU_CYRILLIC_YERU  &to 11            &to 11     &kp RU_CYRILLIC_HA  &ru_sh  &aPressInEn COMMA   &ru_dot_slash        &quest_ru              &aPressInEn SINGLE_QUOTE
                                                                         &aToRu1hCToEn       &kp SPACE             &aMoNumRCToFun    &kp RCTRL  &kp ENTER           &to 3
             >;
 
@@ -905,10 +896,10 @@
 
         wrd1h {
             bindings = <
-&aBackspaceSDelete  &ru_soft       &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_DE  &ru_u   &kp RU_CYRILLIC_EF                               &ru_new               &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_GHE  &aTabCEsc
-&kp RSHIFT          &en SEMICOLON  &ru_i                &ru_e               &ru_o   &ru_a                                            &ru_toggle            &ru_find            &ru_replace         &ru_save            &ru_all              &aLSCCaps
-&en SINGLE_QUOTE    &quest_ru      &ru_dot_slash        &en COMMA           &ru_sh  &kp RU_CYRILLIC_HA  &to 11       &to 11          &kp RU_CYRILLIC_YERU  &ru_paste           &ru_copy            &ru_cut             &ru_cancel           &kp LCTRL
-                                                                            &to 2   &kp ENTER           &kp RCTRL    &aMoNumRCToFun  &kp SPACE             &ru1h_ru_toen1h
+&aBackspaceSDelete        &ru_soft               &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_DE  &ru_u   &kp RU_CYRILLIC_EF                               &ru_new               &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_GHE  &aTabCEsc
+&kp RSHIFT                &aPressInEn SEMICOLON  &ru_i                &ru_e               &ru_o   &ru_a                                            &ru_toggle            &ru_find            &ru_replace         &ru_save            &ru_all              &aLSCCaps
+&aPressInEn SINGLE_QUOTE  &quest_ru              &ru_dot_slash        &aPressInEn COMMA   &ru_sh  &kp RU_CYRILLIC_HA  &to 11       &to 11          &kp RU_CYRILLIC_YERU  &ru_paste           &ru_copy            &ru_cut             &ru_cancel           &kp LCTRL
+                                                                                          &to 2   &kp ENTER           &kp RCTRL    &aMoNumRCToFun  &kp SPACE             &ru1h_ru_toen1h
             >;
 
             label = "Pyc 1p";
@@ -937,7 +928,7 @@
 &aTabCEsc  &kp F1  &kp F2   &kp F3   &kp F4               &none                                &bt0     &bt1          &bt2              &bt3          &none  &btc
 &kp LSHFT  &kp F5  &kp F6   &kp F7   &kp F8               &kp LALT                             &none    &kp C_VOL_DN  &kp C_MUTE        &kp C_VOL_UP  &none  &none
 &kp LCTRL  &kp F9  &kp F10  &kp F11  &kp F12              &none      &to 11         &to 11     &to_usb  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT    &none  &none
-                                     &aMoRuSToRuCToFun1h  &kp LCTRL  &aMoEnSToEn    &kp RCTRL  &none    &none
+                                     &aMoRuSToRuCToFun1h  &kp LCTRL  &aMoEnCToEn    &kp RCTRL  &none    &none
             >;
 
             display-name = "Fun";
@@ -962,10 +953,10 @@
 
         nume {
             bindings = <
-&aTabCEsc  &kp KP_DOT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &num_new                            &kp LBKT    &bracket_lmouse  &mouse_up    &grave_rmouse  &kp RU_NUMERO    &aBackspaceSDelete
-&kp LSHFT  &num_all     &num_save     &num_replace  &num_find     &num_toggle                         &kp HOME    &mouse_left      &mouse_down  &mouse_right   &kp END          &kp RSHIFT
-&kp LCTRL  &num_cancel  &num_cut      &num_copy     &num_paste    &kp MINUS    &to 11      &to 11     &kp INSERT  &kp BSLH         &kp PIPE     &kp SLASH      &kp PRINTSCREEN  &none
-                                                    &to 8         &kp SPACE    &kp LALT    &kp RCTRL  &kp ENTER   &to 8
+&aTabCEsc  &kp KP_DOT       &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                            &kp LBKT    &kp RBKT  &kp UP    &kp GRAVE  &aPressInRu RU_NUMERO  &aBackspaceSDelete
+&aLSCCaps  &kp KP_MULTIPLY  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                               &kp HOME    &kp LEFT  &kp DOWN  &kp RIGHT  &kp END                &kp RSHIFT
+&kp LCTRL  &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &to 11         &to 11     &kp INSERT  &kp BSLH  &kp PIPE  &kp SLASH  &kp PRINTSCREEN        &none
+                                                        &to 8         &kp SPACE     &aMoEnCToEn    &kp RCTRL  &kp ENTER   &to 8
             >;
 
             display-name = "Num e";
@@ -977,10 +968,10 @@
         nume1h {
             display-name = "Num eL";
             bindings = <
-&aBackspaceSDelete  &kp RU_NUMERO    &grave_rmouse  &mouse_up    &lbracket_lmouse  &kp RIGHT_BRACKET                         &num_new     &kp KP_NUMBER_9  &kp KP_NUMBER_8  &kp KP_NUMBER_7  &kp KP_DOT   &aTabCEsc
-&kp RSHIFT          &kp HOME         &mouse_left    &mouse_down  &mouse_right      &kp END                                   &num_toggle  &num_find        &num_replace     &num_save        &num_all     &kp LSHFT
-&none               &kp PRINTSCREEN  &kp BACKSLASH  &kp PIPE     &kp SLASH         &kp INSERT         &to 11       &to 11    &kp MINUS    &num_paste       &num_copy        &num_cut         &num_cancel  &kp LCTRL
-                                                                 &to 7             &kp ENTER          &kp RCTRL    &kp LALT  &kp SPACE    &to 7
+&aBackspaceSDelete  &aPressInRu RU_NUMERO  &kp GRAVE      &kp UP    &kp LBKT   &kp RIGHT_BRACKET                            &kp NUMBER_0  &kp NUMBER_9  &kp NUMBER_8  &kp NUMBER_7  &kp KP_DOT       &aTabCEsc
+&kp RSHIFT          &kp HOME               &kp LEFT       &kp DOWN  &kp RIGHT  &kp END                                      &kp EQUAL     &kp NUMBER_6  &kp NUMBER_5  &kp NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
+&none               &kp PRINTSCREEN        &kp BACKSLASH  &kp PIPE  &kp SLASH  &kp INSERT         &to 11       &to 11       &kp MINUS     &kp NUMBER_3  &kp NUMBER_2  &kp NUMBER_1  &kp KP_DIVIDE    &kp LCTRL
+                                                                    &to 7      &kp ENTER          &kp RCTRL    &aMoEnCToEn  &kp SPACE     &to 7
             >;
 
             sensor-bindings =
@@ -991,10 +982,10 @@
         numr {
             display-name = "Num r";
             bindings = <
-&aTabCEsc  &kp KP_DOT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &num_new                            &kp LBKT    &bracket_lmouse  &mouse_up    &grave_rmouse  &kp RU_NUMERO    &aBackspaceSDelete
-&kp LSHFT  &num_all     &num_save     &num_replace  &num_find     &num_toggle                         &kp HOME    &mouse_left      &mouse_down  &mouse_right   &kp END          &kp RSHIFT
-&kp LCTRL  &num_cancel  &num_cut      &num_copy     &num_paste    &kp MINUS    &to 11      &to 11     &kp INSERT  &kp BSLH         &kp PIPE     &kp SLASH      &kp PRINTSCREEN  &none
-                                                    &to 8         &kp SPACE    &kp LALT    &kp RCTRL  &kp ENTER   &to 8
+&aTabCEsc  &kp KP_DOT   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &num_new                               &kp LBKT    &kp RBKT  &kp UP    &kp GRAVE  &kp RU_NUMERO    &aBackspaceSDelete
+&aLSCCaps  &num_all     &num_save     &num_replace  &num_find     &num_toggle                            &kp HOME    &kp LEFT  &kp DOWN  &kp RIGHT  &kp END          &kp RSHIFT
+&kp LCTRL  &num_cancel  &num_cut      &num_copy     &num_paste    &kp MINUS    &to 11         &to 11     &kp INSERT  &kp BSLH  &kp PIPE  &kp SLASH  &kp PRINTSCREEN  &none
+                                                    &to 8         &kp SPACE    &aMoRuCToRu    &kp RCTRL  &kp ENTER   &to 8
             >;
 
             sensor-bindings =
@@ -1005,10 +996,10 @@
         numr1h {
             display-name = "Num rL";
             bindings = <
-&aBackspaceSDelete  &kp RU_NUMERO    &grave_rmouse  &mouse_up    &lbracket_lmouse  &kp RIGHT_BRACKET                         &num_new     &kp KP_NUMBER_9  &kp KP_NUMBER_8  &kp KP_NUMBER_7  &kp KP_DOT   &aTabCEsc
-&kp RSHIFT          &kp HOME         &mouse_left    &mouse_down  &mouse_right      &kp END                                   &num_toggle  &num_find        &num_replace     &num_save        &num_all     &kp LSHFT
-&none               &kp PRINTSCREEN  &kp BACKSLASH  &kp PIPE     &kp SLASH         &kp INSERT         &to 11       &to 11    &kp MINUS    &num_paste       &num_copy        &num_cut         &num_cancel  &kp LCTRL
-                                                                 &to 7             &kp ENTER          &kp RCTRL    &kp LALT  &kp SPACE    &to 7
+&aBackspaceSDelete  &kp RU_NUMERO    &grave_rmouse  &mouse_up    &lbracket_lmouse  &kp RIGHT_BRACKET                            &num_new     &kp KP_NUMBER_9  &kp KP_NUMBER_8  &kp KP_NUMBER_7  &kp KP_DOT   &aTabCEsc
+&kp RSHIFT          &kp HOME         &mouse_left    &mouse_down  &mouse_right      &kp END                                      &num_toggle  &num_find        &num_replace     &num_save        &num_all     &aLSCCaps
+&none               &kp PRINTSCREEN  &kp BACKSLASH  &kp PIPE     &kp SLASH         &kp INSERT         &to 11       &to 11       &kp MINUS    &num_paste       &num_copy        &num_cut         &num_cancel  &kp LCTRL
+                                                                 &to 7             &kp ENTER          &kp RCTRL    &aMoRuCToRu  &kp SPACE    &to 7
             >;
 
             sensor-bindings =
@@ -1018,9 +1009,9 @@
 
         hub {
             bindings = <
-&to 12              &aToLayerEn         &aToLayerRu     &aEnToLayerGame  &aRuToLayerGame  &none                  &none  &none  &none  &none  &none  &to 12
-&aToLayerEnAndExec  &aEnToLayerNum      &aRuToLayerNum  &aEnToLayerFun   &aRuToLayerFun   &none                  &none  &none  &none  &none  &none  &none
-&aToLayerEnAndLock  &kp LC(LA(DELETE))  &none           &none            &none            &none  &none    &none  &none  &none  &none  &none  &none  &aToLayerEnAndLock
+&to 12              &aToLayerEn         &aToLayerRu     &aEnToLayerGame  &aRuToLayerGame  &none                  &none  &aRuToLayerGame  &aEnToLayerGame  &aToLayerRu     &aToLayerEn         &to 12
+&aToLayerEnAndExec  &aEnToLayerNum      &aRuToLayerNum  &aEnToLayerFun   &aRuToLayerFun   &none                  &none  &aRuToLayerFun   &aEnToLayerFun   &aRuToLayerNum  &aEnToLayerNum      &aToLayerEnAndExec
+&aToLayerEnAndLock  &kp LC(LA(DELETE))  &none           &none            &none            &none  &none    &none  &none  &none            &none            &none           &kp LC(LA(DELETE))  &aToLayerEnAndLock
                                                                          &none            &none  &none    &none  &none  &none
             >;
 
