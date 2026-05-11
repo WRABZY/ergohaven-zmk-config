@@ -838,14 +838,7 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        test {
-            bindings = <&kp O>;
-            key-positions = <41 8>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     keymap {
         compatible = "zmk,keymap";
@@ -853,10 +846,10 @@
         wed {
             label = "Eng";
             bindings = <
-&aTabCEsc  &kp G    &kp K     &kp L       &aMCReplace    &aNCToggle                            &kp F      &kp U          &kp D      &kp C    &kp Q                  &aBackspaceSDelete
-&aLSCCaps  &aVCAll  &aPCSave  &aRCDouble  &aSCFind       &kp T                                 &kp A      &kp O          &kp E      &kp I    &kp SEMI               &kp RSHIFT
-&kp LCTRL  &kp Z    &kp X     &aJCCopy    &aBCPaste      &kp Y       &to 11            &to 11  &kp H      &kp W          &kp COMMA  &kp DOT  &aEnExclamationSQuest  &kp SINGLE_QUOTE
-                                          &aToEn1hCToRu  &kp SPACE   &aMoNumECToFun    &none   &kp ENTER  &aToEn1hCToRu
+&aTabCEsc  &kp G    &kp K     &kp L       &aMCReplace    &aNCToggle                              &kp F      &kp U          &kp D      &kp C    &kp Q                  &aBackspaceSDelete
+&aLSCCaps  &aVCAll  &aPCSave  &aRCDouble  &aSCFind       &kp T                                   &kp A      &kp O          &kp E      &kp I    &kp SEMI               &kp RSHIFT
+&kp LCTRL  &kp Z    &kp X     &aJCCopy    &aBCPaste      &kp Y       &to 11            &to 11    &kp H      &kp W          &kp COMMA  &kp DOT  &aEnExclamationSQuest  &kp SINGLE_QUOTE
+                                          &aToEn1hCToRu  &kp SPACE   &aMoNumECToFun    &kp RALT  &kp ENTER  &aToEn1hCToRu
             >;
 
             sensor-bindings =
@@ -867,10 +860,10 @@
         wed1h {
             label = "Eng 1h";
             bindings = <
-&aBackspaceSDelete  &kp Q                  &kp C    &kp D      &kp U          &kp F                                   &aNCToggle  &aMCReplace    &kp L       &kp K     &kp G    &aTabCEsc
-&kp RSHIFT          &kp SEMI               &kp I    &kp E      &kp O          &kp A                                   &kp T       &aSCFind       &aRCDouble  &aPCSave  &aVCAll  &aLSCCaps
-&kp SINGLE_QUOTE    &aEnExclamationSQuest  &kp DOT  &kp COMMA  &kp W          &kp H      &to 11       &to 11          &kp Y       &aBCPaste      &aJCCopy    &kp X     &kp Z    &kp LCTRL
-                                                               &aToEnCToRu1h  &kp ENTER  &kp RCTRL    &aMoNumECToFun  &kp SPACE   &aToEnCToRu1h
+&aBackspaceSDelete  &kp Q                  &kp C    &kp D      &kp U          &kp F                                  &aNCToggle  &aMCReplace    &kp L       &kp K     &kp G    &aTabCEsc
+&kp RSHIFT          &kp SEMI               &kp I    &kp E      &kp O          &kp A                                  &kp T       &aSCFind       &aRCDouble  &aPCSave  &aVCAll  &aLSCCaps
+&kp SINGLE_QUOTE    &aEnExclamationSQuest  &kp DOT  &kp COMMA  &kp W          &kp H      &to 11      &to 11          &kp Y       &aBCPaste      &aJCCopy    &kp X     &kp Z    &kp LCTRL
+                                                               &aToEnCToRu1h  &kp ENTER  &kp RALT    &aMoNumECToFun  &kp SPACE   &aToEnCToRu1h
             >;
 
             sensor-bindings =
