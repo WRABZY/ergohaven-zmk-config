@@ -1,6 +1,5 @@
 #include "keys_ru.h"
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
@@ -775,15 +774,6 @@
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        aMoRuSToRuCToFun1h: aMoRuSToRuCToFun1h {
-            compatible = "zmk,behavior-mod-morph";
-            label = "AMORUSTORUCTOFUN1H";
-            bindings = <&aMoRuCToRu>, <&to 6>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
-        };
-
         aTabCEsc: aTabCEsc {
             compatible = "zmk,behavior-mod-morph";
             label = "ATABCESC";
@@ -848,7 +838,14 @@
         };
     };
 
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
+
+        test {
+            bindings = <&kp O>;
+            key-positions = <41 8>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -856,10 +853,10 @@
         wed {
             label = "Eng";
             bindings = <
-&aTabCEsc  &kp G    &kp K     &kp L       &aMCReplace    &aNCToggle                               &kp F      &kp U          &kp D      &kp C    &kp Q                  &aBackspaceSDelete
-&aLSCCaps  &aVCAll  &aPCSave  &aRCDouble  &aSCFind       &kp T                                    &kp A      &kp O          &kp E      &kp I    &kp SEMI               &kp RSHIFT
-&kp LCTRL  &kp Z    &kp X     &aJCCopy    &aBCPaste      &kp Y       &to 11            &to 11     &kp H      &kp W          &kp COMMA  &kp DOT  &aEnExclamationSQuest  &kp SINGLE_QUOTE
-                                          &aToEn1hCToRu  &kp SPACE   &aMoNumECToFun    &kp RCTRL  &kp ENTER  &aToEn1hCToRu
+&aTabCEsc  &kp G    &kp K     &kp L       &aMCReplace    &aNCToggle                            &kp F      &kp U          &kp D      &kp C    &kp Q                  &aBackspaceSDelete
+&aLSCCaps  &aVCAll  &aPCSave  &aRCDouble  &aSCFind       &kp T                                 &kp A      &kp O          &kp E      &kp I    &kp SEMI               &kp RSHIFT
+&kp LCTRL  &kp Z    &kp X     &aJCCopy    &aBCPaste      &kp Y       &to 11            &to 11  &kp H      &kp W          &kp COMMA  &kp DOT  &aEnExclamationSQuest  &kp SINGLE_QUOTE
+                                          &aToEn1hCToRu  &kp SPACE   &aMoNumECToFun    &none   &kp ENTER  &aToEn1hCToRu
             >;
 
             sensor-bindings =
@@ -1012,7 +1009,7 @@
             bindings = <
 &to 12              &aToLayerEn         &aToLayerRu     &aEnToLayerGame  &aRuToLayerGame  &none                  &none  &aRuToLayerGame  &aEnToLayerGame  &aToLayerRu     &aToLayerEn         &to 12
 &aToLayerEnAndExec  &aEnToLayerNum      &aRuToLayerNum  &aEnToLayerFun   &aRuToLayerFun   &none                  &none  &aRuToLayerFun   &aEnToLayerFun   &aRuToLayerNum  &aEnToLayerNum      &aToLayerEnAndExec
-&aToLayerEnAndLock  &kp LC(LA(DELETE))  &bl BL_ON       &bl BL_OFF       &bl BL_INC       &none  &none    &none  &none  &none            &none            &none           &kp LC(LA(DELETE))  &aToLayerEnAndLock
+&aToLayerEnAndLock  &kp LC(LA(DELETE))  &none           &none            &none            &none  &none    &none  &none  &none            &none            &none           &kp LC(LA(DELETE))  &aToLayerEnAndLock
                                                                          &none            &none  &none    &none  &none  &none
             >;
 
