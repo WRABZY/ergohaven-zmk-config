@@ -425,49 +425,49 @@
             mods = <(MOD_RCTL)>;
         };
 
-        en_copy: en_copy {
+        aJCCopy: aJCCopy {
             compatible = "zmk,behavior-mod-morph";
-            label = "EN_COPY";
+            label = "AJCCOPY";
             bindings = <&kp J>, <&kp LC(C)>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        en_paste: en_paste {
+        aBCPaste: aBCPaste {
             compatible = "zmk,behavior-mod-morph";
-            label = "EN_PASTE";
+            label = "ABCPASTE";
             bindings = <&kp B>, <&kp LC(V)>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        en_all: en_all {
+        aVCAll: aVCAll {
             compatible = "zmk,behavior-mod-morph";
-            label = "EN_ALL";
+            label = "AVCALL";
             bindings = <&kp V>, <&kp LC(A)>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        en_save: en_save {
+        aPCSave: aPCSave {
             compatible = "zmk,behavior-mod-morph";
-            label = "EN_SAVE";
+            label = "APCSAVE";
             bindings = <&kp P>, <&kp LC(S)>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        en_find: en_find {
+        aSCFind: aSCFind {
             compatible = "zmk,behavior-mod-morph";
-            label = "EN_FIND";
+            label = "ASCFIND";
             bindings = <&kp S>, <&kp LC(F)>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
         quest_ru: quest_ru {
@@ -587,15 +587,6 @@
             mods = <(MOD_LCTL)>;
         };
 
-        aMoNumECToNumESToFun: aMoNumECToNumESToFun {
-            compatible = "zmk,behavior-mod-morph";
-            label = "AMONUMECTONUMESTOFUN";
-            bindings = <&aMoNumECToNumE>, <&to 5>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
         to_usb: to_usb {
             compatible = "zmk,behavior-mod-morph";
             label = "TO_USB";
@@ -648,15 +639,6 @@
 
             #binding-cells = <0>;
             mods = <(MOD_RCTL)>;
-        };
-
-        aMoNumRCToNumRSToFun: aMoNumRCToNumRSToFun {
-            compatible = "zmk,behavior-mod-morph";
-            label = "AMONUMRCTONUMRSTOFUN";
-            bindings = <&aMoNumRCToNumR>, <&to 5>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         bracket_lmouse: bracket_lmouse {
@@ -722,13 +704,13 @@
             mods = <(MOD_RCTL)>;
         };
 
-        en_en1h_toru: en_en1h_toru {
+        aToEn1hCToRu: aToEn1hCToRu {
             compatible = "zmk,behavior-mod-morph";
-            label = "EN_EN1H_TORU";
+            label = "ATOEN1HCTORU";
             bindings = <&to 1>, <&aToLayerRu>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
         en1h_en_toru1h: en1h_en_toru1h {
@@ -740,13 +722,13 @@
             mods = <(MOD_LSFT)>;
         };
 
-        ru_ru1h_toen: ru_ru1h_toen {
+        aToRu1hCToEn: aToRu1hCToEn {
             compatible = "zmk,behavior-mod-morph";
-            label = "RU_RU1H_TOEN";
+            label = "ATORU1HCTOEN";
             bindings = <&to 3>, <&aToLayerEn>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
         ru1h_ru_toen1h: ru1h_ru_toen1h {
@@ -767,19 +749,19 @@
             tapping-term-ms = <500>;
         };
 
-        aMoNumECToNumE: aMoNumECToNumE {
+        aMoNumECToFun: aMoNumECToFun {
             compatible = "zmk,behavior-mod-morph";
-            label = "AMONUMECTONUME";
-            bindings = <&mo 7>, <&to 7>;
+            label = "AMONUMECTOFUN";
+            bindings = <&mo 7>, <&to 5>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        aMoNumRCToNumR: aMoNumRCToNumR {
+        aMoNumRCToFun: aMoNumRCToFun {
             compatible = "zmk,behavior-mod-morph";
-            label = "AMONUMRCTONUMR";
-            bindings = <&mo 9>, <&to 9>;
+            label = "AMONUMRCTOFUN";
+            bindings = <&mo 9>, <&to 5>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
@@ -838,6 +820,33 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+        aRCDouble: aRCDouble {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ARCDOUBLE";
+            bindings = <&kp R>, <&kp LC(D)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+
+        aMCReplace: aMCReplace {
+            compatible = "zmk,behavior-mod-morph";
+            label = "AMCREPLACE";
+            bindings = <&kp M>, <&kp LC(R)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+
+        aNCToggle: aNCToggle {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ANCTOGGLE";
+            bindings = <&kp N>, <&kp LC(T)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
     };
 
     combos { compatible = "zmk,combos"; };
@@ -848,10 +857,10 @@
         wed {
             label = "Eng";
             bindings = <
-&aTabCEsc  &kp G    &kp K     &kp L     &kp M          &kp N                                          &kp F      &kp U  &kp D      &kp C          &kp Q     &aBackspaceSDelete
-&aLSCCaps  &en_all  &en_save  &kp R     &en_find       &kp T                                          &kp A      &kp O  &kp E      &kp I          &kp SEMI  &kp RSHIFT
-&kp LCTRL  &kp Z    &kp X     &en_copy  &en_paste      &kp Y      &to 11                   &to 11     &kp H      &kp W  &kp COMMA  &en_dot_slash  &quest    &kp SINGLE_QUOTE
-                                        &en_en1h_toru  &kp SPACE  &aMoNumECToNumESToFun    &kp RCTRL  &kp ENTER  &to 1
+&aTabCEsc  &kp G    &kp K     &kp L       &aMCReplace    &aNCToggle                               &kp F      &kp U  &kp D      &kp C          &kp Q     &aBackspaceSDelete
+&aLSCCaps  &aVCAll  &aPCSave  &aRCDouble  &aSCFind       &kp T                                    &kp A      &kp O  &kp E      &kp I          &kp SEMI  &kp RSHIFT
+&kp LCTRL  &kp Z    &kp X     &aJCCopy    &aBCPaste      &kp Y       &to 11            &to 11     &kp H      &kp W  &kp COMMA  &en_dot_slash  &quest    &kp SINGLE_QUOTE
+                                          &aToEn1hCToRu  &kp SPACE   &aMoNumECToFun    &kp RCTRL  &kp ENTER  &to 1
             >;
 
             sensor-bindings =
@@ -862,10 +871,10 @@
         wed1h {
             label = "Eng 1h";
             bindings = <
-&aBackspaceSDelete  &kp Q     &kp C          &kp D      &kp U  &kp F                                          &kp N      &kp M            &kp L     &kp K     &kp G    &aTabCEsc
-&kp RSHIFT          &kp SEMI  &kp I          &kp E      &kp O  &kp A                                          &kp T      &en_find         &kp R     &en_save  &en_all  &aLSCCaps
-&kp SINGLE_QUOTE    &quest    &en_dot_slash  &kp COMMA  &kp W  &kp H      &to 11       &to 11                 &kp Y      &en_paste        &en_copy  &kp X     &kp Z    &kp LCTRL
-                                                        &to 0  &kp ENTER  &kp RCTRL    &aMoNumECToNumESToFun  &kp SPACE  &en1h_en_toru1h
+&aBackspaceSDelete  &kp Q     &kp C          &kp D      &kp U  &kp F                                   &kp N      &kp M            &kp L     &kp K     &kp G    &aTabCEsc
+&kp RSHIFT          &kp SEMI  &kp I          &kp E      &kp O  &kp A                                   &kp T      &aSCFind         &kp R     &aPCSave  &aVCAll  &aLSCCaps
+&kp SINGLE_QUOTE    &quest    &en_dot_slash  &kp COMMA  &kp W  &kp H      &to 11       &to 11          &kp Y      &aBCPaste        &aJCCopy  &kp X     &kp Z    &kp LCTRL
+                                                        &to 0  &kp ENTER  &kp RCTRL    &aMoNumECToFun  &kp SPACE  &en1h_en_toru1h
             >;
 
             sensor-bindings =
@@ -875,10 +884,10 @@
 
         wrd {
             bindings = <
-&aTabCEsc  &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_EM  &ru_new                                                   &kp RU_CYRILLIC_EF  &ru_u   &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &ru_soft       &aBackspaceSDelete
-&aLSCCaps  &ru_all              &ru_save            &ru_replace         &ru_find            &ru_toggle                                                &ru_a               &ru_o   &ru_e               &ru_i                &en SEMICOLON  &kp RSHFT
-&kp LCTRL  &ru_cancel           &ru_cut             &ru_copy            &ru_paste           &kp RU_CYRILLIC_YERU  &to 11                   &to 11     &kp RU_CYRILLIC_HA  &ru_sh  &en COMMA           &ru_dot_slash        &quest_ru      &en SINGLE_QUOTE
-                                                                        &ru_ru1h_toen       &kp SPACE             &aMoNumRCToNumRSToFun    &kp RCTRL  &kp ENTER           &to 3
+&aTabCEsc  &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_EM  &ru_new                                            &kp RU_CYRILLIC_EF  &ru_u   &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &ru_soft       &aBackspaceSDelete
+&aLSCCaps  &ru_all              &ru_save            &ru_replace         &ru_find            &ru_toggle                                         &ru_a               &ru_o   &ru_e               &ru_i                &en SEMICOLON  &kp RSHFT
+&kp LCTRL  &ru_cancel           &ru_cut             &ru_copy            &ru_paste           &kp RU_CYRILLIC_YERU  &to 11            &to 11     &kp RU_CYRILLIC_HA  &ru_sh  &en COMMA           &ru_dot_slash        &quest_ru      &en SINGLE_QUOTE
+                                                                        &aToRu1hCToEn       &kp SPACE             &aMoNumRCToFun    &kp RCTRL  &kp ENTER           &to 3
             >;
 
             label = "Pyc";
@@ -889,10 +898,10 @@
 
         wrd1h {
             bindings = <
-&aBackspaceSDelete  &ru_soft       &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_DE  &ru_u   &kp RU_CYRILLIC_EF                                      &ru_new               &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_GHE  &aTabCEsc
-&kp RSHIFT          &en SEMICOLON  &ru_i                &ru_e               &ru_o   &ru_a                                                   &ru_toggle            &ru_find            &ru_replace         &ru_save            &ru_all              &aLSCCaps
-&en SINGLE_QUOTE    &quest_ru      &ru_dot_slash        &en COMMA           &ru_sh  &kp RU_CYRILLIC_HA  &to 11       &to 11                 &kp RU_CYRILLIC_YERU  &ru_paste           &ru_copy            &ru_cut             &ru_cancel           &kp LCTRL
-                                                                            &to 2   &kp ENTER           &kp RCTRL    &aMoNumRCToNumRSToFun  &kp SPACE             &ru1h_ru_toen1h
+&aBackspaceSDelete  &ru_soft       &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_DE  &ru_u   &kp RU_CYRILLIC_EF                               &ru_new               &kp RU_CYRILLIC_EM  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_GHE  &aTabCEsc
+&kp RSHIFT          &en SEMICOLON  &ru_i                &ru_e               &ru_o   &ru_a                                            &ru_toggle            &ru_find            &ru_replace         &ru_save            &ru_all              &aLSCCaps
+&en SINGLE_QUOTE    &quest_ru      &ru_dot_slash        &en COMMA           &ru_sh  &kp RU_CYRILLIC_HA  &to 11       &to 11          &kp RU_CYRILLIC_YERU  &ru_paste           &ru_copy            &ru_cut             &ru_cancel           &kp LCTRL
+                                                                            &to 2   &kp ENTER           &kp RCTRL    &aMoNumRCToFun  &kp SPACE             &ru1h_ru_toen1h
             >;
 
             label = "Pyc 1p";
