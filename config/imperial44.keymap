@@ -251,6 +251,13 @@
 
             label = "AMOLAYERRU";
         };
+
+        aToLayerEnAndExec: aToLayerEnAndExec {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&aToLayerEn &kp LG(R)>;
+            label = "ATOLAYERENANDEXEC";
+        };
     };
 
     behaviors {
@@ -713,13 +720,13 @@
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        en1h_en_toru1h: en1h_en_toru1h {
+        aToEnCToRu1h: aToEnCToRu1h {
             compatible = "zmk,behavior-mod-morph";
-            label = "EN1H_EN_TORU1H";
+            label = "ATOENCTORU1H";
             bindings = <&to 0>, <&toru1h>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
         aToRu1hCToEn: aToRu1hCToEn {
@@ -871,10 +878,10 @@
         wed1h {
             label = "Eng 1h";
             bindings = <
-&aBackspaceSDelete  &kp Q     &kp C          &kp D      &kp U  &kp F                                   &kp N      &kp M            &kp L     &kp K     &kp G    &aTabCEsc
-&kp RSHIFT          &kp SEMI  &kp I          &kp E      &kp O  &kp A                                   &kp T      &aSCFind         &kp R     &aPCSave  &aVCAll  &aLSCCaps
-&kp SINGLE_QUOTE    &quest    &en_dot_slash  &kp COMMA  &kp W  &kp H      &to 11       &to 11          &kp Y      &aBCPaste        &aJCCopy  &kp X     &kp Z    &kp LCTRL
-                                                        &to 0  &kp ENTER  &kp RCTRL    &aMoNumECToFun  &kp SPACE  &en1h_en_toru1h
+&aBackspaceSDelete  &kp Q     &kp C          &kp D      &kp U  &kp F                                   &aNCToggle  &aMCReplace    &kp L       &kp K     &kp G    &aTabCEsc
+&kp RSHIFT          &kp SEMI  &kp I          &kp E      &kp O  &kp A                                   &kp T       &aSCFind       &aRCDouble  &aPCSave  &aVCAll  &aLSCCaps
+&kp SINGLE_QUOTE    &quest    &en_dot_slash  &kp COMMA  &kp W  &kp H      &to 11       &to 11          &kp Y       &aBCPaste      &aJCCopy    &kp X     &kp Z    &kp LCTRL
+                                                        &to 0  &kp ENTER  &kp RCTRL    &aMoNumECToFun  &kp SPACE   &aToEnCToRu1h
             >;
 
             sensor-bindings =
@@ -1011,10 +1018,10 @@
 
         hub {
             bindings = <
-&to 12              &aToLayerEn     &aToLayerRu     &aEnToLayerGame  &aRuToLayerGame  &none                  &none  &none  &none  &none  &none  &to 12
-&none               &aEnToLayerNum  &aRuToLayerNum  &aEnToLayerFun   &aRuToLayerFun   &none                  &none  &none  &none  &none  &none  &none
-&aToLayerEnAndLock  &none           &none           &none            &none            &none  &none    &none  &none  &none  &none  &none  &none  &aToLayerEnAndLock
-                                                                     &none            &none  &none    &none  &none  &none
+&to 12              &aToLayerEn         &aToLayerRu     &aEnToLayerGame  &aRuToLayerGame  &none                  &none  &none  &none  &none  &none  &to 12
+&aToLayerEnAndExec  &aEnToLayerNum      &aRuToLayerNum  &aEnToLayerFun   &aRuToLayerFun   &none                  &none  &none  &none  &none  &none  &none
+&aToLayerEnAndLock  &kp LC(LA(DELETE))  &none           &none            &none            &none  &none    &none  &none  &none  &none  &none  &none  &aToLayerEnAndLock
+                                                                         &none            &none  &none    &none  &none  &none
             >;
 
             label = "HUB";
