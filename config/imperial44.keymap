@@ -795,7 +795,7 @@
             display-name = "Num e";
             sensor-bindings =
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
-                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
+                <&inc_dec_kp LS(C_AC_SCROLL_UP) C_AC_SCROLL_DOWN>;
         };
 
         nume1h {
