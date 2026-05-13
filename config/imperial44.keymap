@@ -65,22 +65,6 @@
             label = "TO_US";
         };
 
-        en_num_mo: en_num_mo {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&aSwitchLangToEn>,
-                <&macro_press>,
-                <&mo 7>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mo 7>,
-                <&macro_tap>,
-                <&aSwitchLangToRu>;
-
-            label = "EN_NUM_MO";
-        };
-
         to_bt1: to_bt1 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -100,20 +84,6 @@
             #binding-cells = <0>;
             bindings = <&out OUT_USB &bt BT_SEL 3 &out OUT_BLE &aToLayerEn>;
             label = "TO_BT3";
-        };
-
-        toru1h: toru1h {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&aSwitchLangToRu &to 3>;
-            label = "TORU1H";
-        };
-
-        toen1h: toen1h {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&aSwitchLangToEn &to 1>;
-            label = "TOEN1H";
         };
 
         aToLayerEnAndLock: aLockToLayerEn {
@@ -214,6 +184,20 @@
                 <&aSwitchLangToEn>;
 
             label = "APRESSINRU";
+        };
+
+        aToRu1h: aToRu1h {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&aSwitchLangToRu &to 3>;
+            label = "ATORU1H";
+        };
+
+        aToEn1h: aToEn1h {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&aSwitchLangToEn &to 1>;
+            label = "ATOEN1H";
         };
     };
 
@@ -545,7 +529,7 @@
         aToEnCToRu1h: aToEnCToRu1h {
             compatible = "zmk,behavior-mod-morph";
             label = "ATOENCTORU1H";
-            bindings = <&to 0>, <&toru1h>;
+            bindings = <&to 0>, <&aToRu1h>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
@@ -560,13 +544,13 @@
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        ru1h_ru_toen1h: ru1h_ru_toen1h {
+        aToRuCToEn1h: aToRuCToEn1h {
             compatible = "zmk,behavior-mod-morph";
-            label = "RU1H_RU_TOEN1H";
-            bindings = <&to 2>, <&toen1h>;
+            label = "ATORUCTOEN1H";
+            bindings = <&to 2>, <&aToEn1h>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
         aTapNoneHoldToLayer: aTapNoneHoldToLayer {
@@ -722,10 +706,10 @@
 
         wrd {
             bindings = <
-&aTabCEsc  &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &aRUMCReplace  &aRUNCNew                                 &kp RU_CYRILLIC_EF  &aRUU   &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &aRUSigns              &aBackspaceSDelete
-&aLSCCaps  &aRUVCAll            &aRUPCSave          &aRURCDouble        &aRUSCFind     &aRUTCToggle                              &aRUA               &aRUO   &aRUE               &aRUI                &aPressInEn SEMICOLON  &kp RSHFT
-&kp LCTRL  &aRUZCCancel         &aRUXCCut           &aRUJCCopy          &aRUBCPaste    &aRUYCBack    &to 11            &to 11    &kp RU_CYRILLIC_HA  &aRUSh  &aPressInEn COMMA   &aPressInEn DOT      &aRuExclamationSQuest  &aPressInEn SINGLE_QUOTE
-                                                                        &aToRu1hCToEn  &kp SPACE     &aMoNumRCToFun    &kp RALT  &kp ENTER           &to 3
+&aTabCEsc  &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &aRUMCReplace  &aRUNCNew                                 &kp RU_CYRILLIC_EF  &aRUU          &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &aRUSigns              &aBackspaceSDelete
+&aLSCCaps  &aRUVCAll            &aRUPCSave          &aRURCDouble        &aRUSCFind     &aRUTCToggle                              &aRUA               &aRUO          &aRUE               &aRUI                &aPressInEn SEMICOLON  &kp RSHFT
+&kp LCTRL  &aRUZCCancel         &aRUXCCut           &aRUJCCopy          &aRUBCPaste    &aRUYCBack    &to 11            &to 11    &kp RU_CYRILLIC_HA  &aRUSh         &aPressInEn COMMA   &aPressInEn DOT      &aRuExclamationSQuest  &aPressInEn SINGLE_QUOTE
+                                                                        &aToRu1hCToEn  &kp SPACE     &aMoNumRCToFun    &kp RALT  &kp ENTER           &aToRu1hCToEn
             >;
 
             label = "Pyc";
@@ -736,10 +720,10 @@
 
         wrd1h {
             bindings = <
-&aBackspaceSDelete        &aRUSigns              &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_DE  &aRUU   &kp RU_CYRILLIC_EF                              &aRUNCNew     &aRUMCReplace    &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_GHE  &aTabCEsc
-&kp RSHIFT                &aPressInEn SEMICOLON  &aRUI                &aRUE               &aRUO   &aRUA                                           &aRUTCToggle  &aRUSCFind       &aRURCDouble        &aRUPCSave          &aRUVCAll            &aLSCCaps
-&aPressInEn SINGLE_QUOTE  &aRuExclamationSQuest  &aPressInEn DOT      &aPressInEn COMMA   &aRUSh  &kp RU_CYRILLIC_HA  &to 11      &to 11          &aRUYCBack    &aRUBCPaste      &aRUJCCopy          &aRUXCCut           &aRUZCCancel         &kp LCTRL
-                                                                                          &to 2   &kp ENTER           &kp RALT    &aMoNumRCToFun  &kp SPACE     &ru1h_ru_toen1h
+&aBackspaceSDelete        &aRUSigns              &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_DE  &aRUU          &kp RU_CYRILLIC_EF                              &aRUNCNew     &aRUMCReplace  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_GHE  &aTabCEsc
+&kp RSHIFT                &aPressInEn SEMICOLON  &aRUI                &aRUE               &aRUO          &aRUA                                           &aRUTCToggle  &aRUSCFind     &aRURCDouble        &aRUPCSave          &aRUVCAll            &aLSCCaps
+&aPressInEn SINGLE_QUOTE  &aRuExclamationSQuest  &aPressInEn DOT      &aPressInEn COMMA   &aRUSh         &kp RU_CYRILLIC_HA  &to 11      &to 11          &aRUYCBack    &aRUBCPaste    &aRUJCCopy          &aRUXCCut           &aRUZCCancel         &kp LCTRL
+                                                                                          &aToRuCToEn1h  &kp ENTER           &kp RALT    &aMoNumRCToFun  &kp SPACE     &aToRuCToEn1h
             >;
 
             label = "Pyc 1p";
@@ -836,10 +820,10 @@
         numr1h {
             display-name = "Num rL";
             bindings = <
-&aBackspaceSDelete  &kp RU_NUMERO  &aPressInEn GRAVE      &aMouseUPAUP      &aPressInEn LEFT_BRACKET  &aPressInEn RIGHT_BRACKET                           &none      &kp KP_NUMBER_9  &kp KP_NUMBER_8  &kp KP_NUMBER_7  &kp KP_DOT  &aTabCEsc
-&kp RSHIFT          &mkp RCLK      &aMouseLEFTALEFT       &aMouseDOWNADOWN  &aMouseRIGHTARIGHT        &kp INSERT                                          &none      &none            &none            &none            &none       &aLSCCaps
-&kp PRINTSCREEN     &kp HOME       &aPressInEn BACKSLASH  &aPressInEn PIPE  &aPressInEn SLASH         &kp END                    &to 11      &to 11       &kp MINUS  &none            &none            &none            &none       &kp LCTRL
-                                                                            &to 7                     &mkp LCLK                  &kp RALT    &aMoRuCToRu  &kp SPACE  &to 7
+&aBackspaceSDelete  &kp RU_NUMERO  &aPressInEn GRAVE      &aMouseUPAUP      &aPressInEn LEFT_BRACKET  &aPressInEn RIGHT_BRACKET                           &aPressInEn NUMBER_0  &aPressInEn NUMBER_9  &aPressInEn NUMBER_8  &aPressInEn NUMBER_7  &kp KP_DOT       &aTabCEsc
+&kp RSHIFT          &mkp RCLK      &aMouseLEFTALEFT       &aMouseDOWNADOWN  &aMouseRIGHTARIGHT        &kp INSERT                                          &kp EQUAL             &aPressInEn NUMBER_6  &aPressInEn NUMBER_5  &aPressInEn NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
+&kp PRINTSCREEN     &kp HOME       &aPressInEn BACKSLASH  &aPressInEn PIPE  &aPressInEn SLASH         &kp END                    &to 11      &to 11       &kp MINUS             &aPressInEn NUMBER_3  &aPressInEn NUMBER_2  &aPressInEn NUMBER_1  &kp KP_DIVIDE    &kp LCTRL
+                                                                            &to 7                     &mkp LCLK                  &kp RALT    &aMoRuCToRu  &kp SPACE             &to 7
             >;
 
             sensor-bindings =
