@@ -674,9 +674,9 @@
             compatible = "zmk,behavior-sensor-rotate";
             label = "AMOUSESCROLL";
             #sensor-binding-cells = <0>;
-            bindings = <&msc MOVE_Y(20)>, <&msc SCRL_DOWN>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
 
-            tap-ms = <50>;
+            tap-ms = <5>;
         };
     };
 
