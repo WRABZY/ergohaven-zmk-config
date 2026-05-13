@@ -674,7 +674,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             label = "AMOUSESCROLL";
             #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            bindings = <&mkp MB5>, <&mkp MB4>;
 
             tap-ms = <5>;
         };
@@ -786,7 +786,7 @@
 
         nume {
             bindings = <
-&aTabCEsc  &kp KP_DOT       &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                            &kp LBKT    &kp RBKT          &aMouseUPAUP      &kp GRAVE           &aPressInRu RU_NUMERO  &aBackspaceSDelete
+&aTabCEsc  &kp DOT          &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                            &kp LBKT    &kp RBKT          &aMouseUPAUP      &kp GRAVE           &aPressInRu RU_NUMERO  &aBackspaceSDelete
 &aLSCCaps  &kp KP_MULTIPLY  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                               &kp INSERT  &aMouseLEFTALEFT  &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &mkp RCLK              &kp RSHIFT
 &kp LCTRL  &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &to 11         &mkp MCLK  &kp HOME    &kp BSLH          &kp PIPE          &kp SLASH           &kp END                &kp PRINTSCREEN
                                                         &to 8         &kp SPACE     &aMoEnCToEn    &kp RALT   &mkp LCLK   &to 8
@@ -795,13 +795,13 @@
             display-name = "Num e";
             sensor-bindings =
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
-                <&inc_dec_kp LS(C_AC_SCROLL_UP) C_AC_SCROLL_DOWN>;
+                <&aMouseScroll>;
         };
 
         nume1h {
             display-name = "Num eL";
             bindings = <
-&aBackspaceSDelete  &aPressInRu RU_NUMERO  &kp GRAVE         &aMouseUPAUP      &kp LBKT            &kp RIGHT_BRACKET                            &kp NUMBER_0  &kp NUMBER_9  &kp NUMBER_8  &kp NUMBER_7  &kp KP_DOT       &aTabCEsc
+&aBackspaceSDelete  &aPressInRu RU_NUMERO  &kp GRAVE         &aMouseUPAUP      &kp LBKT            &kp RIGHT_BRACKET                            &kp NUMBER_0  &kp NUMBER_9  &kp NUMBER_8  &kp NUMBER_7  &kp DOT          &aTabCEsc
 &kp RSHIFT          &mkp RCLK              &aMouseLEFTALEFT  &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &kp INSERT                                   &kp EQUAL     &kp NUMBER_6  &kp NUMBER_5  &kp NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
 &kp PRINTSCREEN     &kp HOME               &kp BACKSLASH     &kp PIPE          &kp SLASH           &kp END            &mkp MCLK    &to 11       &kp MINUS     &kp NUMBER_3  &kp NUMBER_2  &kp NUMBER_1  &kp KP_DIVIDE    &kp LCTRL
                                                                                &to 7               &mkp LCLK          &kp RALT     &aMoEnCToEn  &kp SPACE     &to 7
@@ -815,7 +815,7 @@
         numr {
             display-name = "Num r";
             bindings = <
-&aTabCEsc  &kp KP_DOT       &aPressInEn NUMBER_7  &aPressInEn NUMBER_8  &aPressInEn NUMBER_9  &aPressInEn NUMBER_0                            &aPressInEn LBKT  &aPressInEn RBKT  &aMouseUPAUP      &aPressInEn GRAVE   &kp RU_NUMERO  &aBackspaceSDelete
+&aTabCEsc  &kp RU_COMMA     &aPressInEn NUMBER_7  &aPressInEn NUMBER_8  &aPressInEn NUMBER_9  &aPressInEn NUMBER_0                            &aPressInEn LBKT  &aPressInEn RBKT  &aMouseUPAUP      &aPressInEn GRAVE   &kp RU_NUMERO  &aBackspaceSDelete
 &aLSCCaps  &kp KP_MULTIPLY  &aPressInEn NUMBER_4  &aPressInEn NUMBER_5  &aPressInEn NUMBER_6  &kp EQUAL                                       &kp INSERT        &aMouseLEFTALEFT  &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &mkp RCLK      &kp RSHIFT
 &kp LCTRL  &kp KP_DIVIDE    &aPressInEn NUMBER_1  &aPressInEn NUMBER_2  &aPressInEn NUMBER_3  &kp MINUS             &to 11         &mkp MCLK  &kp HOME          &aPressInEn BSLH  &aPressInEn PIPE  &aPressInEn SLASH   &kp END        &kp PRINTSCREEN
                                                                         &to 8                 &kp SPACE             &aMoRuCToRu    &kp RALT   &mkp LCLK         &to 8
@@ -829,7 +829,7 @@
         numr1h {
             display-name = "Num rL";
             bindings = <
-&aBackspaceSDelete  &kp RU_NUMERO  &aPressInEn GRAVE      &aMouseUPAUP      &aPressInEn LEFT_BRACKET  &aPressInEn RIGHT_BRACKET                            &aPressInEn NUMBER_0  &aPressInEn NUMBER_9  &aPressInEn NUMBER_8  &aPressInEn NUMBER_7  &kp KP_DOT       &aTabCEsc
+&aBackspaceSDelete  &kp RU_NUMERO  &aPressInEn GRAVE      &aMouseUPAUP      &aPressInEn LEFT_BRACKET  &aPressInEn RIGHT_BRACKET                            &aPressInEn NUMBER_0  &aPressInEn NUMBER_9  &aPressInEn NUMBER_8  &aPressInEn NUMBER_7  &kp RU_COMMA     &aTabCEsc
 &kp RSHIFT          &mkp RCLK      &aMouseLEFTALEFT       &aMouseDOWNADOWN  &aMouseRIGHTARIGHT        &kp INSERT                                           &kp EQUAL             &aPressInEn NUMBER_6  &aPressInEn NUMBER_5  &aPressInEn NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
 &kp PRINTSCREEN     &kp HOME       &aPressInEn BACKSLASH  &aPressInEn PIPE  &aPressInEn SLASH         &kp END                    &mkp MCLK    &to 11       &kp MINUS             &aPressInEn NUMBER_3  &aPressInEn NUMBER_2  &aPressInEn NUMBER_1  &kp KP_DIVIDE    &kp LCTRL
                                                                             &to 7                     &mkp LCLK                  &kp RALT     &aMoRuCToRu  &kp SPACE             &to 7
