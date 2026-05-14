@@ -135,7 +135,7 @@
             label = "ARUTOLAYERNUM";
         };
 
-        aMoLayerEn: aMoLayerEn {
+        aFunMoLayerEn: aFunMoLayerEn {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -146,10 +146,10 @@
                 <&macro_tap>,
                 <&to 5>;
 
-            label = "AMOLAYEREN";
+            label = "AFUNMOLAYEREN";
         };
 
-        aMoLayerRu: aMoLayerRu {
+        aFunMoLayerRu: aFunMoLayerRu {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -160,7 +160,7 @@
                 <&macro_tap>,
                 <&to 5>;
 
-            label = "AMOLAYERRU";
+            label = "AFUNMOLAYERRU";
         };
 
         aToLayerEnAndExec: aToLayerEnAndExec {
@@ -198,6 +198,34 @@
             #binding-cells = <0>;
             bindings = <&aSwitchLangToEn &to 1>;
             label = "ATOEN1H";
+        };
+
+        aNumMoLayerEn: aNumMoLayerEn {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&aSwitchLangToEn>,
+                <&macro_tap>,
+                <&to 0>,
+                <&macro_pause_for_release>,
+                <&macro_tap>,
+                <&to 7>;
+
+            label = "ANUMMOLAYEREN";
+        };
+
+        aNumMoLayerRu: aNumMoLayerRu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&aSwitchLangToRu>,
+                <&macro_tap>,
+                <&to 2>,
+                <&macro_pause_for_release>,
+                <&macro_tap>,
+                <&to 9>;
+
+            label = "ANUMMOLAYERRU";
         };
     };
 
@@ -580,10 +608,10 @@
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        aMoRuCToRu: aMoRuCToRu {
+        aFunMoRuCToRu: aFunMoRuCToRu {
             compatible = "zmk,behavior-mod-morph";
-            label = "AMORUCTORU";
-            bindings = <&aMoLayerRu>, <&aToLayerRu>;
+            label = "AFUNMORUCTORU";
+            bindings = <&aFunMoLayerRu>, <&aToLayerRu>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
@@ -634,10 +662,10 @@
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        aMoEnCToEn: aMoEnCToEn {
+        aFunMoEnCToEn: aFunMoEnCToEn {
             compatible = "zmk,behavior-mod-morph";
-            label = "AMOENCTOEN";
-            bindings = <&aMoLayerEn>, <&aToLayerEn>;
+            label = "AFUNMOENCTOEN";
+            bindings = <&aFunMoLayerEn>, <&aToLayerEn>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
@@ -674,9 +702,36 @@
             compatible = "zmk,behavior-sensor-rotate";
             label = "AMOUSESCROLL";
             #sensor-binding-cells = <0>;
-            bindings = <&mkp MB5>, <&mkp MB4>;
+            bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
 
             tap-ms = <5>;
+        };
+
+        aNumMoEnCToEn: aNumMoEnCToEn {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ANUMMOENCTOEN";
+            bindings = <&aNumMoLayerEn>, <&aToLayerEn>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+
+        aNumMoRuCToRu: aNumMoRuCToRu {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ANUMMORUCTORU";
+            bindings = <&aNumMoLayerRu>, <&aToLayerRu>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+
+        aGameEAEnter: aGameEAEnter {
+            compatible = "zmk,behavior-mod-morph";
+            label = "AGAMEEAENTER";
+            bindings = <&kp E>, <&kp ENTER>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
         };
     };
 
@@ -743,10 +798,10 @@
 
         gm {
             bindings = <
-&none  &aTabCEsc  &kp Q  &kp W  &kp E     &kp R                        &none  &none  &none  &none  &none  &none
-&none  &kp LSHFT  &kp A  &kp S  &kp D     &kp F                        &none  &none  &none  &none  &none  &none
-&none  &kp LCTRL  &kp Z  &kp X  &kp C     &kp V      &to 11    &to 11  &none  &none  &none  &none  &none  &none
-                                &kp LALT  &kp SPACE  &mo 7     &none   &none  &none
+&kp NUMBER_1  &aTabCEsc  &kp Q  &kp W  &aGameEAEnter  &kp R                           &none      &none             &aMouseUPAUP      &none               &none      &none
+&kp NUMBER_2  &kp LSHFT  &kp A  &kp S  &kp D          &kp F                           &none      &aMouseLEFTALEFT  &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &mkp RCLK  &none
+&kp NUMBER_3  &kp LCTRL  &kp Z  &kp X  &kp C          &kp V      &to 11    &mkp MCLK  &none      &none             &none             &none               &none      &none
+                                       &kp LALT       &kp SPACE  &mo 7     &kp RALT   &mkp LCLK  &none
             >;
 
             sensor-bindings =
@@ -758,10 +813,10 @@
 
         fune {
             bindings = <
-&aTabCEsc  &kp F1  &kp F2   &kp F3   &kp F4       &none                                &bt0     &bt1          &bt2              &bt3          &none  &btc
-&kp LSHFT  &kp F5  &kp F6   &kp F7   &kp F8       &kp LALT                             &none    &kp C_VOL_DN  &kp C_MUTE        &kp C_VOL_UP  &none  &none
-&kp LCTRL  &kp F9  &kp F10  &kp F11  &kp F12      &none      &to 11         &to 11     &to_usb  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT    &none  &none
-                                     &aMoRuCToRu  &kp LCTRL  &aMoEnCToEn    &kp RCTRL  &none    &none
+&aTabCEsc  &kp F1  &kp F2   &kp F3   &kp F4          &none                                   &bt0     &bt1          &bt2              &bt3          &none  &btc
+&kp LSHFT  &kp F5  &kp F6   &kp F7   &kp F8          &kp LALT                                &none    &kp C_VOL_DN  &kp C_MUTE        &kp C_VOL_UP  &none  &none
+&kp LCTRL  &kp F9  &kp F10  &kp F11  &kp F12         &none      &to 11            &to 11     &to_usb  &kp C_PREV    &kp C_PLAY_PAUSE  &kp C_NEXT    &none  &none
+                                     &aFunMoRuCToRu  &kp LCTRL  &aFunMoEnCToEn    &kp RCTRL  &none    &none
             >;
 
             display-name = "Fun";
@@ -786,10 +841,10 @@
 
         nume {
             bindings = <
-&aTabCEsc  &kp DOT          &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                            &kp LBKT    &kp RBKT          &aMouseUPAUP      &kp GRAVE           &aPressInRu RU_NUMERO  &aBackspaceSDelete
-&aLSCCaps  &kp KP_MULTIPLY  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                               &kp INSERT  &aMouseLEFTALEFT  &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &mkp RCLK              &kp RSHIFT
-&kp LCTRL  &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &to 11         &mkp MCLK  &kp HOME    &kp BSLH          &kp PIPE          &kp SLASH           &kp END                &kp PRINTSCREEN
-                                                        &to 8         &kp SPACE     &aMoEnCToEn    &kp RALT   &mkp LCLK   &to 8
+&aTabCEsc  &kp DOT          &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                               &kp LBKT    &kp RBKT          &aMouseUPAUP      &kp GRAVE           &aPressInRu RU_NUMERO  &aBackspaceSDelete
+&aLSCCaps  &kp KP_MULTIPLY  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                                  &kp INSERT  &aMouseLEFTALEFT  &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &mkp RCLK              &kp RSHIFT
+&kp LCTRL  &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &to 11            &mkp MCLK  &kp HOME    &kp BSLH          &kp PIPE          &kp SLASH           &kp END                &kp PRINTSCREEN
+                                                        &to 8         &kp SPACE     &aNumMoEnCToEn    &kp RALT   &mkp LCLK   &to 8
             >;
 
             display-name = "Num e";
@@ -801,10 +856,10 @@
         nume1h {
             display-name = "Num eL";
             bindings = <
-&aBackspaceSDelete  &aPressInRu RU_NUMERO  &kp GRAVE         &aMouseUPAUP      &kp LBKT            &kp RIGHT_BRACKET                            &kp NUMBER_0  &kp NUMBER_9  &kp NUMBER_8  &kp NUMBER_7  &kp DOT          &aTabCEsc
-&kp RSHIFT          &mkp RCLK              &aMouseLEFTALEFT  &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &kp INSERT                                   &kp EQUAL     &kp NUMBER_6  &kp NUMBER_5  &kp NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
-&kp PRINTSCREEN     &kp HOME               &kp BACKSLASH     &kp PIPE          &kp SLASH           &kp END            &mkp MCLK    &to 11       &kp MINUS     &kp NUMBER_3  &kp NUMBER_2  &kp NUMBER_1  &kp KP_DIVIDE    &kp LCTRL
-                                                                               &to 7               &mkp LCLK          &kp RALT     &aMoEnCToEn  &kp SPACE     &to 7
+&aBackspaceSDelete  &aPressInRu RU_NUMERO  &kp GRAVE         &aMouseUPAUP      &kp LBKT            &kp RIGHT_BRACKET                               &kp NUMBER_0  &kp NUMBER_9  &kp NUMBER_8  &kp NUMBER_7  &kp DOT          &aTabCEsc
+&kp RSHIFT          &mkp RCLK              &aMouseLEFTALEFT  &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &kp INSERT                                      &kp EQUAL     &kp NUMBER_6  &kp NUMBER_5  &kp NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
+&kp PRINTSCREEN     &kp HOME               &kp BACKSLASH     &kp PIPE          &kp SLASH           &kp END            &mkp MCLK    &to 11          &kp MINUS     &kp NUMBER_3  &kp NUMBER_2  &kp NUMBER_1  &kp KP_DIVIDE    &kp LCTRL
+                                                                               &to 7               &mkp LCLK          &kp RALT     &aNumMoEnCToEn  &kp SPACE     &to 7
             >;
 
             sensor-bindings =
@@ -815,10 +870,10 @@
         numr {
             display-name = "Num r";
             bindings = <
-&aTabCEsc  &kp RU_COMMA     &aPressInEn NUMBER_7  &aPressInEn NUMBER_8  &aPressInEn NUMBER_9  &aPressInEn NUMBER_0                            &aPressInEn LBKT  &aPressInEn RBKT  &aMouseUPAUP      &aPressInEn GRAVE   &kp RU_NUMERO  &aBackspaceSDelete
-&aLSCCaps  &kp KP_MULTIPLY  &aPressInEn NUMBER_4  &aPressInEn NUMBER_5  &aPressInEn NUMBER_6  &kp EQUAL                                       &kp INSERT        &aMouseLEFTALEFT  &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &mkp RCLK      &kp RSHIFT
-&kp LCTRL  &kp KP_DIVIDE    &aPressInEn NUMBER_1  &aPressInEn NUMBER_2  &aPressInEn NUMBER_3  &kp MINUS             &to 11         &mkp MCLK  &kp HOME          &aPressInEn BSLH  &aPressInEn PIPE  &aPressInEn SLASH   &kp END        &kp PRINTSCREEN
-                                                                        &to 8                 &kp SPACE             &aMoRuCToRu    &kp RALT   &mkp LCLK         &to 8
+&aTabCEsc  &kp RU_COMMA     &aPressInEn NUMBER_7  &aPressInEn NUMBER_8  &aPressInEn NUMBER_9  &aPressInEn NUMBER_0                               &aPressInEn LBKT  &aPressInEn RBKT  &aMouseUPAUP      &aPressInEn GRAVE   &kp RU_NUMERO  &aBackspaceSDelete
+&aLSCCaps  &kp KP_MULTIPLY  &aPressInEn NUMBER_4  &aPressInEn NUMBER_5  &aPressInEn NUMBER_6  &kp EQUAL                                          &kp INSERT        &aMouseLEFTALEFT  &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &mkp RCLK      &kp RSHIFT
+&kp LCTRL  &kp KP_DIVIDE    &aPressInEn NUMBER_1  &aPressInEn NUMBER_2  &aPressInEn NUMBER_3  &kp MINUS             &to 11            &mkp MCLK  &kp HOME          &aPressInEn BSLH  &aPressInEn PIPE  &aPressInEn SLASH   &kp END        &kp PRINTSCREEN
+                                                                        &to 8                 &kp SPACE             &aNumMoRuCToRu    &kp RALT   &mkp LCLK         &to 8
             >;
 
             sensor-bindings =
@@ -829,10 +884,10 @@
         numr1h {
             display-name = "Num rL";
             bindings = <
-&aBackspaceSDelete  &kp RU_NUMERO  &aPressInEn GRAVE      &aMouseUPAUP      &aPressInEn LEFT_BRACKET  &aPressInEn RIGHT_BRACKET                            &aPressInEn NUMBER_0  &aPressInEn NUMBER_9  &aPressInEn NUMBER_8  &aPressInEn NUMBER_7  &kp RU_COMMA     &aTabCEsc
-&kp RSHIFT          &mkp RCLK      &aMouseLEFTALEFT       &aMouseDOWNADOWN  &aMouseRIGHTARIGHT        &kp INSERT                                           &kp EQUAL             &aPressInEn NUMBER_6  &aPressInEn NUMBER_5  &aPressInEn NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
-&kp PRINTSCREEN     &kp HOME       &aPressInEn BACKSLASH  &aPressInEn PIPE  &aPressInEn SLASH         &kp END                    &mkp MCLK    &to 11       &kp MINUS             &aPressInEn NUMBER_3  &aPressInEn NUMBER_2  &aPressInEn NUMBER_1  &kp KP_DIVIDE    &kp LCTRL
-                                                                            &to 7                     &mkp LCLK                  &kp RALT     &aMoRuCToRu  &kp SPACE             &to 7
+&aBackspaceSDelete  &kp RU_NUMERO  &aPressInEn GRAVE      &aMouseUPAUP      &aPressInEn LEFT_BRACKET  &aPressInEn RIGHT_BRACKET                               &aPressInEn NUMBER_0  &aPressInEn NUMBER_9  &aPressInEn NUMBER_8  &aPressInEn NUMBER_7  &kp RU_COMMA     &aTabCEsc
+&kp RSHIFT          &mkp RCLK      &aMouseLEFTALEFT       &aMouseDOWNADOWN  &aMouseRIGHTARIGHT        &kp INSERT                                              &kp EQUAL             &aPressInEn NUMBER_6  &aPressInEn NUMBER_5  &aPressInEn NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
+&kp PRINTSCREEN     &kp HOME       &aPressInEn BACKSLASH  &aPressInEn PIPE  &aPressInEn SLASH         &kp END                    &mkp MCLK    &to 11          &kp MINUS             &aPressInEn NUMBER_3  &aPressInEn NUMBER_2  &aPressInEn NUMBER_1  &kp KP_DIVIDE    &kp LCTRL
+                                                                            &to 7                     &mkp LCLK                  &kp RALT     &aNumMoRuCToRu  &kp SPACE             &to 7
             >;
 
             sensor-bindings =
