@@ -702,9 +702,9 @@
             compatible = "zmk,behavior-sensor-rotate";
             label = "AMOUSESCROLL";
             #sensor-binding-cells = <0>;
-            bindings = <&msc MOVE_Y(10)>, <&msc MOVE_Y(-10)>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
 
-            tap-ms = <16>;
+            tap-ms = <250>;
         };
 
         aNumMoEnCToEn: aNumMoEnCToEn {
