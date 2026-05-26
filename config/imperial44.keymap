@@ -724,6 +724,42 @@
             #binding-cells = <0>;
             mods = <(MOD_LALT|MOD_RALT)>;
         };
+
+        aDOWNAMouseDOWN: aDOWNAMouseDOWN {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ADOWNAMOUSEDOWN";
+            bindings = <&kp DOWN>, <&mmv MOVE_DOWN>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        aUPAMouseUP: aUPAMouseUP {
+            compatible = "zmk,behavior-mod-morph";
+            label = "AUPAMOUSEUP";
+            bindings = <&kp UP>, <&mmv MOVE_UP>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        aLEFTAMouseLEFT: aLEFTAMouseLEFT {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ALEFTAMOUSELEFT";
+            bindings = <&kp LEFT>, <&mmv MOVE_LEFT>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        aRIGHTAMouseRIGHT: aRIGHTAMouseRIGHT {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ARIGHTAMOUSERIGHT";
+            bindings = <&kp RIGHT>, <&mmv MOVE_RIGHT>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
     };
 
     combos { compatible = "zmk,combos"; };
@@ -789,9 +825,9 @@
 
         gm {
             bindings = <
-&kp NUMBER_1  &aTabCEsc  &kp Q  &kp W  &aGameEAEnter  &kp R                           &none      &none             &aMouseUPAUP      &none               &none      &none
-&kp NUMBER_2  &kp LSHFT  &kp A  &kp S  &kp D          &kp F                           &none      &aMouseLEFTALEFT  &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &mkp RCLK  &none
-&kp NUMBER_3  &kp LCTRL  &kp Z  &kp X  &kp C          &kp V      &to 11    &mkp MCLK  &none      &none             &none             &none               &none      &none
+&kp NUMBER_1  &aTabCEsc  &kp Q  &kp W  &aGameEAEnter  &kp R                           &kp T      &kp Y             &aMouseUPAUP      &kp I               &kp O      &kp P
+&kp NUMBER_2  &kp LSHFT  &kp A  &kp S  &kp D          &kp F                           &kp G      &aMouseLEFTALEFT  &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &mkp RCLK  &none
+&kp NUMBER_3  &kp LCTRL  &kp Z  &kp X  &kp C          &kp V      &to 11    &mkp MCLK  &kp B      &kp N             &kp M             &none               &none      &none
                                        &kp LALT       &kp SPACE  &mo 7     &kp RALT   &mkp LCLK  &none
             >;
 
@@ -832,9 +868,9 @@
 
         nume {
             bindings = <
-&aTabCEsc  &kp DOT          &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                               &kp LBKT    &kp RBKT  &kp UP    &kp GRAVE  &aPressInRu RU_NUMERO  &aBackspaceSDelete
-&aLSCCaps  &kp KP_MULTIPLY  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                                  &kp INSERT  &kp LEFT  &kp DOWN  &kp RIGHT  &mkp RCLK              &kp RSHIFT
-&kp LCTRL  &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &to 11            &mkp MCLK  &kp HOME    &kp BSLH  &kp PIPE  &kp SLASH  &kp END                &kp PRINTSCREEN
+&aTabCEsc  &kp DOT          &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                               &kp LBKT    &kp RBKT          &aUPAMouseUP      &kp GRAVE           &aPressInRu RU_NUMERO  &aBackspaceSDelete
+&aLSCCaps  &kp KP_MULTIPLY  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                                  &kp INSERT  &aLEFTAMouseLEFT  &aDOWNAMouseDOWN  &aRIGHTAMouseRIGHT  &mkp RCLK              &kp RSHIFT
+&kp LCTRL  &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &to 11            &mkp MCLK  &kp HOME    &kp BSLH          &kp PIPE          &kp SLASH           &kp END                &kp PRINTSCREEN
                                                         &to 8         &kp SPACE     &aNumMoEnCToEn    &kp RALT   &mkp LCLK   &to 8
             >;
 
@@ -847,10 +883,10 @@
         nume1h {
             display-name = "Num eL";
             bindings = <
-&aBackspaceSDelete  &aPressInRu RU_NUMERO  &kp GRAVE      &kp UP    &kp LBKT   &kp RIGHT_BRACKET                               &kp NUMBER_0  &kp NUMBER_9  &kp NUMBER_8  &kp NUMBER_7  &kp DOT          &aTabCEsc
-&kp RSHIFT          &mkp RCLK              &kp LEFT       &kp DOWN  &kp RIGHT  &kp INSERT                                      &kp EQUAL     &kp NUMBER_6  &kp NUMBER_5  &kp NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
-&kp PRINTSCREEN     &kp HOME               &kp BACKSLASH  &kp PIPE  &kp SLASH  &kp END            &mkp MCLK    &to 11          &kp MINUS     &kp NUMBER_3  &kp NUMBER_2  &kp NUMBER_1  &kp KP_DIVIDE    &kp LCTRL
-                                                                    &to 7      &mkp LCLK          &kp RALT     &aNumMoEnCToEn  &kp SPACE     &to 7
+&aBackspaceSDelete  &aPressInRu RU_NUMERO  &kp GRAVE         &aUPAMouseUP      &kp LBKT            &kp RIGHT_BRACKET                               &kp NUMBER_0  &kp NUMBER_9  &kp NUMBER_8  &kp NUMBER_7  &kp DOT          &aTabCEsc
+&kp RSHIFT          &mkp RCLK              &aLEFTAMouseLEFT  &aDOWNAMouseDOWN  &aRIGHTAMouseRIGHT  &kp INSERT                                      &kp EQUAL     &kp NUMBER_6  &kp NUMBER_5  &kp NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
+&kp PRINTSCREEN     &kp HOME               &kp BACKSLASH     &kp PIPE          &kp SLASH           &kp END            &mkp MCLK    &to 11          &kp MINUS     &kp NUMBER_3  &kp NUMBER_2  &kp NUMBER_1  &kp KP_DIVIDE    &kp LCTRL
+                                                                               &to 7               &mkp LCLK          &kp RALT     &aNumMoEnCToEn  &kp SPACE     &to 7
             >;
 
             sensor-bindings =
@@ -861,9 +897,9 @@
         numr {
             display-name = "Num r";
             bindings = <
-&aTabCEsc  &kp RU_COMMA     &aPressInEn NUMBER_7  &aPressInEn NUMBER_8  &aPressInEn NUMBER_9  &aPressInEn NUMBER_0                               &aPressInEn LBKT  &aPressInEn RBKT  &kp UP            &aPressInEn GRAVE  &kp RU_NUMERO  &aBackspaceSDelete
-&aLSCCaps  &kp KP_MULTIPLY  &aPressInEn NUMBER_4  &aPressInEn NUMBER_5  &aPressInEn NUMBER_6  &kp EQUAL                                          &kp INSERT        &kp LEFT          &kp DOWN          &kp RIGHT          &mkp RCLK      &kp RSHIFT
-&kp LCTRL  &kp KP_DIVIDE    &aPressInEn NUMBER_1  &aPressInEn NUMBER_2  &aPressInEn NUMBER_3  &kp MINUS             &to 11            &mkp MCLK  &kp HOME          &aPressInEn BSLH  &aPressInEn PIPE  &aPressInEn SLASH  &kp END        &kp PRINTSCREEN
+&aTabCEsc  &kp RU_COMMA     &aPressInEn NUMBER_7  &aPressInEn NUMBER_8  &aPressInEn NUMBER_9  &aPressInEn NUMBER_0                               &aPressInEn LBKT  &aPressInEn RBKT  &aUPAMouseUP      &aPressInEn GRAVE   &kp RU_NUMERO  &aBackspaceSDelete
+&aLSCCaps  &kp KP_MULTIPLY  &aPressInEn NUMBER_4  &aPressInEn NUMBER_5  &aPressInEn NUMBER_6  &kp EQUAL                                          &kp INSERT        &aLEFTAMouseLEFT  &aDOWNAMouseDOWN  &aRIGHTAMouseRIGHT  &mkp RCLK      &kp RSHIFT
+&kp LCTRL  &kp KP_DIVIDE    &aPressInEn NUMBER_1  &aPressInEn NUMBER_2  &aPressInEn NUMBER_3  &kp MINUS             &to 11            &mkp MCLK  &kp HOME          &aPressInEn BSLH  &aPressInEn PIPE  &aPressInEn SLASH   &kp END        &kp PRINTSCREEN
                                                                         &to 8                 &kp SPACE             &aNumMoRuCToRu    &kp RALT   &mkp LCLK         &to 8
             >;
 
@@ -875,8 +911,8 @@
         numr1h {
             display-name = "Num rL";
             bindings = <
-&aBackspaceSDelete  &kp RU_NUMERO  &aPressInEn GRAVE      &kp UP            &aPressInEn LEFT_BRACKET  &aPressInEn RIGHT_BRACKET                               &aPressInEn NUMBER_0  &aPressInEn NUMBER_9  &aPressInEn NUMBER_8  &aPressInEn NUMBER_7  &kp RU_COMMA     &aTabCEsc
-&kp RSHIFT          &mkp RCLK      &kp LEFT               &kp DOWN          &kp RIGHT                 &kp INSERT                                              &kp EQUAL             &aPressInEn NUMBER_6  &aPressInEn NUMBER_5  &aPressInEn NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
+&aBackspaceSDelete  &kp RU_NUMERO  &aPressInEn GRAVE      &aUPAMouseUP      &aPressInEn LEFT_BRACKET  &aPressInEn RIGHT_BRACKET                               &aPressInEn NUMBER_0  &aPressInEn NUMBER_9  &aPressInEn NUMBER_8  &aPressInEn NUMBER_7  &kp RU_COMMA     &aTabCEsc
+&kp RSHIFT          &mkp RCLK      &aLEFTAMouseLEFT       &aDOWNAMouseDOWN  &aRIGHTAMouseRIGHT        &kp INSERT                                              &kp EQUAL             &aPressInEn NUMBER_6  &aPressInEn NUMBER_5  &aPressInEn NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
 &kp PRINTSCREEN     &kp HOME       &aPressInEn BACKSLASH  &aPressInEn PIPE  &aPressInEn SLASH         &kp END                    &mkp MCLK    &to 11          &kp MINUS             &aPressInEn NUMBER_3  &aPressInEn NUMBER_2  &aPressInEn NUMBER_1  &kp KP_DIVIDE    &kp LCTRL
                                                                             &to 7                     &mkp LCLK                  &kp RALT     &aNumMoRuCToRu  &kp SPACE             &to 7
             >;
