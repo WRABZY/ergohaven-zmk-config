@@ -849,7 +849,7 @@
 
             display-name = "Num e";
             sensor-bindings =
-                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
+                <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>,
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
@@ -864,7 +864,7 @@
 
             sensor-bindings =
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>,
-                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+                <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
         };
 
         numr {
@@ -877,7 +877,7 @@
             >;
 
             sensor-bindings =
-                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
+                <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>,
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
@@ -892,7 +892,7 @@
 
             sensor-bindings =
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>,
-                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+                <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
         };
 
         hub {
