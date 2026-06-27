@@ -748,10 +748,6 @@
 &kp LCTRL  &kp Z    &kp X     &aJCCopy    &aBCPaste      &aYCBack   &to 11            &to 11    &kp H      &kp W          &kp COMMA  &kp DOT  &aEnExclamationSQuest  &kp SINGLE_QUOTE
                                           &aToEn1hCToRu  &kp SPACE  &aMoNumECToFun    &kp RALT  &kp ENTER  &aToEn1hCToRu
             >;
-
-            sensor-bindings =
-                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
         wed1h {
@@ -762,10 +758,6 @@
 &kp SINGLE_QUOTE    &aEnExclamationSQuest  &kp DOT  &kp COMMA  &kp W          &kp H      &to 11      &to 11          &aYCBack   &aBCPaste      &aJCCopy    &kp X     &kp Z    &kp LCTRL
                                                                &aToEnCToRu1h  &kp ENTER  &kp RALT    &aMoNumECToFun  &kp SPACE  &aToEnCToRu1h
             >;
-
-            sensor-bindings =
-                <&inc_dec_kp PAGE_UP PAGE_DOWN>,
-                <&inc_dec_kp UP_ARROW DOWN_ARROW>;
         };
 
         wrd {
@@ -777,9 +769,6 @@
             >;
 
             label = "Pyc";
-            sensor-bindings =
-                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
         wrd1h {
@@ -791,9 +780,6 @@
             >;
 
             label = "Pyc 1p";
-            sensor-bindings =
-                <&inc_dec_kp PAGE_UP PAGE_DOWN>,
-                <&inc_dec_kp UP_ARROW DOWN_ARROW>;
         };
 
         gm {
@@ -804,10 +790,6 @@
                                        &kp LALT       &kp SPACE  &mo 7     &kp RALT   &mkp LCLK  &none
             >;
 
-            sensor-bindings =
-                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
-
             label = "WASD";
         };
 
@@ -815,14 +797,11 @@
             bindings = <
 &aEscCTab  &kp F1  &kp F2   &kp F3   &kp F4   &none                                   &bt1       &bt2               &aMouseUPAUP      &bt3                &none      &btc
 &kp LSHFT  &kp F5  &kp F6   &kp F7   &kp F8   &kp LALT                                &bt0       &aMouseLEFTALEFT   &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &mkp RCLK  &none
-&kp LCTRL  &kp F9  &kp F10  &kp F11  &kp F12  &none      &to 11            &mkp MCLK  &to_usb    &kp C_VOLUME_DOWN  &kp K_MUTE        &kp C_VOLUME_UP     &none      &kp RCTRL
+&kp LCTRL  &kp F9  &kp F10  &kp F11  &kp F12  &none      &to 11            &mkp MCLK  &to_usb    &kp C_VOLUME_DOWN  &kp C_MUTE        &kp C_VOLUME_UP     &none      &kp RCTRL
                                      &to 6    &kp LCTRL  &aFunMoEnCToEn    &kp RALT   &mkp LCLK  &to 6
             >;
 
             display-name = "Fun";
-            sensor-bindings =
-                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
         fune1h {
@@ -830,13 +809,9 @@
             bindings = <
 &btc       &none      &bt3               &aMouseUPAUP      &bt2                &bt1                                        &none      &kp F4   &kp F3   &kp F2   &kp F1  &aEscCTab
 &none      &mkp RCLK  &aMouseLEFTALEFT   &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &bt0                                        &kp LALT   &kp F8   &kp F7   &kp F6   &kp F5  &kp LSHFT
-&kp RCTRL  &none      &kp C_VOLUME_DOWN  &kp K_MUTE        &kp C_VOLUME_UP     &to_usb    &mkp MCLK        &to 11          &none      &kp F12  &kp F11  &kp F10  &kp F9  &kp LCTRL
+&kp RCTRL  &none      &kp C_VOLUME_DOWN  &kp C_MUTE        &kp C_VOLUME_UP     &to_usb    &mkp MCLK        &to 11          &none      &kp F12  &kp F11  &kp F10  &kp F9  &kp LCTRL
                                                            &to 5               &mkp LCLK  &kp RIGHT_ALT    &aFunMoEnCToEn  &kp LCTRL  &to 5
             >;
-
-            sensor-bindings =
-                <&inc_dec_kp PAGE_UP PAGE_DOWN>,
-                <&inc_dec_kp UP_ARROW DOWN_ARROW>;
         };
 
         nume {
@@ -849,7 +824,7 @@
 
             display-name = "Num e";
             sensor-bindings =
-                <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>,
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>,
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
@@ -864,7 +839,7 @@
 
             sensor-bindings =
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>,
-                <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
         numr {
@@ -877,7 +852,7 @@
             >;
 
             sensor-bindings =
-                <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>,
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>,
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
@@ -892,7 +867,7 @@
 
             sensor-bindings =
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>,
-                <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
         hub {
@@ -904,9 +879,6 @@
             >;
 
             label = "HUB";
-            sensor-bindings =
-                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
-                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
         synth {
