@@ -751,7 +751,7 @@
 
             sensor-bindings =
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
-                <&aMouseScroll>;
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
         wed1h {
@@ -764,7 +764,7 @@
             >;
 
             sensor-bindings =
-                <&aMouseScroll>,
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>,
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
@@ -779,7 +779,7 @@
             label = "Pyc";
             sensor-bindings =
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
-                <&aMouseScroll>;
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
         wrd1h {
@@ -792,7 +792,7 @@
 
             label = "Pyc 1p";
             sensor-bindings =
-                <&aMouseScroll>,
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>,
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
