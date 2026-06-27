@@ -806,7 +806,7 @@
 
             sensor-bindings =
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
-                <&aMouseScroll>;
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
 
             label = "WASD";
         };
@@ -822,7 +822,7 @@
             display-name = "Fun";
             sensor-bindings =
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
-                <&aMouseScroll>;
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
         fune1h {
@@ -835,7 +835,7 @@
             >;
 
             sensor-bindings =
-                <&aMouseScroll>,
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>,
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
@@ -850,7 +850,7 @@
             display-name = "Num e";
             sensor-bindings =
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
-                <&aMouseScroll>;
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
         nume1h {
@@ -863,7 +863,7 @@
             >;
 
             sensor-bindings =
-                <&aMouseScroll>,
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>,
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
@@ -878,7 +878,7 @@
 
             sensor-bindings =
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
-                <&aMouseScroll>;
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
         numr1h {
@@ -891,7 +891,7 @@
             >;
 
             sensor-bindings =
-                <&aMouseScroll>,
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>,
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
@@ -906,7 +906,7 @@
             label = "HUB";
             sensor-bindings =
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
-                <&aMouseScroll>;
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
         synth {
