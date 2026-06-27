@@ -725,40 +725,13 @@
             mods = <(MOD_LALT|MOD_RALT)>;
         };
 
-        aDOWNAMouseDOWN: aDOWNAMouseDOWN {
+        aEscCTab: aEscCTab {
             compatible = "zmk,behavior-mod-morph";
-            label = "ADOWNAMOUSEDOWN";
-            bindings = <&kp DOWN>, <&mmv MOVE_DOWN>;
+            label = "AESCCTAB";
+            bindings = <&kp ESC>, <&kp TAB>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        aUPAMouseUP: aUPAMouseUP {
-            compatible = "zmk,behavior-mod-morph";
-            label = "AUPAMOUSEUP";
-            bindings = <&kp UP>, <&mmv MOVE_UP>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        aLEFTAMouseLEFT: aLEFTAMouseLEFT {
-            compatible = "zmk,behavior-mod-morph";
-            label = "ALEFTAMOUSELEFT";
-            bindings = <&kp LEFT>, <&mmv MOVE_LEFT>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        aRIGHTAMouseRIGHT: aRIGHTAMouseRIGHT {
-            compatible = "zmk,behavior-mod-morph";
-            label = "ARIGHTAMOUSERIGHT";
-            bindings = <&kp RIGHT>, <&mmv MOVE_RIGHT>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
     };
 
@@ -840,9 +813,9 @@
 
         fune {
             bindings = <
-&aTabCEsc  &kp F1  &kp F2   &kp F3   &kp F4   &none                                   &bt1       &bt2              &aMouseUPAUP      &bt3                &none      &btc
-&kp LSHFT  &kp F5  &kp F6   &kp F7   &kp F8   &kp LALT                                &bt0       &aMouseLEFTALEFT  &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &mkp RCLK  &none
-&kp LCTRL  &kp F9  &kp F10  &kp F11  &kp F12  &none      &to 11            &mkp MCLK  &to_usb    &kp C_PREV        &kp C_PP          &kp C_NEXT          &none      &kp RCTRL
+&aEscCTab  &kp F1  &kp F2   &kp F3   &kp F4   &none                                   &bt1       &bt2               &aMouseUPAUP      &bt3                &none      &btc
+&kp LSHFT  &kp F5  &kp F6   &kp F7   &kp F8   &kp LALT                                &bt0       &aMouseLEFTALEFT   &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &mkp RCLK  &none
+&kp LCTRL  &kp F9  &kp F10  &kp F11  &kp F12  &none      &to 11            &mkp MCLK  &to_usb    &kp C_VOLUME_DOWN  &kp K_MUTE        &kp C_VOLUME_UP     &none      &kp RCTRL
                                      &to 6    &kp LCTRL  &aFunMoEnCToEn    &kp RALT   &mkp LCLK  &to 6
             >;
 
@@ -855,7 +828,7 @@
         fune1h {
             display-name = "Fun L";
             bindings = <
-&btc       &none      &bt3              &aMouseUPAUP      &bt2                &bt1                                        &none      &kp F4   &kp F3   &kp F2   &kp F1  &aTabCEsc
+&btc       &none      &bt3              &aMouseUPAUP      &bt2                &bt1                                        &none      &kp F4   &kp F3   &kp F2   &kp F1  &aEscCTab
 &none      &mkp RCLK  &aMouseLEFTALEFT  &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &bt0                                        &kp LALT   &kp F8   &kp F7   &kp F6   &kp F5  &kp LSHFT
 &kp RCTRL  &none      &kp C_PREV        &kp C_PP          &kp C_NEXT          &to_usb    &mkp MCLK        &to 11          &none      &kp F12  &kp F11  &kp F10  &kp F9  &kp LCTRL
                                                           &to 5               &mkp LCLK  &kp RIGHT_ALT    &aFunMoEnCToEn  &kp LCTRL  &to 5
