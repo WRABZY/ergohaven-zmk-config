@@ -750,7 +750,7 @@
             >;
 
             sensor-bindings =
-                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
@@ -765,7 +765,7 @@
 
             sensor-bindings =
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>,
-                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>;
         };
 
         wrd {
@@ -778,7 +778,7 @@
 
             label = "Pyc";
             sensor-bindings =
-                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
@@ -793,7 +793,7 @@
             label = "Pyc 1p";
             sensor-bindings =
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>,
-                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>;
         };
 
         gm {
@@ -805,7 +805,7 @@
             >;
 
             sensor-bindings =
-                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>;
 
             label = "WASD";
@@ -821,7 +821,7 @@
 
             display-name = "Fun";
             sensor-bindings =
-                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
@@ -836,7 +836,7 @@
 
             sensor-bindings =
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>,
-                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>;
         };
 
         nume {
@@ -905,7 +905,7 @@
 
             label = "HUB";
             sensor-bindings =
-                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
+                <&inc_dec_kp UP_ARROW DOWN_ARROW>,
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
