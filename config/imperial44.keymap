@@ -24,14 +24,14 @@
         aSwitchLangToEn: aSwitchLangToEn {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(N1)>;
+            bindings = <&kp RC(N1)>;
             label = "ASWITCHLANGTOEN";
         };
 
         aSwitchLangToRu: lang_ru {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LC(N2)>;
+            bindings = <&kp RC(N2)>;
             label = "LANG_RU";
         };
 
@@ -590,10 +590,10 @@
             tapping-term-ms = <500>;
         };
 
-        aMoNumECToFun: aMoNumECToFun {
+        aToNumECToFun: aToNumECToFun {
             compatible = "zmk,behavior-mod-morph";
-            label = "AMONUMECTOFUN";
-            bindings = <&mo 7>, <&to 5>;
+            label = "ATONUMECTOFUN";
+            bindings = <&to 7>, <&to 5>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
@@ -621,15 +621,6 @@
             compatible = "zmk,behavior-mod-morph";
             label = "ALSCCAPS";
             bindings = <&kp LSHFT>, <&kp CAPS>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
-        };
-
-        aBackspaceCDelete: aBackspaceCDelete {
-            compatible = "zmk,behavior-mod-morph";
-            label = "ABACKSPACECDELETE";
-            bindings = <&kp BACKSPACE>, <&kp DELETE>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
@@ -734,27 +725,27 @@
         wed {
             label = "Eng";
             bindings = <
-&aTabCEsc  &kp G    &kp K     &kp L       &aMCReplace  &kp N                                  &kp F      &kp U          &kp D      &kp C    &kp Q                  &aBackspaceCDelete
-&aLSCCaps  &aVCAll  &aPCSave  &aRCDouble  &aSCFind     &kp T                                  &kp A      &kp O          &kp E      &kp I    &kp SEMI               &kp RSHIFT
+&kp TAB    &kp G    &kp K     &kp L       &aMCReplace  &kp N                                  &kp F      &kp U          &kp D      &kp C    &kp Q                  &kp BACKSPACE
+&kp LSHFT  &aVCAll  &aPCSave  &aRCDouble  &aSCFind     &kp T                                  &kp A      &kp O          &kp E      &kp I    &kp SEMI               &kp RSHIFT
 &kp LCTRL  &kp Z    &kp X     &aJCCopy    &aBCPaste    &aYCBack   &aToLayerRu       &to 11    &kp H      &kp W          &kp COMMA  &kp DOT  &aEnExclamationSQuest  &kp SINGLE_QUOTE
-                                          &to 1        &kp SPACE  &aMoNumECToFun    &kp RALT  &kp ENTER  &aToEn1hCToRu
+                                          &to 1        &kp SPACE  &aToNumECToFun    &kp RALT  &kp ENTER  &aToEn1hCToRu
             >;
         };
 
         wed1h {
             label = "Eng 1h";
             bindings = <
-&aBackspaceCDelete  &kp Q                  &kp C    &kp D      &kp U  &kp F                                  &kp N      &aMCReplace    &kp L       &kp K     &kp G    &aTabCEsc
-&kp RSHIFT          &kp SEMI               &kp I    &kp E      &kp O  &kp A                                  &kp T      &aSCFind       &aRCDouble  &aPCSave  &aVCAll  &aLSCCaps
-&kp SINGLE_QUOTE    &aEnExclamationSQuest  &kp DOT  &kp COMMA  &kp W  &kp H      &to 11      &to 11          &aYCBack   &aBCPaste      &aJCCopy    &kp X     &kp Z    &kp LCTRL
-                                                               &to 0  &kp ENTER  &kp RALT    &aMoNumECToFun  &kp SPACE  &aToEnCToRu1h
+&kp BACKSPACE     &kp Q                  &kp C    &kp D      &kp U  &kp F                                  &kp N      &aMCReplace    &kp L       &kp K     &kp G    &kp TAB
+&kp RSHIFT        &kp SEMI               &kp I    &kp E      &kp O  &kp A                                  &kp T      &aSCFind       &aRCDouble  &aPCSave  &aVCAll  &kp LSHFT
+&kp SINGLE_QUOTE  &aEnExclamationSQuest  &kp DOT  &kp COMMA  &kp W  &kp H      &to 11      &to 11          &aYCBack   &aBCPaste      &aJCCopy    &kp X     &kp Z    &kp LCTRL
+                                                             &to 0  &kp ENTER  &kp RALT    &aToNumECToFun  &kp SPACE  &aToEnCToRu1h
             >;
         };
 
         wrd {
             bindings = <
-&aTabCEsc  &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &aRUMCReplace  &aRUNCNew                                 &kp RU_CYRILLIC_EF  &aRUU          &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &aRUSigns              &aBackspaceCDelete
-&aLSCCaps  &aRUVCAll            &aRUPCSave          &aRURCDouble        &aRUSCFind     &aRUTCToggle                              &aRUA               &aRUO          &aRUE               &aRUI                &aPressInEn SEMICOLON  &kp RSHFT
+&kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &aRUMCReplace  &aRUNCNew                                 &kp RU_CYRILLIC_EF  &aRUU          &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &aRUSigns              &kp BACKSPACE
+&kp LSHFT  &aRUVCAll            &aRUPCSave          &aRURCDouble        &aRUSCFind     &aRUTCToggle                              &aRUA               &aRUO          &aRUE               &aRUI                &aPressInEn SEMICOLON  &kp RSHFT
 &kp LCTRL  &aRUZCCancel         &aRUXCCut           &aRUJCCopy          &aRUBCPaste    &aRUYCBack    &aToLayerEn       &to 11    &kp RU_CYRILLIC_HA  &aRUSh         &aPressInEn COMMA   &aPressInEn DOT      &aRuExclamationSQuest  &aPressInEn SINGLE_QUOTE
                                                                         &to 3          &kp SPACE     &aMoNumRCToFun    &kp RALT  &kp ENTER           &aToRu1hCToEn
             >;
@@ -764,7 +755,7 @@
 
         wrd1h {
             bindings = <
-&aBackspaceCDelete        &aRUSigns              &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_DE  &aRUU   &kp RU_CYRILLIC_EF                              &aRUNCNew     &aRUMCReplace  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_GHE  &aTabCEsc
+&kp BACKSPACE             &aRUSigns              &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_DE  &aRUU   &kp RU_CYRILLIC_EF                              &aRUNCNew     &aRUMCReplace  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_GHE  &kp TAB
 &kp RSHIFT                &aPressInEn SEMICOLON  &aRUI                &aRUE               &aRUO   &aRUA                                           &aRUTCToggle  &aRUSCFind     &aRURCDouble        &aRUPCSave          &aRUVCAll            &aLSCCaps
 &aPressInEn SINGLE_QUOTE  &aRuExclamationSQuest  &aPressInEn DOT      &aPressInEn COMMA   &aRUSh  &kp RU_CYRILLIC_HA  &to 11      &to 11          &aRUYCBack    &aRUBCPaste    &aRUJCCopy          &aRUXCCut           &aRUZCCancel         &kp LCTRL
                                                                                           &to 2   &kp ENTER           &kp RALT    &aMoNumRCToFun  &kp SPACE     &aToRuCToEn1h
@@ -807,10 +798,10 @@
 
         nume {
             bindings = <
-&aTabCEsc  &kp DOT          &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                               &kp LBKT    &kp RBKT  &kp UP    &kp GRAVE  &aPressInRu RU_NUMERO  &aBackspaceCDelete
-&aLSCCaps  &kp KP_MULTIPLY  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                                  &kp INSERT  &kp LEFT  &kp DOWN  &kp RIGHT  &mkp RCLK              &kp RSHIFT
-&kp LCTRL  &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &to 11            &mkp MCLK  &kp HOME    &kp BSLH  &kp PIPE  &kp SLASH  &kp END                &kp PRINTSCREEN
-                                                        &to 8         &kp SPACE     &aNumMoEnCToEn    &kp LALT   &mkp LCLK   &to 8
+&kp ESCAPE  &kp DOT          &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                               &kp LBKT    &kp RBKT  &kp UP    &kp GRAVE  &aPressInRu RU_NUMERO  &kp DELETE
+&aLSCCaps   &kp KP_MULTIPLY  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                                  &kp INSERT  &kp LEFT  &kp DOWN  &kp RIGHT  &mkp RCLK              &kp RSHIFT
+&kp LCTRL   &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &to 11            &mkp MCLK  &kp HOME    &kp BSLH  &kp PIPE  &kp SLASH  &kp END                &kp PRINTSCREEN
+                                                         &to 8         &kp SPACE     &aNumMoEnCToEn    &kp LALT   &mkp LCLK   &to 8
             >;
 
             display-name = "Num e";
@@ -819,17 +810,17 @@
         nume1h {
             display-name = "Num eL";
             bindings = <
-&aBackspaceCDelete  &aPressInRu RU_NUMERO  &kp GRAVE      &kp UP    &kp LBKT   &kp RIGHT_BRACKET                               &kp NUMBER_0  &kp NUMBER_9  &kp NUMBER_8  &kp NUMBER_7  &kp DOT          &aTabCEsc
-&kp RSHIFT          &mkp RCLK              &kp LEFT       &kp DOWN  &kp RIGHT  &kp INSERT                                      &kp EQUAL     &kp NUMBER_6  &kp NUMBER_5  &kp NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
-&kp PRINTSCREEN     &kp HOME               &kp BACKSLASH  &kp PIPE  &kp SLASH  &kp END            &mkp MCLK    &to 11          &kp MINUS     &kp NUMBER_3  &kp NUMBER_2  &kp NUMBER_1  &kp KP_DIVIDE    &kp LCTRL
-                                                                    &to 7      &mkp LCLK          &kp LALT     &aNumMoEnCToEn  &kp SPACE     &to 7
+&kp DELETE       &aPressInRu RU_NUMERO  &kp GRAVE      &kp UP    &kp LBKT   &kp RIGHT_BRACKET                               &kp NUMBER_0  &kp NUMBER_9  &kp NUMBER_8  &kp NUMBER_7  &kp DOT          &kp ESC
+&kp RSHIFT       &mkp RCLK              &kp LEFT       &kp DOWN  &kp RIGHT  &kp INSERT                                      &kp EQUAL     &kp NUMBER_6  &kp NUMBER_5  &kp NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
+&kp PRINTSCREEN  &kp HOME               &kp BACKSLASH  &kp PIPE  &kp SLASH  &kp END            &mkp MCLK    &to 11          &kp MINUS     &kp NUMBER_3  &kp NUMBER_2  &kp NUMBER_1  &kp KP_DIVIDE    &kp LCTRL
+                                                                 &to 7      &mkp LCLK          &kp LALT     &aNumMoEnCToEn  &kp SPACE     &to 7
             >;
         };
 
         numr {
             display-name = "Num r";
             bindings = <
-&aTabCEsc  &kp RU_COMMA     &aPressInEn NUMBER_7  &aPressInEn NUMBER_8  &aPressInEn NUMBER_9  &aPressInEn NUMBER_0                               &aPressInEn LBKT  &aPressInEn RBKT  &kp UP            &aPressInEn GRAVE  &kp RU_NUMERO  &aBackspaceCDelete
+&kp ESC    &kp RU_COMMA     &aPressInEn NUMBER_7  &aPressInEn NUMBER_8  &aPressInEn NUMBER_9  &aPressInEn NUMBER_0                               &aPressInEn LBKT  &aPressInEn RBKT  &kp UP            &aPressInEn GRAVE  &kp RU_NUMERO  &kp DELETE
 &aLSCCaps  &kp KP_MULTIPLY  &aPressInEn NUMBER_4  &aPressInEn NUMBER_5  &aPressInEn NUMBER_6  &kp EQUAL                                          &kp INSERT        &kp LEFT          &kp DOWN          &kp RIGHT          &mkp RCLK      &kp RSHIFT
 &kp LCTRL  &kp KP_DIVIDE    &aPressInEn NUMBER_1  &aPressInEn NUMBER_2  &aPressInEn NUMBER_3  &kp MINUS             &to 11            &mkp MCLK  &kp HOME          &aPressInEn BSLH  &aPressInEn PIPE  &aPressInEn SLASH  &kp END        &kp PRINTSCREEN
                                                                         &to 8                 &kp SPACE             &aNumMoRuCToRu    &kp LALT   &mkp LCLK         &to 8
@@ -839,10 +830,10 @@
         numr1h {
             display-name = "Num rL";
             bindings = <
-&aBackspaceCDelete  &kp RU_NUMERO  &aPressInEn GRAVE      &kp UP            &aPressInEn LEFT_BRACKET  &aPressInEn RIGHT_BRACKET                               &aPressInEn NUMBER_0  &aPressInEn NUMBER_9  &aPressInEn NUMBER_8  &aPressInEn NUMBER_7  &kp RU_COMMA     &aTabCEsc
-&kp RSHIFT          &mkp RCLK      &kp LEFT               &kp DOWN          &kp RIGHT                 &kp INSERT                                              &kp EQUAL             &aPressInEn NUMBER_6  &aPressInEn NUMBER_5  &aPressInEn NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
-&kp PRINTSCREEN     &kp HOME       &aPressInEn BACKSLASH  &aPressInEn PIPE  &aPressInEn SLASH         &kp END                    &mkp MCLK    &to 11          &kp MINUS             &aPressInEn NUMBER_3  &aPressInEn NUMBER_2  &aPressInEn NUMBER_1  &kp KP_DIVIDE    &kp LCTRL
-                                                                            &to 7                     &mkp LCLK                  &kp LALT     &aNumMoRuCToRu  &kp SPACE             &to 7
+&kp DELETE       &kp RU_NUMERO  &aPressInEn GRAVE      &kp UP            &aPressInEn LEFT_BRACKET  &aPressInEn RIGHT_BRACKET                               &aPressInEn NUMBER_0  &aPressInEn NUMBER_9  &aPressInEn NUMBER_8  &aPressInEn NUMBER_7  &kp RU_COMMA     &kp ESC
+&kp RSHIFT       &mkp RCLK      &kp LEFT               &kp DOWN          &kp RIGHT                 &kp INSERT                                              &kp EQUAL             &aPressInEn NUMBER_6  &aPressInEn NUMBER_5  &aPressInEn NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
+&kp PRINTSCREEN  &kp HOME       &aPressInEn BACKSLASH  &aPressInEn PIPE  &aPressInEn SLASH         &kp END                    &mkp MCLK    &to 11          &kp MINUS             &aPressInEn NUMBER_3  &aPressInEn NUMBER_2  &aPressInEn NUMBER_1  &kp KP_DIVIDE    &kp LCTRL
+                                                                         &to 7                     &mkp LCLK                  &kp LALT     &aNumMoRuCToRu  &kp SPACE             &to 7
             >;
         };
 
