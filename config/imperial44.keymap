@@ -24,14 +24,14 @@
         aSwitchLangToEn: aSwitchLangToEn {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RC(N1)>;
+            bindings = <&kp RC(RS(N1))>;
             label = "ASWITCHLANGTOEN";
         };
 
         aSwitchLangToRu: lang_ru {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RC(N2)>;
+            bindings = <&kp RC(RS(N2))>;
             label = "LANG_RU";
         };
 
@@ -110,14 +110,14 @@
         aEnToLayerFun: aEnToLayerFun {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&aSwitchLangToEn &to 5>;
+            bindings = <&aSwitchLangToEn &to 6>;
             label = "AENTOLAYERFUN";
         };
 
         aRuToLayerFun: aRuToLayerFun {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&aSwitchLangToRu &to 5>;
+            bindings = <&aSwitchLangToRu &to 6>;
             label = "ARUTOLAYERFUN";
         };
 
@@ -144,7 +144,7 @@
                 <&to 0>,
                 <&macro_pause_for_release>,
                 <&macro_tap>,
-                <&to 5>;
+                <&to 6>;
 
             label = "AFUNMOLAYEREN";
         };
@@ -158,7 +158,7 @@
                 <&to 2>,
                 <&macro_pause_for_release>,
                 <&macro_tap>,
-                <&to 5>;
+                <&to 6>;
 
             label = "AFUNMOLAYERRU";
         };
@@ -593,16 +593,16 @@
         aToNumECToFun: aToNumECToFun {
             compatible = "zmk,behavior-mod-morph";
             label = "ATONUMECTOFUN";
-            bindings = <&to 7>, <&to 5>;
+            bindings = <&to 7>, <&to 6>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        aMoNumRCToFun: aMoNumRCToFun {
+        aToNumRCToFun: aToNumRCToFun {
             compatible = "zmk,behavior-mod-morph";
-            label = "AMONUMRCTOFUN";
-            bindings = <&mo 9>, <&to 5>;
+            label = "ATONUMRCTOFUN";
+            bindings = <&to 9>, <&to 6>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
@@ -680,19 +680,19 @@
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        aNumMoEnCToEn: aNumMoEnCToEn {
+        aNumToEnCToFn: aNumToEnCToFn {
             compatible = "zmk,behavior-mod-morph";
-            label = "ANUMMOENCTOEN";
-            bindings = <&aNumMoLayerEn>, <&aToLayerEn>;
+            label = "ANUMTOENCTOFN";
+            bindings = <&to 0>, <&to 5>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        aNumMoRuCToRu: aNumMoRuCToRu {
+        aNumToRuCToFn: aNumToRuCToFn {
             compatible = "zmk,behavior-mod-morph";
-            label = "ANUMMORUCTORU";
-            bindings = <&aNumMoLayerRu>, <&aToLayerRu>;
+            label = "ANUMTORUCTOFN";
+            bindings = <&to 2>, <&to 5>;
 
             #binding-cells = <0>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
@@ -747,7 +747,7 @@
 &kp TAB    &kp RU_CYRILLIC_GHE  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_EL  &aRUMCReplace  &aRUNCNew                                 &kp RU_CYRILLIC_EF  &aRUU          &kp RU_CYRILLIC_DE  &kp RU_CYRILLIC_TSE  &aRUSigns              &kp BACKSPACE
 &kp LSHFT  &aRUVCAll            &aRUPCSave          &aRURCDouble        &aRUSCFind     &aRUTCToggle                              &aRUA               &aRUO          &aRUE               &aRUI                &aPressInEn SEMICOLON  &kp RSHFT
 &kp LCTRL  &aRUZCCancel         &aRUXCCut           &aRUJCCopy          &aRUBCPaste    &aRUYCBack    &aToLayerEn       &to 11    &kp RU_CYRILLIC_HA  &aRUSh         &aPressInEn COMMA   &aPressInEn DOT      &aRuExclamationSQuest  &aPressInEn SINGLE_QUOTE
-                                                                        &to 3          &kp SPACE     &aMoNumRCToFun    &kp RALT  &kp ENTER           &aToRu1hCToEn
+                                                                        &to 3          &kp SPACE     &aToNumRCToFun    &kp RALT  &kp ENTER           &aToRu1hCToEn
             >;
 
             label = "Pyc";
@@ -758,7 +758,7 @@
 &kp BACKSPACE             &aRUSigns              &kp RU_CYRILLIC_TSE  &kp RU_CYRILLIC_DE  &aRUU   &kp RU_CYRILLIC_EF                              &aRUNCNew     &aRUMCReplace  &kp RU_CYRILLIC_EL  &kp RU_CYRILLIC_KA  &kp RU_CYRILLIC_GHE  &kp TAB
 &kp RSHIFT                &aPressInEn SEMICOLON  &aRUI                &aRUE               &aRUO   &aRUA                                           &aRUTCToggle  &aRUSCFind     &aRURCDouble        &aRUPCSave          &aRUVCAll            &aLSCCaps
 &aPressInEn SINGLE_QUOTE  &aRuExclamationSQuest  &aPressInEn DOT      &aPressInEn COMMA   &aRUSh  &kp RU_CYRILLIC_HA  &to 11      &to 11          &aRUYCBack    &aRUBCPaste    &aRUJCCopy          &aRUXCCut           &aRUZCCancel         &kp LCTRL
-                                                                                          &to 2   &kp ENTER           &kp RALT    &aMoNumRCToFun  &kp SPACE     &aToRuCToEn1h
+                                                                                          &to 2   &kp ENTER           &kp RALT    &aToNumRCToFun  &kp SPACE     &aToRuCToEn1h
             >;
 
             label = "Pyc 1p";
@@ -780,7 +780,7 @@
 &aEscCTab  &kp F1  &kp F2   &kp F3   &kp F4   &none                                   &bt1       &bt2               &aMouseUPAUP      &bt3                &none      &btc
 &kp LSHFT  &kp F5  &kp F6   &kp F7   &kp F8   &kp LALT                                &bt0       &aMouseLEFTALEFT   &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &mkp RCLK  &none
 &kp LCTRL  &kp F9  &kp F10  &kp F11  &kp F12  &none      &to 11            &mkp MCLK  &to_usb    &kp C_VOLUME_DOWN  &kp C_MUTE        &kp C_VOLUME_UP     &none      &kp RCTRL
-                                     &to 6    &kp LCTRL  &aFunMoEnCToEn    &kp RALT   &mkp LCLK  &to 6
+                                     &to 7    &kp LCTRL  &aFunMoEnCToEn    &kp RALT   &mkp LCLK  &to 7
             >;
 
             display-name = "Fun";
@@ -792,7 +792,7 @@
 &btc       &none      &bt3               &aMouseUPAUP      &bt2                &bt1                                        &none      &kp F4   &kp F3   &kp F2   &kp F1  &aEscCTab
 &none      &mkp RCLK  &aMouseLEFTALEFT   &aMouseDOWNADOWN  &aMouseRIGHTARIGHT  &bt0                                        &kp LALT   &kp F8   &kp F7   &kp F6   &kp F5  &kp LSHFT
 &kp RCTRL  &none      &kp C_VOLUME_DOWN  &kp C_MUTE        &kp C_VOLUME_UP     &to_usb    &mkp MCLK        &to 11          &none      &kp F12  &kp F11  &kp F10  &kp F9  &kp LCTRL
-                                                           &to 5               &mkp LCLK  &kp RIGHT_ALT    &aFunMoEnCToEn  &kp LCTRL  &to 5
+                                                           &to 6               &mkp LCLK  &kp RIGHT_ALT    &aFunMoEnCToEn  &kp LCTRL  &to 6
             >;
         };
 
@@ -801,7 +801,7 @@
 &kp ESCAPE  &kp DOT          &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0                               &kp LBKT    &kp RBKT  &kp UP    &kp GRAVE  &aPressInRu RU_NUMERO  &kp DELETE
 &aLSCCaps   &kp KP_MULTIPLY  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL                                  &kp INSERT  &kp LEFT  &kp DOWN  &kp RIGHT  &mkp RCLK              &kp RSHIFT
 &kp LCTRL   &kp KP_DIVIDE    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp MINUS     &to 11            &mkp MCLK  &kp HOME    &kp BSLH  &kp PIPE  &kp SLASH  &kp END                &kp PRINTSCREEN
-                                                         &to 8         &kp SPACE     &aNumMoEnCToEn    &kp LALT   &mkp LCLK   &to 8
+                                                         &to 8         &kp SPACE     &aNumToEnCToFn    &kp LALT   &mkp LCLK   &to 8
             >;
 
             display-name = "Num e";
@@ -813,7 +813,7 @@
 &kp DELETE       &aPressInRu RU_NUMERO  &kp GRAVE      &kp UP    &kp LBKT   &kp RIGHT_BRACKET                               &kp NUMBER_0  &kp NUMBER_9  &kp NUMBER_8  &kp NUMBER_7  &kp DOT          &kp ESC
 &kp RSHIFT       &mkp RCLK              &kp LEFT       &kp DOWN  &kp RIGHT  &kp INSERT                                      &kp EQUAL     &kp NUMBER_6  &kp NUMBER_5  &kp NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
 &kp PRINTSCREEN  &kp HOME               &kp BACKSLASH  &kp PIPE  &kp SLASH  &kp END            &mkp MCLK    &to 11          &kp MINUS     &kp NUMBER_3  &kp NUMBER_2  &kp NUMBER_1  &kp KP_DIVIDE    &kp LCTRL
-                                                                 &to 7      &mkp LCLK          &kp LALT     &aNumMoEnCToEn  &kp SPACE     &to 7
+                                                                 &to 7      &mkp LCLK          &kp LALT     &aNumToEnCToFn  &kp SPACE     &to 7
             >;
         };
 
@@ -823,7 +823,7 @@
 &kp ESC    &kp RU_COMMA     &aPressInEn NUMBER_7  &aPressInEn NUMBER_8  &aPressInEn NUMBER_9  &aPressInEn NUMBER_0                               &aPressInEn LBKT  &aPressInEn RBKT  &kp UP            &aPressInEn GRAVE  &kp RU_NUMERO  &kp DELETE
 &aLSCCaps  &kp KP_MULTIPLY  &aPressInEn NUMBER_4  &aPressInEn NUMBER_5  &aPressInEn NUMBER_6  &kp EQUAL                                          &kp INSERT        &kp LEFT          &kp DOWN          &kp RIGHT          &mkp RCLK      &kp RSHIFT
 &kp LCTRL  &kp KP_DIVIDE    &aPressInEn NUMBER_1  &aPressInEn NUMBER_2  &aPressInEn NUMBER_3  &kp MINUS             &to 11            &mkp MCLK  &kp HOME          &aPressInEn BSLH  &aPressInEn PIPE  &aPressInEn SLASH  &kp END        &kp PRINTSCREEN
-                                                                        &to 8                 &kp SPACE             &aNumMoRuCToRu    &kp LALT   &mkp LCLK         &to 8
+                                                                        &to 8                 &kp SPACE             &aNumToRuCToFn    &kp LALT   &mkp LCLK         &to 8
             >;
         };
 
@@ -833,7 +833,7 @@
 &kp DELETE       &kp RU_NUMERO  &aPressInEn GRAVE      &kp UP            &aPressInEn LEFT_BRACKET  &aPressInEn RIGHT_BRACKET                               &aPressInEn NUMBER_0  &aPressInEn NUMBER_9  &aPressInEn NUMBER_8  &aPressInEn NUMBER_7  &kp RU_COMMA     &kp ESC
 &kp RSHIFT       &mkp RCLK      &kp LEFT               &kp DOWN          &kp RIGHT                 &kp INSERT                                              &kp EQUAL             &aPressInEn NUMBER_6  &aPressInEn NUMBER_5  &aPressInEn NUMBER_4  &kp KP_MULTIPLY  &aLSCCaps
 &kp PRINTSCREEN  &kp HOME       &aPressInEn BACKSLASH  &aPressInEn PIPE  &aPressInEn SLASH         &kp END                    &mkp MCLK    &to 11          &kp MINUS             &aPressInEn NUMBER_3  &aPressInEn NUMBER_2  &aPressInEn NUMBER_1  &kp KP_DIVIDE    &kp LCTRL
-                                                                         &to 7                     &mkp LCLK                  &kp LALT     &aNumMoRuCToRu  &kp SPACE             &to 7
+                                                                         &to 7                     &mkp LCLK                  &kp LALT     &aNumToRuCToFn  &kp SPACE             &to 7
             >;
         };
 
